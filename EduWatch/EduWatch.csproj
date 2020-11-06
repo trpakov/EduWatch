@@ -119,6 +119,7 @@
     <Compile Include="Model\Teacher.cs">
       <DependentUpon>SchoolDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\IPasswordHash.cs" />
     <Compile Include="Utilities\PasswordHash.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -3,17 +3,50 @@ using System.Security.Cryptography;
 
 namespace EduWatch.Utilities
 {
-    internal static class PasswordHash
+    /// <summary>
+    /// A class that hashes a plain text password and checks if a password corresponds to a given hash.
+    /// </summary>
+    internal class PasswordHash : IPasswordHash
     {
-        const int SaltSize = 16;
-        const int HashSize = 20;
-        const int Iterations = 10000;
+        int _saltSize = 0;
+        int _hashSize = 0;
+        int _iterations = 0;
+
+        public int SaltSize {
+            get => _saltSize;
+            set {
+                if (value < 8) throw new ArgumentException("The specified salt size is smaller than 8 bytes.");
+                _saltSize = value;
+            } }
+
+        public int HashSize {
+            get => _hashSize;
+            set {
+                if (value < 16) throw new ArgumentException("The specified hash size is too small. Use a number larger than 16.");
+                _hashSize = value;
+            } }
+
+        public int Iterations {
+            get => _iterations;
+            set {
+                if (value < 1) throw new ArgumentException("The specified iteration size is smaller than 1.");
+                _iterations = value;
+            } }
+
+        public PasswordHash(int saltSize = 16, int hashSize = 20, int iterations = 10000)
+        {
+            SaltSize = saltSize;
+            HashSize = hashSize;
+            Iterations = iterations;
+        }
         
         // Cryptographic random number generator
         static readonly RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
 
-        internal static string Generate(string password)
+        public string Generate(string password)
         {
+            if (password == null) throw new ArgumentNullException(password, "The password is null.");
+
             // Create salt array and fill it with cryptographically strong sequence of random values
             byte[] salt = new byte[SaltSize];
             rng.GetBytes(salt);
@@ -31,8 +64,10 @@ namespace EduWatch.Utilities
             }
         }
 
-        internal static bool Verify(string userInputPass, string saltAndHashString)
+        public bool Verify(string userInputPass, string saltAndHashString)
         {
+            if (userInputPass == null) throw new ArgumentNullException(userInputPass, "The password is null.");
+
             // Convert the stored salt+hash combo to byte array and extract the salt
             byte[] saltAndHash = Convert.FromBase64String(saltAndHashString);
             byte[] salt = new byte[SaltSize];
