@@ -194,6 +194,7 @@
       <LastGenOutput>SchoolDataModel.cs</LastGenOutput>
     </Content>
     <None Include="Resources\log11.jpg" />
+    <None Include="Resources\background1.jpg" />
     <Content Include="SchoolDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

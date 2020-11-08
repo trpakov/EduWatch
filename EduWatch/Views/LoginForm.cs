@@ -12,6 +12,7 @@ namespace EduWatch.Views
 {
     public partial class LoginForm : Form
     {
+        ParentForm parent = new ParentForm();
         public LoginForm()
         {
             InitializeComponent();
@@ -36,5 +37,7 @@ namespace EduWatch.Views
         {
 
         }
+
+    
     }
 }
