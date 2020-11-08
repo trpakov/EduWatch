@@ -43,7 +43,6 @@
             this.UserNameTextBox.Name = "UserNameTextBox";
             this.UserNameTextBox.Size = new System.Drawing.Size(232, 22);
             this.UserNameTextBox.TabIndex = 0;
-            this.UserNameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // PasswoedTextBox
             // 
