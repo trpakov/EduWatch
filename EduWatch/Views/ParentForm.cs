@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EduWatch_Forms
+namespace EduWatch.Views
 {
-    public partial class parent : Form
+    public partial class ParentForm : Form
     {
-        public parent()
+        public ParentForm()
         {
             InitializeComponent();
         }

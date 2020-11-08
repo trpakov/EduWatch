@@ -1,6 +1,6 @@
-﻿namespace EduWatch_Forms
+﻿namespace EduWatch.Views
 {
-    partial class admin
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
