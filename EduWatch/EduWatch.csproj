@@ -149,6 +149,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
@@ -194,6 +195,7 @@
       <DependentUpon>SchoolDataModel.edmx</DependentUpon>
       <LastGenOutput>SchoolDataModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\log11.jpg" />
     <Content Include="SchoolDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

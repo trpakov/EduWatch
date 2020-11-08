@@ -13,8 +13,8 @@ namespace EduWatch.Views
 {
     public partial class LoginForm : Form, ILoginView
     {
-        public string Username => userNameTextBox.Text;
-        public string Pass => passwordTextBox.Text;
+        public string Username => UserNameTextBox.Text;
+        public string Pass => PasswoedTextBox.Text;
 
         public LoginPresenter Presenter { private get;  set; }
 
