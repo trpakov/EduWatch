@@ -87,6 +87,7 @@
     <Compile Include="Model\Parent.cs">
       <DependentUpon>SchoolDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\SchoolDataModel.Context.cs">
@@ -121,6 +122,7 @@
     <Compile Include="Views\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
