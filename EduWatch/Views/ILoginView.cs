@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using System.Windows.Forms;
 
 namespace EduWatch.Views
 {
@@ -11,15 +10,21 @@ namespace EduWatch.Views
     {
         string Username { get; }
         string Pass { get; }
+        string TypeOfUser { get; }
 
-        Presenters.LoginPresenter Presenter { set; }
+        Presenters.ILoginPresenter Presenter { set; }
 
         void Hide();
         void Show();
-        void Message(string msg, string caption, MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK);
+        void Close();
+        void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK);
+
+        void FillInTypesOfUsers(string[] typesOfUsers);
+        void ShowAvailableUserTypes();
    
     }
 
+    // Universal enum with Message icons
     public enum MessageIcon
     {
         None,
@@ -29,6 +34,7 @@ namespace EduWatch.Views
         Information
     }
 
+    // Universal enum with Message buttons
     public enum MessageButton
     {
         OK,

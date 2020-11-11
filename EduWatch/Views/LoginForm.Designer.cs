@@ -28,30 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.UserNameTextBox = new System.Windows.Forms.TextBox();
-            this.PasswoedTextBox = new System.Windows.Forms.TextBox();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblWhoAmI = new System.Windows.Forms.Label();
+            this.comboBoxWhoAmI = new System.Windows.Forms.ComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // UserNameTextBox
+            // userNameTextBox
             // 
-            this.UserNameTextBox.Location = new System.Drawing.Point(249, 337);
-            this.UserNameTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.UserNameTextBox.Name = "UserNameTextBox";
-            this.UserNameTextBox.Size = new System.Drawing.Size(232, 22);
-            this.UserNameTextBox.TabIndex = 0;
-            this.UserNameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.userNameTextBox.Location = new System.Drawing.Point(187, 255);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(175, 20);
+            this.userNameTextBox.TabIndex = 0;
+            this.userNameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // PasswoedTextBox
+            // passwordTextBox
             // 
-            this.PasswoedTextBox.Location = new System.Drawing.Point(249, 407);
-            this.PasswoedTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.PasswoedTextBox.Name = "PasswoedTextBox";
-            this.PasswoedTextBox.Size = new System.Drawing.Size(232, 22);
-            this.PasswoedTextBox.TabIndex = 1;
+            this.passwordTextBox.Location = new System.Drawing.Point(187, 300);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
+            this.passwordTextBox.Size = new System.Drawing.Size(175, 20);
+            this.passwordTextBox.TabIndex = 1;
             // 
             // UserNameLabel
             // 
@@ -59,10 +61,9 @@
             this.UserNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.UserNameLabel.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UserNameLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.UserNameLabel.Location = new System.Drawing.Point(245, 312);
-            this.UserNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UserNameLabel.Location = new System.Drawing.Point(184, 235);
             this.UserNameLabel.Name = "UserNameLabel";
-            this.UserNameLabel.Size = new System.Drawing.Size(210, 21);
+            this.UserNameLabel.Size = new System.Drawing.Size(172, 17);
             this.UserNameLabel.TabIndex = 3;
             this.UserNameLabel.Text = "Потребителско име:";
             // 
@@ -72,10 +73,9 @@
             this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
             this.PasswordLabel.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PasswordLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PasswordLabel.Location = new System.Drawing.Point(245, 382);
-            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PasswordLabel.Location = new System.Drawing.Point(184, 279);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(86, 21);
+            this.PasswordLabel.Size = new System.Drawing.Size(70, 17);
             this.PasswordLabel.TabIndex = 4;
             this.PasswordLabel.Text = "Парола:";
             // 
@@ -85,13 +85,13 @@
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginButton.Font = new System.Drawing.Font("Bookman Old Style", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.LoginButton.Location = new System.Drawing.Point(318, 457);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(4);
+            this.LoginButton.Location = new System.Drawing.Point(187, 389);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(92, 41);
-            this.LoginButton.TabIndex = 5;
+            this.LoginButton.Size = new System.Drawing.Size(69, 33);
+            this.LoginButton.TabIndex = 3;
             this.LoginButton.Text = "Вход";
             this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // label1
             // 
@@ -99,29 +99,71 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Matura MT Script Capitals", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(323, 246);
+            this.label1.Location = new System.Drawing.Point(241, 191);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 40);
+            this.label1.Size = new System.Drawing.Size(142, 32);
             this.label1.TabIndex = 6;
             this.label1.Text = "EduWatch";
             // 
+            // lblWhoAmI
+            // 
+            this.lblWhoAmI.AutoSize = true;
+            this.lblWhoAmI.BackColor = System.Drawing.Color.Transparent;
+            this.lblWhoAmI.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblWhoAmI.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblWhoAmI.Location = new System.Drawing.Point(184, 326);
+            this.lblWhoAmI.Name = "lblWhoAmI";
+            this.lblWhoAmI.Size = new System.Drawing.Size(66, 17);
+            this.lblWhoAmI.TabIndex = 8;
+            this.lblWhoAmI.Text = "Аз съм:";
+            // 
+            // comboBoxWhoAmI
+            // 
+            this.comboBoxWhoAmI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxWhoAmI.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxWhoAmI.FormattingEnabled = true;
+            this.comboBoxWhoAmI.Location = new System.Drawing.Point(187, 346);
+            this.comboBoxWhoAmI.Name = "comboBoxWhoAmI";
+            this.comboBoxWhoAmI.Size = new System.Drawing.Size(175, 21);
+            this.comboBoxWhoAmI.TabIndex = 2;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.SystemColors.GrayText;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Bookman Old Style", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnExit.Location = new System.Drawing.Point(293, 389);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(69, 33);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "Изход";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.LoginButton;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.BackgroundImage = global::EduWatch.Properties.Resources.log1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(643, 702);
+            this.ClientSize = new System.Drawing.Size(482, 570);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.comboBoxWhoAmI);
+            this.Controls.Add(this.lblWhoAmI);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UserNameLabel);
-            this.Controls.Add(this.PasswoedTextBox);
-            this.Controls.Add(this.UserNameTextBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.userNameTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Вход";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,12 +172,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox UserNameTextBox;
-        private System.Windows.Forms.TextBox PasswoedTextBox;
+        private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblWhoAmI;
+        private System.Windows.Forms.ComboBox comboBoxWhoAmI;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 

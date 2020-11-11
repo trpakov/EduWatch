@@ -13,10 +13,11 @@ namespace EduWatch.Views
 {
     public partial class LoginForm : Form, ILoginView
     {
-        public string Username => UserNameTextBox.Text;
-        public string Pass => PasswoedTextBox.Text;
+        public string Username => userNameTextBox.Text;
+        public string Pass => passwordTextBox.Text;
+        public string TypeOfUser => comboBoxWhoAmI.SelectedItem?.ToString();
 
-        public LoginPresenter Presenter { private get;  set; }
+        public ILoginPresenter Presenter { private get;  set; }
 
         public LoginForm()
         {
@@ -44,6 +45,25 @@ namespace EduWatch.Views
                 );
         }
 
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            Presenter.OnLoginButtonClick();
+        }
 
+        public void FillInTypesOfUsers(string[] typesOfUsers)
+        {
+            comboBoxWhoAmI.Items.AddRange(typesOfUsers);
+        }
+
+        public void ShowAvailableUserTypes()
+        {
+            comboBoxWhoAmI.Focus();
+            comboBoxWhoAmI.DroppedDown = true;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Presenter.OnExitButtonClick();
+        }
     }
 }
