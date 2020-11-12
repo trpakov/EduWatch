@@ -16,11 +16,10 @@ namespace EduWatch
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            /*
+
             var loginForm = new Views.LoginForm();
             var loginPresenter = new Presenters.LoginPresenter(loginForm, new Model.SchoolDBEntities());
             Application.Run(loginForm);
-            */
 
         }
     }

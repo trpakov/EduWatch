@@ -44,7 +44,7 @@ namespace EduWatch.Presenters
             }
 
             // Check what type the user belongs to and query the corresponding table in the dabase with the given username
-            Model.User currentUser = null;
+            Model.IUser currentUser = null;
             string typeOfUser = view.TypeOfUser;
             switch (typeOfUser)
             {
@@ -80,7 +80,7 @@ namespace EduWatch.Presenters
 
             // If everything is fine, hide this view and start the appropriate one. (Not implemented)
             view.Hide();
-            view.Close();
+            //view.Close();
 
             switch (currentUser.UserType)
             {
@@ -88,7 +88,9 @@ namespace EduWatch.Presenters
                     view.Message("It works");
                     break;
                 case Model.UserType.Parent:
-                    view.Message("It works");
+                    Views.IParentView parentView = view.CreateParentView();
+                    IParentPresenter parentPresenter = PresenterFactory.GetParentPresenter(parentView, data, currentUser, this);
+                    parentPresenter.Start();
                     break;
             }
         }
@@ -97,6 +99,11 @@ namespace EduWatch.Presenters
         {
             // Close the login view, which in turn exits the application.
             view.Close();
+        }
+
+        public void ShowLoginView()
+        {
+            view.Show();
         }
     }
 

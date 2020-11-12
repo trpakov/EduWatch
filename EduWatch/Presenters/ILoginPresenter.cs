@@ -10,5 +10,6 @@ namespace EduWatch.Presenters
     {
         void OnLoginButtonClick();
         void OnExitButtonClick();
+        void ShowLoginView();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EduWatch.Views
 {
-    public interface ILoginView
+    public interface ILoginView : IView
     {
         string Username { get; }
         string Pass { get; }
@@ -14,32 +14,11 @@ namespace EduWatch.Views
 
         Presenters.ILoginPresenter Presenter { set; }
 
-        void Hide();
-        void Show();
-        void Close();
-        void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK);
-
         void FillInTypesOfUsers(string[] typesOfUsers);
         void ShowAvailableUserTypes();
+        IParentView CreateParentView();
+        IParentView CreateTeacherView();
    
     }
 
-    // Universal enum with Message icons
-    public enum MessageIcon
-    {
-        None,
-        Warning,
-        Error,
-        Exclamation,
-        Information
-    }
-
-    // Universal enum with Message buttons
-    public enum MessageButton
-    {
-        OK,
-        OKCancel,
-        YesNo,
-        YesNoCancel
-    }
 }

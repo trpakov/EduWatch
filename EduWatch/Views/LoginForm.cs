@@ -65,5 +65,12 @@ namespace EduWatch.Views
         {
             Presenter.OnExitButtonClick();
         }
+
+        public IParentView CreateParentView() => new ParentForm();
+
+        public IParentView CreateTeacherView()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
