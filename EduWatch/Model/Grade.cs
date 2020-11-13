@@ -21,7 +21,7 @@ namespace EduWatch.Model
         public int student_id { get; set; }
         public int subject_Id { get; set; }
     
-        public virtual Student Student { get; set; }
         public virtual Subject Subject { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

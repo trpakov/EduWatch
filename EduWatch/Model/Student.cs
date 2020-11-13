@@ -25,15 +25,15 @@ namespace EduWatch.Model
         public string student_firstN { get; set; }
         public string student_lastN { get; set; }
         public Nullable<int> student_No { get; set; }
-        public Nullable<int> student_PIN { get; set; }
+        public string student_PIN { get; set; }
         public int parents_id { get; set; }
         public int address_id { get; set; }
     
         public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Grade> Grades { get; set; }
+        public virtual Parent Parent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Note> Notes { get; set; }
-        public virtual Parent Parent { get; set; }
     }
 }

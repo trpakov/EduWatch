@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SchoolDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SchoolDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Addresses">
           <Key>
             <PropertyRef Name="address_id" />
           </Key>
-          <Property Name="address_id" Type="int" Nullable="false" />
+          <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="country" Type="nvarchar" MaxLength="50" />
           <Property Name="city" Type="nvarchar" MaxLength="50" />
           <Property Name="street" Type="nvarchar" MaxLength="50" />
@@ -19,7 +19,7 @@
           <Key>
             <PropertyRef Name="admin_id" />
           </Key>
-          <Property Name="admin_id" Type="int" Nullable="false" />
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="admin_username" Type="nvarchar" MaxLength="50" />
           <Property Name="admin_password" Type="ntext" />
         </EntityType>
@@ -27,7 +27,7 @@
           <Key>
             <PropertyRef Name="grade_id" />
           </Key>
-          <Property Name="grade_id" Type="int" Nullable="false" />
+          <Property Name="grade_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="grade" Type="int" />
           <Property Name="grade_seen" Type="bit" />
           <Property Name="comment" Type="text" />
@@ -38,9 +38,9 @@
           <Key>
             <PropertyRef Name="note_Id" />
           </Key>
-          <Property Name="note_Id" Type="int" Nullable="false" />
+          <Property Name="note_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="note" Type="text" />
-          <Property Name="note_date" Type="datetime" />
+          <Property Name="note_date" Type="nvarchar" MaxLength="50" />
           <Property Name="note_seen" Type="bit" />
           <Property Name="student_id" Type="int" Nullable="false" />
           <Property Name="subject_id" Type="int" Nullable="false" />
@@ -49,7 +49,7 @@
           <Key>
             <PropertyRef Name="parent_Id" />
           </Key>
-          <Property Name="parent_Id" Type="int" Nullable="false" />
+          <Property Name="parent_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="parent_firstN" Type="nvarchar" MaxLength="50" />
           <Property Name="parent_lastN" Type="nvarchar" MaxLength="50" />
           <Property Name="username" Type="nvarchar" MaxLength="50" />
@@ -59,11 +59,11 @@
           <Key>
             <PropertyRef Name="student_id" />
           </Key>
-          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="student_firstN" Type="nvarchar" MaxLength="50" />
           <Property Name="student_lastN" Type="nvarchar" MaxLength="50" />
           <Property Name="student_No" Type="int" />
-          <Property Name="student_PIN" Type="int" />
+          <Property Name="student_PIN" Type="nvarchar" MaxLength="50" />
           <Property Name="parents_id" Type="int" Nullable="false" />
           <Property Name="address_id" Type="int" Nullable="false" />
         </EntityType>
@@ -71,7 +71,7 @@
           <Key>
             <PropertyRef Name="subject_id" />
           </Key>
-          <Property Name="subject_id" Type="int" Nullable="false" />
+          <Property Name="subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="subject_name" Type="nvarchar" MaxLength="50" />
           <Property Name="teacher_id" Type="int" Nullable="false" />
         </EntityType>
@@ -79,8 +79,8 @@
           <Key>
             <PropertyRef Name="teacher_id" />
           </Key>
-          <Property Name="teacher_id" Type="int" Nullable="false" />
-          <Property Name="teacher_firstN" Type="varchar" MaxLength="50" />
+          <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="teacher_firstN" Type="nvarchar" MaxLength="50" />
           <Property Name="teacher_lastN" Type="nvarchar" MaxLength="50" />
           <Property Name="username" Type="nvarchar" MaxLength="50" />
           <Property Name="password_hash" Type="ntext" />
@@ -207,8 +207,7 @@
             <End Role="Subjects" EntitySet="Subjects" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SchoolDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -221,7 +220,7 @@
           <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="street_num" Type="Int32" />
-          <NavigationProperty Name="Students" Relationship="Self.FK_address_id" FromRole="Addresses" ToRole="Students" />
+          <NavigationProperty Name="Students" Relationship="SchoolDBModel.FK_address_id" FromRole="Address" ToRole="Student" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -241,21 +240,8 @@
           <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="student_id" Type="Int32" Nullable="false" />
           <Property Name="subject_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_student_id1" FromRole="Grades" ToRole="Students" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_subject_id" FromRole="Grades" ToRole="Subjects" />
-        </EntityType>
-        <EntityType Name="Note">
-          <Key>
-            <PropertyRef Name="note_Id" />
-          </Key>
-          <Property Name="note_Id" Type="Int32" Nullable="false" />
-          <Property Name="note1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="note_date" Type="DateTime" Precision="3" />
-          <Property Name="note_seen" Type="Boolean" />
-          <Property Name="student_id" Type="Int32" Nullable="false" />
-          <Property Name="subject_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Subject" Relationship="Self.FK_notes_subject_id" FromRole="Notes" ToRole="Subjects" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_student_id" FromRole="Notes" ToRole="Students" />
+          <NavigationProperty Name="Student" Relationship="SchoolDBModel.FK_student_id1" FromRole="Grade" ToRole="Student" />
         </EntityType>
         <EntityType Name="Parent">
           <Key>
@@ -266,23 +252,7 @@
           <Property Name="parent_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="password_hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Students" Relationship="Self.FK_parents_id" FromRole="Parents" ToRole="Students" />
-        </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="student_id" />
-          </Key>
-          <Property Name="student_id" Type="Int32" Nullable="false" />
-          <Property Name="student_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="student_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="student_No" Type="Int32" />
-          <Property Name="student_PIN" Type="Int32" />
-          <Property Name="parents_id" Type="Int32" Nullable="false" />
-          <Property Name="address_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Address" Relationship="Self.FK_address_id" FromRole="Students" ToRole="Addresses" />
-          <NavigationProperty Name="Grades" Relationship="Self.FK_student_id1" FromRole="Students" ToRole="Grades" />
-          <NavigationProperty Name="Notes" Relationship="Self.FK_student_id" FromRole="Students" ToRole="Notes" />
-          <NavigationProperty Name="Parent" Relationship="Self.FK_parents_id" FromRole="Students" ToRole="Parents" />
+          <NavigationProperty Name="Students" Relationship="SchoolDBModel.FK_parents_id" FromRole="Parent" ToRole="Student" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -292,44 +262,20 @@
           <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="teacher_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Grades" Relationship="Self.FK_subject_id" FromRole="Subjects" ToRole="Grades" />
-          <NavigationProperty Name="Notes" Relationship="Self.FK_notes_subject_id" FromRole="Subjects" ToRole="Notes" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_teacher_id" FromRole="Subjects" ToRole="Teachers" />
+          <NavigationProperty Name="Notes" Relationship="SchoolDBModel.FK_notes_subject_id" FromRole="Subject" ToRole="Note" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
             <PropertyRef Name="teacher_id" />
           </Key>
           <Property Name="teacher_id" Type="Int32" Nullable="false" />
-          <Property Name="teacher_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="teacher_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="teacher_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="password_hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Subjects" Relationship="Self.FK_teacher_id" FromRole="Teachers" ToRole="Subjects" />
         </EntityType>
-        <Association Name="FK_address_id">
-          <End Role="Addresses" Type="Self.Address" Multiplicity="1" />
-          <End Role="Students" Type="Self.Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Addresses">
-              <PropertyRef Name="address_id" />
-            </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="address_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_student_id1">
-          <End Role="Students" Type="Self.Student" Multiplicity="1" />
-          <End Role="Grades" Type="Self.Grade" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="student_id" />
-            </Principal>
-            <Dependent Role="Grades">
-              <PropertyRef Name="student_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_subject_id">
           <End Role="Subjects" Type="Self.Subject" Multiplicity="1" />
           <End Role="Grades" Type="Self.Grade" Multiplicity="*" />
@@ -339,42 +285,6 @@
             </Principal>
             <Dependent Role="Grades">
               <PropertyRef Name="subject_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_notes_subject_id">
-          <End Role="Subjects" Type="Self.Subject" Multiplicity="1" />
-          <End Role="Notes" Type="Self.Note" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subjects">
-              <PropertyRef Name="subject_id" />
-            </Principal>
-            <Dependent Role="Notes">
-              <PropertyRef Name="subject_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_student_id">
-          <End Role="Students" Type="Self.Student" Multiplicity="1" />
-          <End Role="Notes" Type="Self.Note" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="student_id" />
-            </Principal>
-            <Dependent Role="Notes">
-              <PropertyRef Name="student_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_parents_id">
-          <End Role="Parents" Type="Self.Parent" Multiplicity="1" />
-          <End Role="Students" Type="Self.Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Parents">
-              <PropertyRef Name="parent_Id" />
-            </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="parents_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -394,40 +304,129 @@
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Grades" EntityType="Self.Grade" />
-          <EntitySet Name="Notes" EntityType="Self.Note" />
           <EntitySet Name="Parents" EntityType="Self.Parent" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <EntitySet Name="Teachers" EntityType="Self.Teacher" />
-          <AssociationSet Name="FK_address_id" Association="Self.FK_address_id">
-            <End Role="Addresses" EntitySet="Addresses" />
-            <End Role="Students" EntitySet="Students" />
-          </AssociationSet>
-          <AssociationSet Name="FK_student_id1" Association="Self.FK_student_id1">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="Grades" EntitySet="Grades" />
-          </AssociationSet>
           <AssociationSet Name="FK_subject_id" Association="Self.FK_subject_id">
             <End Role="Subjects" EntitySet="Subjects" />
             <End Role="Grades" EntitySet="Grades" />
-          </AssociationSet>
-          <AssociationSet Name="FK_notes_subject_id" Association="Self.FK_notes_subject_id">
-            <End Role="Subjects" EntitySet="Subjects" />
-            <End Role="Notes" EntitySet="Notes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_student_id" Association="Self.FK_student_id">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="Notes" EntitySet="Notes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_parents_id" Association="Self.FK_parents_id">
-            <End Role="Parents" EntitySet="Parents" />
-            <End Role="Students" EntitySet="Students" />
           </AssociationSet>
           <AssociationSet Name="FK_teacher_id" Association="Self.FK_teacher_id">
             <End Role="Teachers" EntitySet="Teachers" />
             <End Role="Subjects" EntitySet="Subjects" />
           </AssociationSet>
+          <EntitySet Name="Students" EntityType="SchoolDBModel.Student" />
+          <AssociationSet Name="FK_address_id" Association="SchoolDBModel.FK_address_id">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_student_id1" Association="SchoolDBModel.FK_student_id1">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Grade" EntitySet="Grades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_parents_id" Association="SchoolDBModel.FK_parents_id">
+            <End Role="Parent" EntitySet="Parents" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <EntitySet Name="Notes" EntityType="SchoolDBModel.Note" />
+          <AssociationSet Name="FK_notes_subject_id" Association="SchoolDBModel.FK_notes_subject_id">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_student_id" Association="SchoolDBModel.FK_student_id">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="student_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="student_No" Type="Int32" />
+          <Property Name="student_PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="parents_id" Type="Int32" Nullable="false" />
+          <Property Name="address_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="SchoolDBModel.FK_address_id" FromRole="Student" ToRole="Address" />
+          <NavigationProperty Name="Grades" Relationship="SchoolDBModel.FK_student_id1" FromRole="Student" ToRole="Grade" />
+          <NavigationProperty Name="Parent" Relationship="SchoolDBModel.FK_parents_id" FromRole="Student" ToRole="Parent" />
+          <NavigationProperty Name="Notes" Relationship="SchoolDBModel.FK_student_id" FromRole="Student" ToRole="Note" />
+        </EntityType>
+        <Association Name="FK_address_id">
+          <End Type="SchoolDBModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="address_id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="address_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_student_id1">
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="SchoolDBModel.Grade" Role="Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="Grade">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_parents_id">
+          <End Type="SchoolDBModel.Parent" Role="Parent" Multiplicity="1" />
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parent">
+              <PropertyRef Name="parent_Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="parents_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="note_Id" />
+          </Key>
+          <Property Name="note_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="note1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="note_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="note_seen" Type="Boolean" />
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="subject_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subject" Relationship="SchoolDBModel.FK_notes_subject_id" FromRole="Note" ToRole="Subject" />
+          <NavigationProperty Name="Student" Relationship="SchoolDBModel.FK_student_id" FromRole="Note" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK_notes_subject_id">
+          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="SchoolDBModel.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="subject_id" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_student_id">
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="SchoolDBModel.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -466,18 +465,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Notes">
-            <EntityTypeMapping TypeName="SchoolDBModel.Note">
-              <MappingFragment StoreEntitySet="Notes">
-                <ScalarProperty Name="note_Id" ColumnName="note_Id" />
-                <ScalarProperty Name="note1" ColumnName="note" />
-                <ScalarProperty Name="note_date" ColumnName="note_date" />
-                <ScalarProperty Name="note_seen" ColumnName="note_seen" />
-                <ScalarProperty Name="student_id" ColumnName="student_id" />
-                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Parents">
             <EntityTypeMapping TypeName="SchoolDBModel.Parent">
               <MappingFragment StoreEntitySet="Parents">
@@ -486,19 +473,6 @@
                 <ScalarProperty Name="parent_lastN" ColumnName="parent_lastN" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password_hash" ColumnName="password_hash" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="SchoolDBModel.Student">
-              <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="student_id" ColumnName="student_id" />
-                <ScalarProperty Name="student_firstN" ColumnName="student_firstN" />
-                <ScalarProperty Name="student_lastN" ColumnName="student_lastN" />
-                <ScalarProperty Name="student_No" ColumnName="student_No" />
-                <ScalarProperty Name="student_PIN" ColumnName="student_PIN" />
-                <ScalarProperty Name="parents_id" ColumnName="parents_id" />
-                <ScalarProperty Name="address_id" ColumnName="address_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -519,6 +493,31 @@
                 <ScalarProperty Name="teacher_lastN" ColumnName="teacher_lastN" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="SchoolDBModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+                <ScalarProperty Name="parents_id" ColumnName="parents_id" />
+                <ScalarProperty Name="student_PIN" ColumnName="student_PIN" />
+                <ScalarProperty Name="student_No" ColumnName="student_No" />
+                <ScalarProperty Name="student_lastN" ColumnName="student_lastN" />
+                <ScalarProperty Name="student_firstN" ColumnName="student_firstN" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="SchoolDBModel.Note">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="note_seen" ColumnName="note_seen" />
+                <ScalarProperty Name="note_date" ColumnName="note_date" />
+                <ScalarProperty Name="note1" ColumnName="note" />
+                <ScalarProperty Name="note_Id" ColumnName="note_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

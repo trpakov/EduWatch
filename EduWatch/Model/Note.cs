@@ -16,7 +16,7 @@ namespace EduWatch.Model
     {
         public int note_Id { get; set; }
         public string note1 { get; set; }
-        public Nullable<System.DateTime> note_date { get; set; }
+        public string note_date { get; set; }
         public Nullable<bool> note_seen { get; set; }
         public int student_id { get; set; }
         public int subject_id { get; set; }

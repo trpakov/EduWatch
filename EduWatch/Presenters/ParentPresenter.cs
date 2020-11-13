@@ -24,6 +24,15 @@ namespace EduWatch.Presenters
             this.data = data;
             this.user = user;
             this.loginPresenter = loginPresenter;
+
+            // View initialization
+            var parent = user as Model.Parent;
+            view.ParentNameLabelText = parent.parent_firstN + ' ' + parent.parent_lastN;
+
+            // Get all studets associated with this parent and transform them into a structure that is databinded to a combobox
+            var students = parent.Students.Select(x => Tuple.Create(x.student_id, x.student_firstN + ' ' + x.student_lastN));
+            view.FillInCorrespondingStudents(students.ToList());
+            view.ComboBoxStudentSelectedIndex = -1;
         }
 
         public void Start() => view.Show();
@@ -32,6 +41,24 @@ namespace EduWatch.Presenters
         {
             view.Close();
             loginPresenter.ShowLoginView();
+        }
+
+        internal void OnStudentSelection()
+        {
+            if (view.ComboBoxStudentSelectedIndex == -1) return;
+
+            // Get all subjects for which the student has grades.
+            var subjectsWithGrades = data.Students.Where(x => x.student_id == view.SelectedStudentID).Single().Grades.Select(x => x.Subject).ToList();
+            // Get all subjects for which the student has notes.
+            var subjectsWithNotes = data.Students.Where(x => x.student_id == view.SelectedStudentID).Single().Notes.Select(x => x.Subject).ToList();
+            // Union between the two lists to remove duplicates.
+            var subjects = subjectsWithGrades.Union(subjectsWithNotes);
+            // Transform subjects into a tuple for combobox databinding.
+            var subjectsData = subjects.Select(x => Tuple.Create(x.subject_id, x.subject_name)).ToList();
+            // Fill the combobox and enable it.
+            view.FIllInCorrespondingSubjects(subjectsData);
+            view.ComboboxSubjectSelectedIndex = -1;
+            view.ComboBoxSubjectEnabled = true;
         }
     }
 }
