@@ -15,8 +15,10 @@ namespace EduWatch.Views
         int SelectedStudentID { get; }
         int SelectedSubjectID { get; }
         bool ComboBoxSubjectEnabled { get; set; }
+        object GridViewData { get; }
 
         void FillInCorrespondingStudents(List<Tuple<int, string>> students);
         void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects);
+        void FillInCorrespondingGrades(object grades);
     }
 }

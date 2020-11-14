@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace EduWatch.Presenters
 {
@@ -59,6 +60,29 @@ namespace EduWatch.Presenters
             view.FIllInCorrespondingSubjects(subjectsData);
             view.ComboboxSubjectSelectedIndex = -1;
             view.ComboBoxSubjectEnabled = true;
+        }
+
+        internal void OnGradesButtonClick()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OnNotesButtonClick()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OnSubjectSelection()
+        {
+            // Get selected subject
+            var subject = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single();
+            // Get all grades of the selected student for the selected subject
+            var grades = subject.Grades.Where(x => x.student_id == view.SelectedStudentID).ToList();
+
+            // Send the data to the view and display it
+            var dataForGridView = grades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = (int)x.grade1, Seen = (bool)x.grade_seen, Comment = x.comment }).ToList();
+            view.FillInCorrespondingGrades(dataForGridView);
+            
         }
     }
 }

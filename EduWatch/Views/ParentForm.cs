@@ -26,6 +26,7 @@ namespace EduWatch.Views
         public int ComboboxSubjectSelectedIndex { get => comboBoxSubject.SelectedIndex; set => comboBoxSubject.SelectedIndex = value; }
         public int SelectedSubjectID => (int)comboBoxSubject.SelectedValue;
         public bool ComboBoxSubjectEnabled { get => comboBoxSubject.Enabled; set => comboBoxSubject.Enabled = value; }
+        public object GridViewData => dataGridView1.DataSource;
 
         public void FillInCorrespondingStudents(List<Tuple<int, string>> students)
         {
@@ -52,7 +53,7 @@ namespace EduWatch.Views
                 );
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             Presenter.OnExitButtonClick();
         }
@@ -60,6 +61,27 @@ namespace EduWatch.Views
         private void comboBoxStudent_SelectionChangeCommited(object sender, EventArgs e)
         {
             Presenter.OnStudentSelection();
+        }
+
+        private void radioButtonGrades_CheckedChanged(object sender, EventArgs e)
+        {
+            Presenter.OnGradesButtonClick();
+        }
+
+        private void radioButtonNotes_CheckedChanged(object sender, EventArgs e)
+        {
+            Presenter.OnNotesButtonClick();
+        }
+
+        private void comboBoxSubject_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Presenter.OnSubjectSelection();
+        }
+
+        public void FillInCorrespondingGrades(object grades)
+        {
+            // Assign recieved data as Data Source for the Grid View
+            dataGridView1.DataSource = grades;
         }
     }
 }

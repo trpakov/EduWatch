@@ -35,11 +35,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBoxStudent = new System.Windows.Forms.ComboBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonGrades = new System.Windows.Forms.RadioButton();
+            this.radioButtonNotes = new System.Windows.Forms.RadioButton();
             this.LblName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -91,6 +91,7 @@
             this.comboBoxSubject.Name = "comboBoxSubject";
             this.comboBoxSubject.Size = new System.Drawing.Size(310, 28);
             this.comboBoxSubject.TabIndex = 11;
+            this.comboBoxSubject.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSubject_SelectionChangeCommitted);
             // 
             // label8
             // 
@@ -126,19 +127,19 @@
             this.textBox5.Size = new System.Drawing.Size(97, 30);
             this.textBox5.TabIndex = 17;
             // 
-            // button2
+            // btnExit
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.Color.Brown;
-            this.button2.Location = new System.Drawing.Point(757, 99);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 30);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Изход";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExit.ForeColor = System.Drawing.Color.Brown;
+            this.btnExit.Location = new System.Drawing.Point(765, 99);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(109, 30);
+            this.btnExit.TabIndex = 18;
+            this.btnExit.Text = "Изход";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // dataGridView1
             // 
@@ -165,35 +166,38 @@
             this.comboBoxStudent.TabIndex = 21;
             this.comboBoxStudent.SelectionChangeCommitted += new System.EventHandler(this.comboBoxStudent_SelectionChangeCommited);
             // 
-            // radioButton1
+            // radioButtonGrades
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.radioButton1.Location = new System.Drawing.Point(616, 292);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(69, 24);
-            this.radioButton1.TabIndex = 22;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "оценки";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButtonGrades.AutoSize = true;
+            this.radioButtonGrades.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonGrades.Checked = true;
+            this.radioButtonGrades.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonGrades.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.radioButtonGrades.Location = new System.Drawing.Point(616, 292);
+            this.radioButtonGrades.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButtonGrades.Name = "radioButtonGrades";
+            this.radioButtonGrades.Size = new System.Drawing.Size(69, 24);
+            this.radioButtonGrades.TabIndex = 22;
+            this.radioButtonGrades.TabStop = true;
+            this.radioButtonGrades.Text = "оценки";
+            this.radioButtonGrades.UseVisualStyleBackColor = false;
+            this.radioButtonGrades.CheckedChanged += new System.EventHandler(this.radioButtonGrades_CheckedChanged);
             // 
-            // radioButton2
+            // radioButtonNotes
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.radioButton2.Location = new System.Drawing.Point(708, 292);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(90, 24);
-            this.radioButton2.TabIndex = 23;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "забележки";
-            this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButtonNotes.AutoSize = true;
+            this.radioButtonNotes.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonNotes.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButtonNotes.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.radioButtonNotes.Location = new System.Drawing.Point(708, 292);
+            this.radioButtonNotes.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButtonNotes.Name = "radioButtonNotes";
+            this.radioButtonNotes.Size = new System.Drawing.Size(90, 24);
+            this.radioButtonNotes.TabIndex = 23;
+            this.radioButtonNotes.TabStop = true;
+            this.radioButtonNotes.Text = "забележки";
+            this.radioButtonNotes.UseVisualStyleBackColor = false;
+            this.radioButtonNotes.CheckedChanged += new System.EventHandler(this.radioButtonNotes_CheckedChanged);
             // 
             // LblName
             // 
@@ -217,11 +221,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(968, 659);
             this.Controls.Add(this.LblName);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButtonNotes);
+            this.Controls.Add(this.radioButtonGrades);
             this.Controls.Add(this.comboBoxStudent);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
@@ -248,11 +252,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBoxStudent;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButtonGrades;
+        private System.Windows.Forms.RadioButton radioButtonNotes;
         private System.Windows.Forms.Label LblName;
     }
 }

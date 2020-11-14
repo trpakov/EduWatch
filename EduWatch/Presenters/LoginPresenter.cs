@@ -99,6 +99,8 @@ namespace EduWatch.Presenters
         {
             // Close the login view, which in turn exits the application.
             view.Close();
+            // Dispose of dbcontext object
+            data.Dispose();
         }
 
         public void ShowLoginView()
