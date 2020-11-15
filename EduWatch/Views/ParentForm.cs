@@ -106,5 +106,19 @@ namespace EduWatch.Views
         {
             dataGridView1.Columns.Clear();
         }
+
+        public void DisableUnseeingGrades()
+        {
+            var checkboxCol = dataGridView1.Columns.OfType<DataGridViewCheckBoxColumn>().Single();
+            //checkboxCol.
+            //foreach (var checkBox in checkboxes)
+            //{
+            //    MessageBox.Show(checkBox.TrueValue.ToString());
+            //}
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+                if (row.Cells[checkboxCol.Index].Value.ToString() == "True")
+                    row.Cells[checkboxCol.Index].ReadOnly = true;
+        }
     }
 }

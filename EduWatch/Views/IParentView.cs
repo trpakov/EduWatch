@@ -24,5 +24,6 @@ namespace EduWatch.Views
         void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects);
         //void FillInCorrespondingGrades(object grades);
         void ClearData();
+        void DisableUnseeingGrades();
     }
 }

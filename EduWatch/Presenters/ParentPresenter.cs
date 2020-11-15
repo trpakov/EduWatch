@@ -89,7 +89,9 @@ namespace EduWatch.Presenters
             dataForGridView = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = (int)x.grade1, Seen = (bool)x.grade_seen, Comment = x.comment }).ToList();
             //view.FillInCorrespondingGrades(dataForGridView);
             view.GridViewData = dataForGridView;
-            
+
+            view.DisableUnseeingGrades();
+
         }
 
         internal void OnSeenStatusChanged()
@@ -108,7 +110,7 @@ namespace EduWatch.Presenters
             view.ClearData();
             dataForGridView = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = (int)x.grade1, Seen = (bool)x.grade_seen, Comment = x.comment }).ToList();
             view.GridViewData = dataForGridView;
-
+            view.DisableUnseeingGrades();
         }
 
         internal void OnSaveButtonClick()
@@ -116,6 +118,7 @@ namespace EduWatch.Presenters
             view.SaveButtonEnabled = false;
             view.CancelButtonEnabled = false;
 
+            view.DisableUnseeingGrades();
             // Propagate the changes to the entity objects tracked by DbContext instance and commit them to the database
             var gradesWithChangedSeenStatus = currentGrades.Where(x => x.grade_seen != dataForGridView.Where(y => y.ID == x.grade_id).Single().Seen).ToList();
             foreach (var grade in gradesWithChangedSeenStatus)
