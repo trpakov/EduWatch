@@ -33,8 +33,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.btnAverage = new System.Windows.Forms.Button();
+            this.textBoxAverage = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBoxStudent = new System.Windows.Forms.ComboBox();
@@ -107,27 +107,30 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Дневник:";
             // 
-            // button1
+            // btnAverage
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(62, 586);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 29);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Среден успех:";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAverage.BackColor = System.Drawing.Color.Transparent;
+            this.btnAverage.Enabled = false;
+            this.btnAverage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAverage.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAverage.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAverage.Location = new System.Drawing.Point(62, 586);
+            this.btnAverage.Name = "btnAverage";
+            this.btnAverage.Size = new System.Drawing.Size(126, 29);
+            this.btnAverage.TabIndex = 16;
+            this.btnAverage.Text = "Среден успех:";
+            this.btnAverage.UseVisualStyleBackColor = false;
+            this.btnAverage.Click += new System.EventHandler(this.btnAverage_Click);
             // 
-            // textBox5
+            // textBoxAverage
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Location = new System.Drawing.Point(207, 586);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(97, 30);
-            this.textBox5.TabIndex = 17;
+            this.textBoxAverage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxAverage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxAverage.Location = new System.Drawing.Point(207, 586);
+            this.textBoxAverage.Name = "textBoxAverage";
+            this.textBoxAverage.ReadOnly = true;
+            this.textBoxAverage.Size = new System.Drawing.Size(97, 31);
+            this.textBoxAverage.TabIndex = 17;
             // 
             // btnExit
             // 
@@ -207,7 +210,7 @@
             this.LblName.BackColor = System.Drawing.Color.Transparent;
             this.LblName.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LblName.Location = new System.Drawing.Point(732, 62);
+            this.LblName.Location = new System.Drawing.Point(733, 62);
             this.LblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(174, 23);
@@ -260,8 +263,8 @@
             this.Controls.Add(this.comboBoxStudent);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBoxAverage);
+            this.Controls.Add(this.btnAverage);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBoxSubject);
             this.Controls.Add(this.label7);
@@ -284,8 +287,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxSubject;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button btnAverage;
+        private System.Windows.Forms.TextBox textBoxAverage;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBoxStudent;
