@@ -140,6 +140,7 @@
     <Compile Include="Views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\NoteViewData.cs" />
     <Compile Include="Views\ParentForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -200,7 +200,6 @@
             this.radioButtonNotes.TabStop = true;
             this.radioButtonNotes.Text = "забележки";
             this.radioButtonNotes.UseVisualStyleBackColor = false;
-            this.radioButtonNotes.CheckedChanged += new System.EventHandler(this.radioButtonNotes_CheckedChanged);
             // 
             // LblName
             // 
