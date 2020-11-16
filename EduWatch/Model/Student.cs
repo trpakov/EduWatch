@@ -17,8 +17,8 @@ namespace EduWatch.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Student()
         {
-            this.Grades = new HashSet<Grade>();
             this.Notes = new HashSet<Note>();
+            this.Grades = new HashSet<Grade>();
         }
     
         public int student_id { get; set; }
@@ -30,10 +30,10 @@ namespace EduWatch.Model
         public int address_id { get; set; }
     
         public virtual Address Address { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Grade> Grades { get; set; }
         public virtual Parent Parent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Note> Notes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Grade> Grades { get; set; }
     }
 }

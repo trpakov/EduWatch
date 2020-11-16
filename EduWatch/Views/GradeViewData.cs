@@ -18,5 +18,7 @@ namespace EduWatch.Views
         public bool Seen { get; set; }
         [DisplayName("Коментар")]
         public string Comment { get; set; }
+        [DisplayName("Дата")]
+        public string Date { get; set; }
     }
 }

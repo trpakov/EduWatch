@@ -15,13 +15,14 @@ namespace EduWatch.Model
     public partial class Grade
     {
         public int grade_id { get; set; }
-        public Nullable<int> grade1 { get; set; }
-        public Nullable<bool> grade_seen { get; set; }
+        public int grade1 { get; set; }
+        public bool grade_seen { get; set; }
         public string comment { get; set; }
         public int student_id { get; set; }
         public int subject_Id { get; set; }
+        public System.DateTime date { get; set; }
     
-        public virtual Subject Subject { get; set; }
         public virtual Student Student { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }
