@@ -28,5 +28,6 @@ namespace EduWatch.Views
         //void FillInCorrespondingGrades(object grades);
         void ClearData();
         void DisableUnseeingData();
+        void FormatDataDisplay();
     }
 }

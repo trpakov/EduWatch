@@ -108,11 +108,9 @@ namespace EduWatch.Views
         public void DisableUnseeingData()
         {
             var checkboxCol = dataGridView1.Columns.OfType<DataGridViewCheckBoxColumn>().Single();
-            //checkboxCol.
-            //foreach (var checkBox in checkboxes)
-            //{
-            //    MessageBox.Show(checkBox.TrueValue.ToString());
-            //}
+
+            foreach (var col in dataGridView1.Columns.OfType<DataGridViewTextBoxColumn>())
+                col.ReadOnly = true;
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
                 if (row.Cells[checkboxCol.Index].Value.ToString() == "True")
@@ -122,6 +120,18 @@ namespace EduWatch.Views
         private void btnAverage_Click(object sender, EventArgs e)
         {
             Presenter.OnAverageGradeButtonClick();
+        }
+
+        public void FormatDataDisplay()
+        {
+            var checkboxCol = dataGridView1.Columns.OfType<DataGridViewCheckBoxColumn>().Single();
+            checkboxCol.SortMode = DataGridViewColumnSortMode.Automatic;
+
+            var bigCols = dataGridView1.Columns.OfType<DataGridViewTextBoxColumn>().Where(x => new string[] { "Note", "Comment" }.Contains(x.Name));
+            foreach (var col in bigCols)
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            DisableUnseeingData();
         }
     }
 }

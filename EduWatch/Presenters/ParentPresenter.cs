@@ -89,24 +89,26 @@ namespace EduWatch.Presenters
             {
                 // Get all grades of the selected student for the selected subject
                 currentGrades = currentSubject.Grades.Where(x => x.student_id == view.SelectedStudentID).ToList();
-                dataForGridView = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade1, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
+                var dataForGridViewList = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade1, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
+                dataForGridView = new Utilities.SortableBindingList<Views.GradeViewData>(dataForGridViewList);
             }
             else
             {
                 // Get all notes of the selected student for the selected subject
                 currentNotes = currentSubject.Notes.Where(x => x.student_id == view.SelectedStudentID).ToList();
-                dataForGridView = currentNotes.Select(x => new Views.NoteViewData { ID = x.note_Id, Note = x.note1, Seen = x.note_seen, Date = x.note_date.ToLongDateString() }).ToList();
+                var dataForGridViewList = currentNotes.Select(x => new Views.NoteViewData { ID = x.note_Id, Note = x.note1, Seen = x.note_seen, Date = x.note_date.ToLongDateString() }).ToList();
+                dataForGridView = new Utilities.SortableBindingList<Views.NoteViewData>(dataForGridViewList);
             }
 
             // Send the data to the view and display it
             view.GridViewData = dataForGridView;
-            view.DisableUnseeingData();
+            view.FormatDataDisplay();
         }
 
         internal void OnSeenStatusChanged()
         {
             view.SaveButtonEnabled = true;
-            view.CancelButtonEnabled = true;
+            view.CancelButtonEnabled = true;          
         }
 
         internal void OnCancelButtonClick()
@@ -130,7 +132,7 @@ namespace EduWatch.Presenters
             view.SaveButtonEnabled = false;
             view.CancelButtonEnabled = false;
 
-            view.DisableUnseeingData();
+            view.FormatDataDisplay();
             // Propagate the changes to the entity objects tracked by DbContext instance and commit them to the database
             if(view.SelectedGradesView)
             {
