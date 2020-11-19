@@ -33,6 +33,8 @@ namespace EduWatch.Views
         public bool SelectedGradesView { get => radioButtonGrades.Checked; set => radioButtonGrades.Checked = value; }
         public bool AverageGradeButtonEnabled { get => btnAverage.Enabled; set => btnAverage.Enabled = value; }
         public string AverageGradeText { get => textBoxAverage.Text; set => textBoxAverage.Text = value; }
+        public bool GradesRadioButtonEnabledState { get => radioButtonGrades.Enabled; set => radioButtonGrades.Enabled = value; }
+        public bool NotesRadioButtonEnabledState { get => radioButtonNotes.Enabled; set => radioButtonNotes.Enabled = value; }
 
         public void FillInCorrespondingStudents(List<Tuple<int, string>> students)
         {

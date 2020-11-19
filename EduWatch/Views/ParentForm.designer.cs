@@ -180,6 +180,7 @@
             this.radioButtonGrades.AutoSize = true;
             this.radioButtonGrades.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonGrades.Checked = true;
+            this.radioButtonGrades.Enabled = false;
             this.radioButtonGrades.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonGrades.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.radioButtonGrades.Location = new System.Drawing.Point(616, 292);
@@ -196,6 +197,7 @@
             // 
             this.radioButtonNotes.AutoSize = true;
             this.radioButtonNotes.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonNotes.Enabled = false;
             this.radioButtonNotes.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonNotes.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.radioButtonNotes.Location = new System.Drawing.Point(708, 292);
@@ -213,7 +215,7 @@
             this.LblName.BackColor = System.Drawing.Color.Transparent;
             this.LblName.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LblName.Location = new System.Drawing.Point(733, 62);
+            this.LblName.Location = new System.Drawing.Point(744, 62);
             this.LblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(174, 23);

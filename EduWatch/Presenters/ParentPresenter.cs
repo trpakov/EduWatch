@@ -68,6 +68,10 @@ namespace EduWatch.Presenters
             view.FIllInCorrespondingSubjects(subjectsData);
             view.ComboboxSubjectSelectedIndex = -1;
             view.ComboBoxSubjectEnabled = true;
+            view.GradesRadioButtonEnabledState = false;
+            view.NotesRadioButtonEnabledState = false;
+            view.AverageGradeButtonEnabled = false;
+            view.ClearData();
         }
 
         internal void OnGradesButtonClick()
@@ -81,6 +85,10 @@ namespace EduWatch.Presenters
             // Get selected subject
             currentSubject = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single();
             PrepareDataForView();
+
+            view.GradesRadioButtonEnabledState = true;
+            view.NotesRadioButtonEnabledState = true;
+            if (view.SelectedGradesView) view.AverageGradeButtonEnabled = true;
         }
 
         void PrepareDataForView()

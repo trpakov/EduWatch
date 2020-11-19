@@ -22,6 +22,8 @@ namespace EduWatch.Views
         bool SelectedGradesView { get; set; }
         bool AverageGradeButtonEnabled { get; set; }
         string AverageGradeText { get; set; }
+        bool GradesRadioButtonEnabledState { get; set; }
+        bool NotesRadioButtonEnabledState { get; set; }
 
         void FillInCorrespondingStudents(List<Tuple<int, string>> students);
         void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects);
