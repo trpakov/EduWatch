@@ -82,6 +82,7 @@ namespace EduWatch.Views
         public void ClearData()
         {
             dataGridView1.Columns.Clear();
+            AverageGradeText = string.Empty;
         }
 
         public void DisableUnseeingData()
@@ -110,7 +111,12 @@ namespace EduWatch.Views
             foreach (var col in bigCols)
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+            var gradeColumn = dataGridView1.Columns.OfType<DataGridViewTextBoxColumn>().Where(x => x.Name == "Grade").SingleOrDefault();
+            if (gradeColumn != null)
+                gradeColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             DisableUnseeingData();
+            AverageGradeText = string.Empty;
         }
 
     }

@@ -107,11 +107,11 @@
             // 
             // btnAverage
             // 
-            this.btnAverage.BackColor = System.Drawing.Color.Transparent;
+            this.btnAverage.BackColor = System.Drawing.SystemColors.Control;
             this.btnAverage.Enabled = false;
             this.btnAverage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAverage.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAverage.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAverage.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnAverage.Location = new System.Drawing.Point(62, 586);
             this.btnAverage.Name = "btnAverage";
             this.btnAverage.Size = new System.Drawing.Size(126, 29);
@@ -132,7 +132,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.ForeColor = System.Drawing.Color.Brown;
@@ -154,6 +154,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(62, 410);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(832, 160);
             this.dataGridView1.TabIndex = 20;
