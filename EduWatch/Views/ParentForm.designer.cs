@@ -41,8 +41,6 @@
             this.radioButtonGrades = new System.Windows.Forms.RadioButton();
             this.radioButtonNotes = new System.Windows.Forms.RadioButton();
             this.LblName = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,11 +107,11 @@
             // 
             // btnAverage
             // 
-            this.btnAverage.BackColor = System.Drawing.Color.Transparent;
+            this.btnAverage.BackColor = System.Drawing.SystemColors.Control;
             this.btnAverage.Enabled = false;
             this.btnAverage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAverage.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAverage.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAverage.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnAverage.Location = new System.Drawing.Point(62, 586);
             this.btnAverage.Name = "btnAverage";
             this.btnAverage.Size = new System.Drawing.Size(126, 29);
@@ -134,7 +132,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.ForeColor = System.Drawing.Color.Brown;
@@ -148,15 +146,18 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(62, 410);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(832, 160);
             this.dataGridView1.TabIndex = 20;
-            this.dataGridView1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView1_CurrentCellDirtyStateChanged);
             // 
             // comboBoxStudent
             // 
@@ -177,6 +178,7 @@
             this.radioButtonGrades.AutoSize = true;
             this.radioButtonGrades.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonGrades.Checked = true;
+            this.radioButtonGrades.Enabled = false;
             this.radioButtonGrades.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonGrades.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.radioButtonGrades.Location = new System.Drawing.Point(616, 292);
@@ -193,6 +195,7 @@
             // 
             this.radioButtonNotes.AutoSize = true;
             this.radioButtonNotes.BackColor = System.Drawing.Color.Transparent;
+            this.radioButtonNotes.Enabled = false;
             this.radioButtonNotes.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonNotes.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.radioButtonNotes.Location = new System.Drawing.Point(708, 292);
@@ -206,46 +209,16 @@
             // 
             // LblName
             // 
-            this.LblName.AutoSize = true;
             this.LblName.BackColor = System.Drawing.Color.Transparent;
             this.LblName.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LblName.Location = new System.Drawing.Point(733, 62);
+            this.LblName.Location = new System.Drawing.Point(732, 62);
             this.LblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(174, 23);
             this.LblName.TabIndex = 24;
             this.LblName.Text = "*името на родителя*";
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSave.Location = new System.Drawing.Point(605, 586);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(126, 29);
-            this.btnSave.TabIndex = 25;
-            this.btnSave.Text = "Запази";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Enabled = false;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancel.Location = new System.Drawing.Point(748, 586);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(126, 29);
-            this.btnCancel.TabIndex = 26;
-            this.btnCancel.Text = "Отказ";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.LblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ParentForm
             // 
@@ -255,8 +228,6 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(968, 659);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.radioButtonNotes);
             this.Controls.Add(this.radioButtonGrades);
@@ -295,7 +266,5 @@
         private System.Windows.Forms.RadioButton radioButtonGrades;
         private System.Windows.Forms.RadioButton radioButtonNotes;
         private System.Windows.Forms.Label LblName;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
     }
 }

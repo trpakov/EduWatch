@@ -126,6 +126,8 @@
     </Compile>
     <Compile Include="Utilities\IPasswordHash.cs" />
     <Compile Include="Utilities\PasswordHash.cs" />
+    <Compile Include="Utilities\PropertyComparer.cs" />
+    <Compile Include="Utilities\SortableBindingList.cs" />
     <Compile Include="Views\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
