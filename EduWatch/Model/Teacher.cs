@@ -28,5 +28,6 @@ namespace EduWatch.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subject> Subjects { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

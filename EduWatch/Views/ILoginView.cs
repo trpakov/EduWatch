@@ -17,7 +17,7 @@ namespace EduWatch.Views
         void FillInTypesOfUsers(string[] typesOfUsers);
         void ShowAvailableUserTypes();
         IParentView CreateParentView();
-        IParentView CreateTeacherView();
+        ITeacherView CreateTeacherView();
    
     }
 

@@ -85,7 +85,9 @@ namespace EduWatch.Presenters
             switch (currentUser.UserType)
             {
                 case Model.UserType.Teacher:
-                    view.Message("It works");
+                    Views.ITeacherView teacherView = view.CreateTeacherView();
+                    ITeacherPresenter teacherPresenter = PresenterFactory.GetTeacherPresenter(teacherView, data, currentUser, this);
+                    teacherPresenter.Start();
                     break;
                 case Model.UserType.Parent:
                     Views.IParentView parentView = view.CreateParentView();

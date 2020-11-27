@@ -68,9 +68,7 @@ namespace EduWatch.Views
 
         public IParentView CreateParentView() => new ParentForm();
 
-        public IParentView CreateTeacherView()
-        {
-            throw new NotImplementedException();
-        }
+        public ITeacherView CreateTeacherView() => new TeacherForm();
+      
     }
 }
