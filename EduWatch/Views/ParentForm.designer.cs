@@ -158,6 +158,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(832, 160);
             this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.Sorted += new System.EventHandler(this.dataGridView1_Sorted);
             // 
             // comboBoxStudent
             // 

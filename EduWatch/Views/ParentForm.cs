@@ -119,5 +119,9 @@ namespace EduWatch.Views
             AverageGradeText = string.Empty;
         }
 
+        private void dataGridView1_Sorted(object sender, EventArgs e)
+        {
+            DisableUnseeingData();
+        }
     }
 }
