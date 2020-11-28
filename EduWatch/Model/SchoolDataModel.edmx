@@ -30,7 +30,7 @@
           <Property Name="grade_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="grade" Type="int" Nullable="false" />
           <Property Name="grade_seen" Type="bit" Nullable="false" />
-          <Property Name="comment" Type="text" />
+          <Property Name="comment" Type="nvarchar" MaxLength="50" />
           <Property Name="student_id" Type="int" Nullable="false" />
           <Property Name="subject_Id" Type="int" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
@@ -40,7 +40,7 @@
             <PropertyRef Name="note_Id" />
           </Key>
           <Property Name="note_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="note" Type="text" Nullable="false" />
+          <Property Name="note" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="note_date" Type="date" Nullable="false" />
           <Property Name="note_seen" Type="bit" Nullable="false" />
           <Property Name="student_id" Type="int" Nullable="false" />
@@ -67,6 +67,7 @@
           <Property Name="student_PIN" Type="nvarchar" MaxLength="50" />
           <Property Name="parents_id" Type="int" Nullable="false" />
           <Property Name="address_id" Type="int" Nullable="false" />
+          <Property Name="grade" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Subjects">
           <Key>
@@ -329,6 +330,7 @@
           <NavigationProperty Name="Parent" Relationship="SchoolDBModel.FK_parents_id" FromRole="Student" ToRole="Parent" />
           <NavigationProperty Name="Notes" Relationship="SchoolDBModel.FK_student_id" FromRole="Student" ToRole="Note" />
           <NavigationProperty Name="Grades" Relationship="SchoolDBModel.FK_student_id1" FromRole="Student" ToRole="Grade" />
+          <Property Name="grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_address_id">
           <End Type="SchoolDBModel.Address" Role="Address" Multiplicity="1" />
@@ -359,7 +361,7 @@
             <PropertyRef Name="note_Id" />
           </Key>
           <Property Name="note_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="note1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="note1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="note_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="note_seen" Type="Boolean" Nullable="false" />
           <Property Name="student_id" Type="Int32" Nullable="false" />
@@ -398,7 +400,7 @@
           <Property Name="grade_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="grade1" Type="Int32" Nullable="false" />
           <Property Name="grade_seen" Type="Boolean" Nullable="false" />
-          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="student_id" Type="Int32" Nullable="false" />
           <Property Name="subject_Id" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
@@ -489,6 +491,7 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="SchoolDBModel.Student">
               <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="grade" ColumnName="grade" />
                 <ScalarProperty Name="address_id" ColumnName="address_id" />
                 <ScalarProperty Name="parents_id" ColumnName="parents_id" />
                 <ScalarProperty Name="student_PIN" ColumnName="student_PIN" />

@@ -24,7 +24,7 @@ namespace EduWatch.Views
             Savebtn.Hide();
         }
         public TeacherPresenter Presenter { private get; set; }
-        public string TeacherNameLabelText { get => teachersNameLabel.Text; set => teachersNameLabel.Text = value; }
+       public string TeacherNameLabelText { get => teachersNameLabel.Text; set => teachersNameLabel.Text = value; }
         public int ComboBoxSubjectSelectedIndex { get => comboBoxSubject.SelectedIndex; set => comboBoxSubject.SelectedIndex = value; }
         public int SelectedSubjectID => (int)comboBoxSubject.SelectedValue;
         public int ComboBoxStudentSelectedIndex { get => comboBoxStudent.SelectedIndex; set => comboBoxStudent.SelectedIndex = value; }
@@ -41,6 +41,8 @@ namespace EduWatch.Views
         public bool ComboBoxStudentEnabled { get => comboBoxStudent.Enabled; set => comboBoxStudent.Enabled = value; }
 
         public string ComboBoxGrade { get => gradeComboBox.Text; set => gradeComboBox.Text = value; }
+
+        public string ComboBoxGrade1to12 { get => comboBoxGrade1to12.Text; set => comboBoxGrade1to12.Text = value; }
 
         public void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects)
         {
@@ -134,6 +136,11 @@ namespace EduWatch.Views
         public void FillInWhichGrade(string[] grade)
         {
             comboBoxGrade1to12.Items.AddRange(grade);
+        }
+
+        private void Savebtn_Click(object sender, EventArgs e)
+        {
+            Presenter.OnSaveButtonClick();
         }
     }
 }

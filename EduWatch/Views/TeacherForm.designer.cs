@@ -118,6 +118,7 @@
             this.Savebtn.TabIndex = 18;
             this.Savebtn.Text = "Добави";
             this.Savebtn.UseVisualStyleBackColor = false;
+            this.Savebtn.Click += new System.EventHandler(this.Savebtn_Click);
             // 
             // Exitbtn
             // 

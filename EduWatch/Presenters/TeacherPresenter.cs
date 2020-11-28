@@ -35,7 +35,7 @@ namespace EduWatch.Presenters
 
             view.FillInGrades(new string[] { "6", "5", "4", "3", "2" });
             view.FillInWhichGrade(new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
-
+            
         }
 
         public void Start() => view.Show();
@@ -99,7 +99,7 @@ namespace EduWatch.Presenters
 
         internal void OnSaveButtonClick()
         {
-            ///adding grades and notes
+       
 
             data.SaveChanges();
         }

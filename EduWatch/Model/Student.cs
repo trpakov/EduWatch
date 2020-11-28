@@ -28,6 +28,7 @@ namespace EduWatch.Model
         public string student_PIN { get; set; }
         public int parents_id { get; set; }
         public int address_id { get; set; }
+        public string grade { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Parent Parent { get; set; }
