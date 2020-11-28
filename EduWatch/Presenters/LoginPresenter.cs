@@ -46,22 +46,30 @@ namespace EduWatch.Presenters
             // Check what type the user belongs to and query the corresponding table in the dabase with the given username
             Model.IUser currentUser = null;
             string typeOfUser = view.TypeOfUser;
-            switch (typeOfUser)
+            try
             {
-                case null:
-                    view.Message("Моля, посочете какъв потребител сте.", "Внимание", Views.MessageIcon.Warning);
-                    view.ShowAvailableUserTypes();
-                    return;
-                case "Учител":
-                    currentUser = data.Teachers.Where(x => x.username == view.Username).SingleOrDefault();
-                    break;
-                case "Родител":
-                    currentUser = data.Parents.Where(x => x.username == view.Username).SingleOrDefault();
-                    break;
+                switch (typeOfUser)
+                {
+                    case null:
+                        view.Message("Моля, посочете какъв потребител сте.", "Внимание", Views.MessageIcon.Warning);
+                        view.ShowAvailableUserTypes();
+                        return;
+                    case "Учител":
+                        currentUser = data.Teachers.Where(x => x.username == view.Username).SingleOrDefault();
+                        break;
+                    case "Родител":
+                        currentUser = data.Parents.Where(x => x.username == view.Username).SingleOrDefault();
+                        break;
+                }
+            }
+            catch (System.Data.Entity.Core.EntityException)
+            {
+                view.Message("Неуспешна връзка с базата данни. Моля, опитайте отново по-късно. Съжаляваме за причиненото неудобство.", "Грешка", Views.MessageIcon.Error);
+                return;
             }
 
             // Display error message if there is no such user.
-            if(currentUser == null)
+            if (currentUser == null)
             {
                 view.Message("Грешно потребителско име и/или парола. Моля, опитайте отново. Ако продължавате да изпитвате затруднения, свържете се с училищния администратор.", "Грешка", Views.MessageIcon.Error);
                 return;

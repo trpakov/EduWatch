@@ -123,6 +123,8 @@ namespace EduWatch.Presenters
 
         public void SaveChanges(bool isSavingOnDataViewChange = false)
         {
+            if (currentNotes == null && currentGrades == null) return;
+
             // Propagate the changes to the entity objects tracked by DbContext instance and commit them to the database
             if (view.SelectedGradesView ^ isSavingOnDataViewChange)
             {
@@ -137,7 +139,17 @@ namespace EduWatch.Presenters
                     note.note_seen = !note.note_seen;
             }
 
-            data.SaveChanges();
+            try
+            {
+                data.SaveChanges();
+                //throw new Exception();
+            }
+            catch (Exception)
+            {
+                if(!isSavingOnDataViewChange)
+                    view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
+            }
+            
         }
     }
 }
