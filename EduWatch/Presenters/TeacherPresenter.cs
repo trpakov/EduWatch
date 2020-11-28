@@ -34,6 +34,7 @@ namespace EduWatch.Presenters
             view.ComboBoxSubjectSelectedIndex = -1;
 
             view.FillInGrades(new string[] { "6", "5", "4", "3", "2" });
+            view.FillInWhichGrade(new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
 
         }
 

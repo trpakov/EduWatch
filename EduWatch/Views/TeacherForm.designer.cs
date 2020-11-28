@@ -33,13 +33,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Savebtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Exitbtn = new System.Windows.Forms.Button();
             this.btnAverage = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.radioButtonGrade = new System.Windows.Forms.RadioButton();
             this.radioButtonNote = new System.Windows.Forms.RadioButton();
-            this.SeeData = new System.Windows.Forms.Button();
+            this.SeeDatabtn = new System.Windows.Forms.Button();
             this.teachersNameLabel = new System.Windows.Forms.Label();
             this.labelAverageGrade = new System.Windows.Forms.Label();
             this.comboBoxStudent = new System.Windows.Forms.ComboBox();
@@ -47,6 +47,9 @@
             this.GradeLabel = new System.Windows.Forms.Label();
             this.CommentLabel = new System.Windows.Forms.Label();
             this.gradeComboBox = new System.Windows.Forms.ComboBox();
+            this.AddRecordbtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxGrade1to12 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +85,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(77, 379);
+            this.label7.Location = new System.Drawing.Point(77, 436);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 29);
@@ -108,7 +111,7 @@
             this.Savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Savebtn.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Savebtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Savebtn.Location = new System.Drawing.Point(773, 624);
+            this.Savebtn.Location = new System.Drawing.Point(677, 554);
             this.Savebtn.Margin = new System.Windows.Forms.Padding(4);
             this.Savebtn.Name = "Savebtn";
             this.Savebtn.Size = new System.Drawing.Size(191, 65);
@@ -116,19 +119,20 @@
             this.Savebtn.Text = "Добави";
             this.Savebtn.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // Exitbtn
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(1066, 129);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 33);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Изход";
-            this.button2.UseVisualStyleBackColor = false;
+            this.Exitbtn.BackColor = System.Drawing.Color.Transparent;
+            this.Exitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exitbtn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Exitbtn.ForeColor = System.Drawing.Color.Red;
+            this.Exitbtn.Location = new System.Drawing.Point(1066, 129);
+            this.Exitbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.Exitbtn.Name = "Exitbtn";
+            this.Exitbtn.Size = new System.Drawing.Size(100, 33);
+            this.Exitbtn.TabIndex = 19;
+            this.Exitbtn.Text = "Изход";
+            this.Exitbtn.UseVisualStyleBackColor = false;
+            this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
             // btnAverage
             // 
@@ -151,6 +155,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(503, 337);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(714, 250);
             this.dataGridView1.TabIndex = 23;
@@ -170,14 +175,13 @@
             this.radioButtonGrade.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonGrade.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonGrade.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.radioButtonGrade.Location = new System.Drawing.Point(102, 499);
+            this.radioButtonGrade.Location = new System.Drawing.Point(102, 554);
             this.radioButtonGrade.Name = "radioButtonGrade";
             this.radioButtonGrade.Size = new System.Drawing.Size(89, 28);
             this.radioButtonGrade.TabIndex = 26;
             this.radioButtonGrade.TabStop = true;
             this.radioButtonGrade.Text = " оценка";
             this.radioButtonGrade.UseVisualStyleBackColor = false;
-            this.radioButtonGrade.CheckedChanged += new System.EventHandler(this.radioButtonGrade_CheckedChanged);
             // 
             // radioButtonNote
             // 
@@ -185,28 +189,27 @@
             this.radioButtonNote.BackColor = System.Drawing.Color.Transparent;
             this.radioButtonNote.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonNote.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.radioButtonNote.Location = new System.Drawing.Point(294, 499);
+            this.radioButtonNote.Location = new System.Drawing.Point(291, 554);
             this.radioButtonNote.Name = "radioButtonNote";
             this.radioButtonNote.Size = new System.Drawing.Size(117, 28);
             this.radioButtonNote.TabIndex = 27;
             this.radioButtonNote.TabStop = true;
             this.radioButtonNote.Text = " забележка";
             this.radioButtonNote.UseVisualStyleBackColor = false;
-            this.radioButtonNote.CheckedChanged += new System.EventHandler(this.radioButtonNote_CheckedChanged);
             // 
-            // SeeData
+            // SeeDatabtn
             // 
-            this.SeeData.BackColor = System.Drawing.Color.Transparent;
-            this.SeeData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SeeData.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SeeData.ForeColor = System.Drawing.Color.Transparent;
-            this.SeeData.Location = new System.Drawing.Point(150, 568);
-            this.SeeData.Name = "SeeData";
-            this.SeeData.Size = new System.Drawing.Size(203, 51);
-            this.SeeData.TabIndex = 28;
-            this.SeeData.Text = "Виж дневника";
-            this.SeeData.UseVisualStyleBackColor = false;
-            this.SeeData.Click += new System.EventHandler(this.SeeData_Click);
+            this.SeeDatabtn.BackColor = System.Drawing.Color.Transparent;
+            this.SeeDatabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SeeDatabtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SeeDatabtn.ForeColor = System.Drawing.Color.Transparent;
+            this.SeeDatabtn.Location = new System.Drawing.Point(56, 628);
+            this.SeeDatabtn.Name = "SeeDatabtn";
+            this.SeeDatabtn.Size = new System.Drawing.Size(203, 51);
+            this.SeeDatabtn.TabIndex = 28;
+            this.SeeDatabtn.Text = "Виж дневника";
+            this.SeeDatabtn.UseVisualStyleBackColor = false;
+            this.SeeDatabtn.Click += new System.EventHandler(this.SeeDatabtn_Click);
             // 
             // teachersNameLabel
             // 
@@ -234,7 +237,7 @@
             // comboBoxStudent
             // 
             this.comboBoxStudent.FormattingEnabled = true;
-            this.comboBoxStudent.Location = new System.Drawing.Point(82, 423);
+            this.comboBoxStudent.Location = new System.Drawing.Point(82, 468);
             this.comboBoxStudent.Name = "comboBoxStudent";
             this.comboBoxStudent.Size = new System.Drawing.Size(383, 24);
             this.comboBoxStudent.TabIndex = 31;
@@ -280,6 +283,41 @@
             this.gradeComboBox.Size = new System.Drawing.Size(121, 24);
             this.gradeComboBox.TabIndex = 36;
             // 
+            // AddRecordbtn
+            // 
+            this.AddRecordbtn.BackColor = System.Drawing.Color.Transparent;
+            this.AddRecordbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddRecordbtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddRecordbtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddRecordbtn.Location = new System.Drawing.Point(265, 628);
+            this.AddRecordbtn.Name = "AddRecordbtn";
+            this.AddRecordbtn.Size = new System.Drawing.Size(212, 51);
+            this.AddRecordbtn.TabIndex = 37;
+            this.AddRecordbtn.Text = "Добави  нов запис";
+            this.AddRecordbtn.UseVisualStyleBackColor = false;
+            this.AddRecordbtn.Click += new System.EventHandler(this.AddRecordbtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(165, 384);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 29);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Клас:";
+            // 
+            // comboBoxGrade1to12
+            // 
+            this.comboBoxGrade1to12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGrade1to12.FormattingEnabled = true;
+            this.comboBoxGrade1to12.Location = new System.Drawing.Point(251, 389);
+            this.comboBoxGrade1to12.Name = "comboBoxGrade1to12";
+            this.comboBoxGrade1to12.Size = new System.Drawing.Size(64, 24);
+            this.comboBoxGrade1to12.TabIndex = 39;
+            // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -288,6 +326,9 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1320, 911);
+            this.Controls.Add(this.comboBoxGrade1to12);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.AddRecordbtn);
             this.Controls.Add(this.gradeComboBox);
             this.Controls.Add(this.CommentLabel);
             this.Controls.Add(this.GradeLabel);
@@ -295,13 +336,13 @@
             this.Controls.Add(this.comboBoxStudent);
             this.Controls.Add(this.labelAverageGrade);
             this.Controls.Add(this.teachersNameLabel);
-            this.Controls.Add(this.SeeData);
+            this.Controls.Add(this.SeeDatabtn);
             this.Controls.Add(this.radioButtonNote);
             this.Controls.Add(this.radioButtonGrade);
             this.Controls.Add(this.comboBoxSubject);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnAverage);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Exitbtn);
             this.Controls.Add(this.Savebtn);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -324,13 +365,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button Savebtn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Exitbtn;
         private System.Windows.Forms.Button btnAverage;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBoxSubject;
         private System.Windows.Forms.RadioButton radioButtonGrade;
         private System.Windows.Forms.RadioButton radioButtonNote;
-        private System.Windows.Forms.Button SeeData;
+        private System.Windows.Forms.Button SeeDatabtn;
         private System.Windows.Forms.Label teachersNameLabel;
         private System.Windows.Forms.Label labelAverageGrade;
         private System.Windows.Forms.ComboBox comboBoxStudent;
@@ -338,5 +379,8 @@
         private System.Windows.Forms.Label GradeLabel;
         private System.Windows.Forms.Label CommentLabel;
         private System.Windows.Forms.ComboBox gradeComboBox;
+        private System.Windows.Forms.Button AddRecordbtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxGrade1to12;
     }
 }

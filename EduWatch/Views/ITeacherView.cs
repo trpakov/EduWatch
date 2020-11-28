@@ -26,7 +26,8 @@ namespace EduWatch.Views
         void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects);
         void FillInCorrespondingStudents(List<Tuple<int, string>> students);
         void FillInGrades(string[] grades);
-     
+        void FillInWhichGrade(string[] grade);
+
 
 
         void ClearData();

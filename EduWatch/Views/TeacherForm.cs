@@ -21,6 +21,7 @@ namespace EduWatch.Views
             commentTextBox.Hide();
             GradeLabel.Hide();
             gradeComboBox.Hide();
+            Savebtn.Hide();
         }
         public TeacherPresenter Presenter { private get; set; }
         public string TeacherNameLabelText { get => teachersNameLabel.Text; set => teachersNameLabel.Text = value; }
@@ -80,40 +81,59 @@ namespace EduWatch.Views
             dataGridView1.Columns.Clear();
         }
 
-        private void SeeData_Click(object sender, EventArgs e)
+      
+
+        public void FillInGrades(string[] grades)
+        {
+            gradeComboBox.Items.AddRange(grades);
+        }
+
+        private void SeeDatabtn_Click(object sender, EventArgs e)
         {
             CommentLabel.Hide();
             commentTextBox.Hide();
             GradeLabel.Hide();
             gradeComboBox.Hide();
             dataGridView1.Show();
+            Savebtn.Hide();
         }
 
-        private void radioButtonGrade_CheckedChanged(object sender, EventArgs e)
+        private void AddRecordbtn_Click(object sender, EventArgs e)
         {
-            dataGridView1.Hide();
-            CommentLabel.Text = "Коментар:";
-            CommentLabel.Show();
-            commentTextBox.Show();
-            GradeLabel.Show();
-            gradeComboBox.Show();
-
+            if (radioButtonGrade.Checked)
+            {
+                dataGridView1.Hide();
+                CommentLabel.Text = "Коментар:";
+                CommentLabel.Show();
+                commentTextBox.Show();
+                GradeLabel.Show();
+                gradeComboBox.Show();
+                Savebtn.Show();
+            }
+            else if (radioButtonNote.Checked)
+            {
+                dataGridView1.Hide();
+                GradeLabel.Hide();
+                gradeComboBox.Hide();
+                CommentLabel.Text = "Забележка:";
+                CommentLabel.Show();
+                commentTextBox.Show();
+                Savebtn.Show();
+            }
+            else
+            {
+                Message("Моля, изберете какво искате да добавите.", "Внимание", Views.MessageIcon.Warning);
+            }
         }
 
-        private void radioButtonNote_CheckedChanged(object sender, EventArgs e)
+        private void Exitbtn_Click(object sender, EventArgs e)
         {
-            dataGridView1.Hide();
-            GradeLabel.Hide();
-            gradeComboBox.Hide();
-            CommentLabel.Text = "Забележка:";
-            CommentLabel.Show();
-            commentTextBox.Show();
+            Presenter.OnExitButtonClick();
         }
 
-        public void FillInGrades(string[] grades)
+        public void FillInWhichGrade(string[] grade)
         {
-            gradeComboBox.Items.AddRange(grades);
+            comboBoxGrade1to12.Items.AddRange(grade);
         }
-   
     }
 }
