@@ -69,6 +69,11 @@ namespace EduWatch.Views
         public IParentView CreateParentView() => new ParentForm();
 
         public ITeacherView CreateTeacherView() => new TeacherForm();
-      
+
+        public void StartApplication()
+        {
+            Application.EnableVisualStyles();
+            Application.Run(this);
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 
 namespace EduWatch.Presenters
 {
@@ -108,6 +108,11 @@ namespace EduWatch.Presenters
         public void ShowLoginView()
         {
             view.Show();
+        }
+
+        public void Start()
+        {
+            view.StartApplication();
         }
     }
 
