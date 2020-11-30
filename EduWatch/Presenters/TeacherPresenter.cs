@@ -106,13 +106,13 @@ namespace EduWatch.Presenters
 
         internal void OnSaveNoteButtonClick()
         {
-            var note =new  Model.Note { note1 = teacherForm.TextBoxComment, note_date = DateTime.Now, note_seen = false, student_id = teacherForm.ComboBoxStudentSelectedIndex, subject_id = teacherForm.ComboBoxSubjectSelectedIndex };
+            var note =new  Model.Note() { note1 = teacherForm.TextBoxComment, note_date = DateTime.Now, note_seen = false, student_id = teacherForm.ComboBoxStudentSelectedIndex, subject_id = teacherForm.ComboBoxSubjectSelectedIndex };
             data.Notes.Add(note);
             data.SaveChanges();
         }
         internal void OnSaveGradeButtonClick()
         {
-            var grade = new Model.Grade { grade = int.Parse(teacherForm.ComboBoxGrade1to12), grade_seen = false, comment = teacherForm.Text, student_id = teacherForm.ComboBoxStudentSelectedIndex, subject_Id = teacherForm.ComboBoxSubjectSelectedIndex, date = DateTime.Now };
+            var grade = new Model.Grade() { grade = int.Parse(teacherForm.ComboBoxGrade1to12), grade_seen = false, comment = teacherForm.Text, student_id = teacherForm.ComboBoxStudentSelectedIndex, subject_Id = teacherForm.ComboBoxSubjectSelectedIndex, date = DateTime.Now };
             data.Grades.Add(grade);
             data.SaveChanges();
         }

@@ -75,5 +75,11 @@ namespace EduWatch.Views
             Application.EnableVisualStyles();
             Application.Run(this);
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SignUpForm sign = new SignUpForm();
+            sign.Show();
+        }
     }
 }
