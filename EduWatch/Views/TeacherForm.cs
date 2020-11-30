@@ -35,7 +35,7 @@ namespace EduWatch.Views
         public bool SelectedGrades { get => radioButtonGrade.Checked; set => radioButtonGrade.Checked = value; }
         public bool SelectedNotes { get => radioButtonNote.Checked; set => radioButtonNote.Checked = value; }
         public bool AverageGradeButtonEnabled { get => btnAverage.Enabled; set => btnAverage.Enabled = value; }
-        public string AverageGradeLabel { get => labelAverageGrade.Text; set => labelAverageGrade.Text = value; }
+        public string AverageGradeTextBox { get =>averageGradeTextBox.Text; set => averageGradeTextBox.Text=value; }
         public bool SelectedGradesView { get => radioButtonGrade.Checked; set => radioButtonGrade.Checked = value; }
 
         public bool ComboBoxStudentEnabled { get => comboBoxStudent.Enabled; set => comboBoxStudent.Enabled = value; }
@@ -43,7 +43,8 @@ namespace EduWatch.Views
         public string ComboBoxGrade { get => gradeComboBox.Text; set => gradeComboBox.Text = value; }
 
         public string ComboBoxGrade1to12 { get => comboBoxGrade1to12.Text; set => comboBoxGrade1to12.Text = value; }
-
+        public string TextBoxComment { get => commentTextBox.Text; set =>commentTextBox.Text=value; }
+       
         public void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects)
         {
             comboBoxSubject.DisplayMember = "Item2";
@@ -98,6 +99,7 @@ namespace EduWatch.Views
             gradeComboBox.Hide();
             dataGridView1.Show();
             Savebtn.Hide();
+        
         }
 
         private void AddRecordbtn_Click(object sender, EventArgs e)
@@ -140,7 +142,39 @@ namespace EduWatch.Views
 
         private void Savebtn_Click(object sender, EventArgs e)
         {
-            Presenter.OnSaveButtonClick();
+            if(radioButtonGrade.Checked)
+            {
+                Presenter.OnSaveGradeButtonClick();
+            }
+            else
+            {
+                Presenter.OnSaveNoteButtonClick();
+            }
+        }
+
+        private void btnAverage_Click(object sender, EventArgs e)
+        {
+            Presenter.OnAverageGradeButtonClick();
+        }
+        public void FormatDataDisplay()
+        {
+            var checkboxCol = dataGridView1.Columns.OfType<DataGridViewCheckBoxColumn>().Single();
+            checkboxCol.SortMode = DataGridViewColumnSortMode.Automatic;
+
+            var bigCols = dataGridView1.Columns.OfType<DataGridViewTextBoxColumn>().Where(x => new string[] { "Note", "Comment" }.Contains(x.Name));
+            foreach (var col in bigCols)
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            var gradeColumn = dataGridView1.Columns.OfType<DataGridViewTextBoxColumn>().Where(x => x.Name == "Grade").SingleOrDefault();
+            if (gradeColumn != null)
+                gradeColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+         
+           
+        }
+
+        private void radioButtonGrade_CheckedChanged(object sender, EventArgs e)
+        {
+            Presenter.OnGradesButtonClick();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EduWatch.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace EduWatch.Presenters
         Model.Student currentStudent;
         List<Model.Grade> currentGrades;
         List<Model.Note> currentNotes;
-
+        TeacherForm teacherForm = new TeacherForm();
         public TeacherPresenter(Views.ITeacherView view, Model.SchoolDBEntities data, Model.IUser user, ILoginPresenter loginPresenter)
         {
             this.view = view;
@@ -34,7 +35,7 @@ namespace EduWatch.Presenters
             view.ComboBoxSubjectSelectedIndex = -1;
 
             view.FillInGrades(new string[] { "6", "5", "4", "3", "2" });
-            view.FillInWhichGrade(new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
+            view.FillInWhichGrade(new string[] { "8", "9", "10", "11", "12" });
             
         }
 
@@ -50,9 +51,9 @@ namespace EduWatch.Presenters
         {
             if (view.ComboBoxSubjectSelectedIndex == -1) return;
 
-            var studentsWithGrades = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Grades.Select(x => x.Student).ToList();
+            var studentsWithGrades =data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Grades.Select(x => x.Student).ToList();
             var studentsWithNotes = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Notes.Select(x => x.Student).ToList();
-            var students = studentsWithGrades.Union(studentsWithNotes);
+            var students = studentsWithGrades.Union(studentsWithNotes).Where(x => x.grade == view.ComboBoxGrade1to12);
             var studentsData = students.Select(x => Tuple.Create(x.student_id, x.student_firstN + ' ' + x.student_lastN)).ToList();
             view.FillInCorrespondingStudents(studentsData);
             view.ComboBoxStudentSelectedIndex = -1;
@@ -73,20 +74,26 @@ namespace EduWatch.Presenters
             PrepareDataForView();
         }
 
-        void PrepareDataForView()
+         void PrepareDataForView()
         {
             if (view.SelectedGradesView)
             {
-                currentGrades = currentStudent.Grades.Where(x => x.subject_Id == view.SelectedSubjectID).ToList();
-                dataForGridView = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade1, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
+                // Get all grades of the selected student for the selected subject
+                currentGrades = currentStudent.Grades.Where(x => x.student_id == view.SelectedStudentID).ToList();
+                var dataForGridViewList = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
+                dataForGridView = new Utilities.SortableBindingList<Views.GradeViewData>(dataForGridViewList);
             }
             else
             {
-                currentNotes = currentStudent.Notes.Where(x => x.subject_id == view.SelectedSubjectID).ToList();
-                dataForGridView = currentNotes.Select(x => new Views.NoteViewData { ID = x.note_Id, Note = x.note1, Seen = x.note_seen, Date = x.note_date.ToLongDateString() }).ToList();
+                // Get all notes of the selected student for the selected subject
+                currentNotes = currentStudent.Notes.Where(x => x.student_id == view.SelectedStudentID).ToList();
+                var dataForGridViewList = currentNotes.Select(x => new Views.NoteViewData { ID = x.note_Id, Note = x.note1, Seen = x.note_seen, Date = x.note_date.ToLongDateString() }).ToList();
+                dataForGridView = new Utilities.SortableBindingList<Views.NoteViewData>(dataForGridViewList);
             }
 
+            // Send the data to the view and display it
             view.GridViewData = dataForGridView;
+            view.FormatDataDisplay();
 
         }
 
@@ -94,13 +101,19 @@ namespace EduWatch.Presenters
 
         internal void OnAverageGradeButtonClick()
         {
-            view.AverageGradeLabel = currentGrades.Average(x => x.grade1).ToString();
+            view.AverageGradeTextBox = currentGrades.Average(x => x.grade).ToString();
         }
 
-        internal void OnSaveButtonClick()
+        internal void OnSaveNoteButtonClick()
         {
-       
-
+            var note =new  Model.Note { note1 = teacherForm.TextBoxComment, note_date = DateTime.Now, note_seen = false, student_id = teacherForm.ComboBoxStudentSelectedIndex, subject_id = teacherForm.ComboBoxSubjectSelectedIndex };
+            data.Notes.Add(note);
+            data.SaveChanges();
+        }
+        internal void OnSaveGradeButtonClick()
+        {
+            var grade = new Model.Grade { grade = int.Parse(teacherForm.ComboBoxGrade1to12), grade_seen = false, comment = teacherForm.Text, student_id = teacherForm.ComboBoxStudentSelectedIndex, subject_Id = teacherForm.ComboBoxSubjectSelectedIndex, date = DateTime.Now };
+            data.Grades.Add(grade);
             data.SaveChanges();
         }
       

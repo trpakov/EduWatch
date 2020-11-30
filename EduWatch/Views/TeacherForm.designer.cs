@@ -50,6 +50,7 @@
             this.AddRecordbtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxGrade1to12 = new System.Windows.Forms.ComboBox();
+            this.averageGradeTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +73,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(77, 304);
+            this.label3.Location = new System.Drawing.Point(77, 354);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(201, 29);
@@ -141,13 +142,14 @@
             this.btnAverage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAverage.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAverage.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAverage.Location = new System.Drawing.Point(663, 795);
+            this.btnAverage.Location = new System.Drawing.Point(663, 727);
             this.btnAverage.Margin = new System.Windows.Forms.Padding(4);
             this.btnAverage.Name = "btnAverage";
             this.btnAverage.Size = new System.Drawing.Size(205, 41);
             this.btnAverage.TabIndex = 21;
             this.btnAverage.Text = "Среден успех:";
             this.btnAverage.UseVisualStyleBackColor = false;
+            this.btnAverage.Click += new System.EventHandler(this.btnAverage_Click);
             // 
             // dataGridView1
             // 
@@ -164,7 +166,7 @@
             // comboBoxSubject
             // 
             this.comboBoxSubject.FormattingEnabled = true;
-            this.comboBoxSubject.Location = new System.Drawing.Point(82, 337);
+            this.comboBoxSubject.Location = new System.Drawing.Point(82, 396);
             this.comboBoxSubject.Name = "comboBoxSubject";
             this.comboBoxSubject.Size = new System.Drawing.Size(383, 24);
             this.comboBoxSubject.TabIndex = 25;
@@ -183,6 +185,7 @@
             this.radioButtonGrade.TabStop = true;
             this.radioButtonGrade.Text = " оценка";
             this.radioButtonGrade.UseVisualStyleBackColor = false;
+            this.radioButtonGrade.CheckedChanged += new System.EventHandler(this.radioButtonGrade_CheckedChanged);
             // 
             // radioButtonNote
             // 
@@ -304,7 +307,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(165, 384);
+            this.label2.Location = new System.Drawing.Point(77, 304);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 29);
             this.label2.TabIndex = 38;
@@ -314,10 +317,20 @@
             // 
             this.comboBoxGrade1to12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGrade1to12.FormattingEnabled = true;
-            this.comboBoxGrade1to12.Location = new System.Drawing.Point(251, 389);
+            this.comboBoxGrade1to12.Location = new System.Drawing.Point(145, 309);
             this.comboBoxGrade1to12.Name = "comboBoxGrade1to12";
             this.comboBoxGrade1to12.Size = new System.Drawing.Size(64, 24);
             this.comboBoxGrade1to12.TabIndex = 39;
+            // 
+            // averageGradeTextBox
+            // 
+            this.averageGradeTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.averageGradeTextBox.Location = new System.Drawing.Point(875, 730);
+            this.averageGradeTextBox.Multiline = true;
+            this.averageGradeTextBox.Name = "averageGradeTextBox";
+            this.averageGradeTextBox.ReadOnly = true;
+            this.averageGradeTextBox.Size = new System.Drawing.Size(119, 38);
+            this.averageGradeTextBox.TabIndex = 40;
             // 
             // TeacherForm
             // 
@@ -327,6 +340,7 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1320, 911);
+            this.Controls.Add(this.averageGradeTextBox);
             this.Controls.Add(this.comboBoxGrade1to12);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.AddRecordbtn);
@@ -383,5 +397,6 @@
         private System.Windows.Forms.Button AddRecordbtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxGrade1to12;
+        private System.Windows.Forms.TextBox averageGradeTextBox;
     }
 }

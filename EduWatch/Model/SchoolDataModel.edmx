@@ -398,7 +398,7 @@
             <PropertyRef Name="grade_id" />
           </Key>
           <Property Name="grade_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="grade1" Type="Int32" Nullable="false" />
+          <Property Name="grade" Type="Int32" Nullable="false" />
           <Property Name="grade_seen" Type="Boolean" Nullable="false" />
           <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="student_id" Type="Int32" Nullable="false" />
@@ -522,7 +522,7 @@
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
                 <ScalarProperty Name="comment" ColumnName="comment" />
                 <ScalarProperty Name="grade_seen" ColumnName="grade_seen" />
-                <ScalarProperty Name="grade1" ColumnName="grade" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
                 <ScalarProperty Name="grade_id" ColumnName="grade_id" />
               </MappingFragment>
             </EntityTypeMapping>
