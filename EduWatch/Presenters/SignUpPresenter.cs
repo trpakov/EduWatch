@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace EduWatch.Presenters
 {
@@ -22,6 +23,8 @@ namespace EduWatch.Presenters
             this.data = data;
             this.loginPresenter = loginPresenter;
 
+            // Load entities into local cache
+            data.Parents.LoadAsync();
         }
 
         public void OnCancelButtonClick()
@@ -64,6 +67,26 @@ namespace EduWatch.Presenters
                 view.Message("Това потребителско име вече е заето. Моля, изберете друго.", "Внимание", Views.MessageIcon.Warning);
                 return;
             }
+
+            Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
+            var passHash = passHasher.Generate(view.Pass);
+
+            var newParent = new Model.Parent() { parent_firstN = view.FirstName, parent_lastN = view.Surname, username = view.Username, password_hash = passHash };
+            data.Parents.Add(newParent);
+
+            try
+            {
+                data.SaveChanges();
+            }
+            catch (Exception)
+            {
+                view.Message("В момента изпитваме технически затруднения. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
+                return;
+            }
+
+            view.Message("Вашият профил беше създаден успешно. Можете да го използвате.", "Успех", Views.MessageIcon.Information);
+            view.Close();
+            loginPresenter.ShowLoginView();
         }
     }
 }
