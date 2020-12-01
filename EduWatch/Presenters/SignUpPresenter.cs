@@ -34,7 +34,36 @@ namespace EduWatch.Presenters
 
         internal void OnPasswordVisibleCheckBoxChange()
         {
-            throw new NotImplementedException();
+            view.PasswordChar = view.PasswordChar == '*' ? '\0' : '*';
+        }
+
+        internal void OnCreateButtonClick()
+        {
+            if(view.Username == string.Empty)
+            {
+                view.Message("Моля, въведете потребителско име.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            if (view.Pass == string.Empty)
+            {
+                view.Message("Моля, въведете парола.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            if (view.FirstName == string.Empty || view.Surname == string.Empty)
+            {
+                view.Message("Моля, въведете вашето лично име и фамилия.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            var existingParent = data.Parents.Where(x => x.username == view.Username).SingleOrDefault();
+
+            if (existingParent != null)
+            {
+                view.Message("Това потребителско име вече е заето. Моля, изберете друго.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
         }
     }
 }

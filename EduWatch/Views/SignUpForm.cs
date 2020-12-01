@@ -19,6 +19,7 @@ namespace EduWatch.Views
         public string Pass => textBoxPassword.Text;
         public string Surname => textBoxSurname.Text;
         public string FirstName => textBoxName.Text;
+        public char PasswordChar { get => textBoxPassword.PasswordChar; set => textBoxPassword.PasswordChar = value; }
 
         public SignUpForm()
         {
@@ -42,7 +43,12 @@ namespace EduWatch.Views
 
         private void checkBoxViewPass_CheckedChanged(object sender, EventArgs e)
         {
-            Presenter.OnPasswordVisibleCheckBoxChange();
+            Presenter.OnPasswordVisibleCheckBoxChange();           
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            Presenter.OnCreateButtonClick();
         }
     }
 }

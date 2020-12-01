@@ -14,6 +14,7 @@ namespace EduWatch.Views
         string Pass { get; }
         string FirstName { get; }
         string Surname { get; }
+        char PasswordChar { get; set; }
         
     }
 }

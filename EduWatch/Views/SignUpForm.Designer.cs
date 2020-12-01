@@ -46,12 +46,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Location = new System.Drawing.Point(224, 266);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 18);
+            this.label1.Size = new System.Drawing.Size(157, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Потребителско име:";
             // 
@@ -59,12 +59,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Location = new System.Drawing.Point(80, 326);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 18);
+            this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Име:";
             // 
@@ -72,12 +72,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label3.Location = new System.Drawing.Point(80, 373);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 18);
+            this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Фамилия:";
             // 
@@ -85,12 +85,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.Location = new System.Drawing.Point(224, 326);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 18);
+            this.label4.Size = new System.Drawing.Size(65, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Парола:";
             // 
@@ -99,12 +99,12 @@
             this.checkBoxViewPass.AutoSize = true;
             this.checkBoxViewPass.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxViewPass.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxViewPass.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBoxViewPass.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.checkBoxViewPass.Location = new System.Drawing.Point(227, 371);
-            this.checkBoxViewPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxViewPass.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxViewPass.Name = "checkBoxViewPass";
             this.checkBoxViewPass.Size = new System.Drawing.Size(78, 20);
-            this.checkBoxViewPass.TabIndex = 4;
+            this.checkBoxViewPass.TabIndex = 5;
             this.checkBoxViewPass.Text = "виж парола";
             this.checkBoxViewPass.UseVisualStyleBackColor = false;
             this.checkBoxViewPass.CheckedChanged += new System.EventHandler(this.checkBoxViewPass_CheckedChanged);
@@ -116,12 +116,13 @@
             this.btnCreate.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCreate.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnCreate.Location = new System.Drawing.Point(225, 409);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(157, 52);
-            this.btnCreate.TabIndex = 5;
+            this.btnCreate.TabIndex = 6;
             this.btnCreate.Text = "Създай профил!";
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // label5
             // 
@@ -139,35 +140,36 @@
             // textBoxUsername
             // 
             this.textBoxUsername.Location = new System.Drawing.Point(226, 290);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(156, 20);
-            this.textBoxUsername.TabIndex = 7;
+            this.textBoxUsername.TabIndex = 3;
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(83, 347);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(108, 20);
-            this.textBoxName.TabIndex = 8;
+            this.textBoxName.TabIndex = 1;
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(227, 347);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPassword.MaxLength = 15;
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(155, 20);
-            this.textBoxPassword.TabIndex = 9;
+            this.textBoxPassword.TabIndex = 4;
             // 
             // textBoxSurname
             // 
             this.textBoxSurname.Location = new System.Drawing.Point(82, 393);
-            this.textBoxSurname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSurname.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSurname.Name = "textBoxSurname";
             this.textBoxSurname.Size = new System.Drawing.Size(109, 20);
-            this.textBoxSurname.TabIndex = 10;
+            this.textBoxSurname.TabIndex = 2;
             // 
             // btnCancel
             // 
@@ -178,7 +180,7 @@
             this.btnCancel.Location = new System.Drawing.Point(83, 431);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(109, 30);
-            this.btnCancel.TabIndex = 19;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Отказ";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -203,7 +205,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUpForm";

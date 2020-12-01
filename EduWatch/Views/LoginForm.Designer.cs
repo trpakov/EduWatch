@@ -148,7 +148,8 @@
             this.linkLabelCreateAccount.AutoSize = true;
             this.linkLabelCreateAccount.BackColor = System.Drawing.Color.Transparent;
             this.linkLabelCreateAccount.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabelCreateAccount.LinkColor = System.Drawing.SystemColors.ButtonFace;
+            this.linkLabelCreateAccount.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.linkLabelCreateAccount.LinkColor = System.Drawing.SystemColors.ActiveCaption;
             this.linkLabelCreateAccount.Location = new System.Drawing.Point(95, 386);
             this.linkLabelCreateAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelCreateAccount.Name = "linkLabelCreateAccount";
