@@ -142,7 +142,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(229, 292);
+            this.button2.Location = new System.Drawing.Point(229, 290);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(193, 37);
             this.button2.TabIndex = 10;

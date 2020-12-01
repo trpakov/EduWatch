@@ -246,7 +246,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(84, 438);
+            this.textBox5.Location = new System.Drawing.Point(70, 438);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(175, 106);
