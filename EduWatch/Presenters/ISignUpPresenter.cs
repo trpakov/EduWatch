@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace EduWatch.Presenters
 {
-    public interface ILoginPresenter
+    public interface ISignUpPresenter
     {
-        void OnLoginButtonClick();
-        void OnExitButtonClick();
-        void ShowLoginView();
         void Start();
-        void OnCreateAccountClick();
+        void OnCancelButtonClick();
     }
 }

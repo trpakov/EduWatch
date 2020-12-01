@@ -76,10 +76,11 @@ namespace EduWatch.Views
             Application.Run(this);
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            SignUpForm sign = new SignUpForm();
-            sign.Show();
+            Presenter.OnCreateAccountClick();
         }
+
+        public ISignUpView CreateSignUpView() => new SignUpForm();
     }
 }

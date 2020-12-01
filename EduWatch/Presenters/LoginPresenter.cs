@@ -122,6 +122,14 @@ namespace EduWatch.Presenters
         {
             view.StartApplication();
         }
+
+        public void OnCreateAccountClick()
+        {
+            view.Hide();
+            Views.ISignUpView signUpView = view.CreateSignUpView();
+            ISignUpPresenter signUpPresenter = PresenterFactory.GetSignUpPresenter(signUpView, data, this);
+            signUpPresenter.Start();
+        }
     }
 
 }

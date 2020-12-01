@@ -93,10 +93,12 @@
     <Compile Include="Model\IUser.cs" />
     <Compile Include="Presenters\ILoginPresenter.cs" />
     <Compile Include="Presenters\IParentPresenter.cs" />
+    <Compile Include="Presenters\ISignUpPresenter.cs" />
     <Compile Include="Presenters\ITeacherPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\ParentPresenter.cs" />
     <Compile Include="Presenters\PresenterFactory.cs" />
+    <Compile Include="Presenters\SignUpPresenter.cs" />
     <Compile Include="Presenters\TeacherPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,6 +145,7 @@
     <Compile Include="Views\GradeViewData.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IParentView.cs" />
+    <Compile Include="Views\ISignUpView.cs" />
     <Compile Include="Views\ITeacherView.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="Views\LoginForm.cs">

@@ -7,16 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EduWatch.Presenters;
 
 namespace EduWatch.Views
 {
-    public partial class SignUpForm : Form
+    public partial class SignUpForm : Form, ISignUpView
     {
+        public ISignUpPresenter Presenter { private get; set; }
+
         public SignUpForm()
         {
             InitializeComponent();
         }
 
-       
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Presenter.OnCancelButtonClick();
+        }
+
+        public void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
+        {
+            MessageBox.Show(
+                msg,
+                caption,
+                (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
+                (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
+                );
+        }
     }
 }
