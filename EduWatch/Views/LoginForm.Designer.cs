@@ -149,7 +149,7 @@
             this.linkLabelCreateAccount.BackColor = System.Drawing.Color.Transparent;
             this.linkLabelCreateAccount.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.linkLabelCreateAccount.LinkColor = System.Drawing.SystemColors.ButtonFace;
-            this.linkLabelCreateAccount.Location = new System.Drawing.Point(80, 386);
+            this.linkLabelCreateAccount.Location = new System.Drawing.Point(95, 386);
             this.linkLabelCreateAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelCreateAccount.Name = "linkLabelCreateAccount";
             this.linkLabelCreateAccount.Size = new System.Drawing.Size(65, 36);
@@ -178,7 +178,7 @@
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Вход";

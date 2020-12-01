@@ -13,7 +13,12 @@ namespace EduWatch.Views
 {
     public partial class SignUpForm : Form, ISignUpView
     {
-        public ISignUpPresenter Presenter { private get; set; }
+        public SignUpPresenter Presenter { private get; set; }
+
+        public string Username => textBoxUsername.Text;
+        public string Pass => textBoxPassword.Text;
+        public string Surname => textBoxSurname.Text;
+        public string FirstName => textBoxName.Text;
 
         public SignUpForm()
         {
@@ -33,6 +38,11 @@ namespace EduWatch.Views
                 (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
                 (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
                 );
+        }
+
+        private void checkBoxViewPass_CheckedChanged(object sender, EventArgs e)
+        {
+            Presenter.OnPasswordVisibleCheckBoxChange();
         }
     }
 }

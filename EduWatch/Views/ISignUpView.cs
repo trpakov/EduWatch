@@ -8,6 +8,12 @@ namespace EduWatch.Views
 {
     public interface ISignUpView : IView
     {
-        Presenters.ISignUpPresenter Presenter { set; }
+        Presenters.SignUpPresenter Presenter { set; }
+
+        string Username { get; }
+        string Pass { get; }
+        string FirstName { get; }
+        string Surname { get; }
+        
     }
 }

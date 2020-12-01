@@ -31,5 +31,10 @@ namespace EduWatch.Presenters
         }
 
         public void Start() => view.Show();
+
+        internal void OnPasswordVisibleCheckBoxChange()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
