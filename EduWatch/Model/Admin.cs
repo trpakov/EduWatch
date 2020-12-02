@@ -17,5 +17,7 @@ namespace EduWatch.Model
         public int admin_id { get; set; }
         public string admin_username { get; set; }
         public string admin_password { get; set; }
+        public string admin_firstN { get; set; }
+        public string admin_lastN { get; set; }
     }
 }

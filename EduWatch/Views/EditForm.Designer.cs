@@ -39,6 +39,7 @@
             this.goBackPic = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelNames = new System.Windows.Forms.Panel();
+            this.btnSaveNameChanges = new System.Windows.Forms.Button();
             this.panelPass = new System.Windows.Forms.Panel();
             this.lblPass = new System.Windows.Forms.Label();
             this.lblRepeatPass = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.lblStudentPin = new System.Windows.Forms.Label();
             this.textBoxStudentPin = new System.Windows.Forms.TextBox();
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.btnSaveChanges = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.goBackPic)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelNames.SuspendLayout();
@@ -193,12 +193,27 @@
             this.panelNames.Controls.Add(this.lblFirstName);
             this.panelNames.Controls.Add(this.lblLastName);
             this.panelNames.Controls.Add(this.textBoxFirstName);
-            this.panelNames.Controls.Add(this.btnSaveChanges);
+            this.panelNames.Controls.Add(this.btnSaveNameChanges);
             this.panelNames.Controls.Add(this.textBoxLastName);
-            this.panelNames.Location = new System.Drawing.Point(128, 228);
+            this.panelNames.Location = new System.Drawing.Point(97, 97);
             this.panelNames.Name = "panelNames";
             this.panelNames.Size = new System.Drawing.Size(307, 240);
             this.panelNames.TabIndex = 17;
+            // 
+            // btnSaveNameChanges
+            // 
+            this.btnSaveNameChanges.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSaveNameChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveNameChanges.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveNameChanges.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnSaveNameChanges.Location = new System.Drawing.Point(56, 158);
+            this.btnSaveNameChanges.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSaveNameChanges.Name = "btnSaveNameChanges";
+            this.btnSaveNameChanges.Size = new System.Drawing.Size(193, 39);
+            this.btnSaveNameChanges.TabIndex = 13;
+            this.btnSaveNameChanges.Text = "Запази промените";
+            this.btnSaveNameChanges.UseVisualStyleBackColor = false;
+            this.btnSaveNameChanges.Click += new System.EventHandler(this.btnSaveNameChanges_Click);
             // 
             // panelPass
             // 
@@ -318,20 +333,6 @@
             this.btnAddStudent.Text = "Добави ученик";
             this.btnAddStudent.UseVisualStyleBackColor = false;
             // 
-            // btnSaveChanges
-            // 
-            this.btnSaveChanges.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChanges.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSaveChanges.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnSaveChanges.Location = new System.Drawing.Point(56, 158);
-            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(193, 39);
-            this.btnSaveChanges.TabIndex = 13;
-            this.btnSaveChanges.Text = "Запази промените";
-            this.btnSaveChanges.UseVisualStyleBackColor = false;
-            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +387,6 @@
         private System.Windows.Forms.Label lblStudentPin;
         private System.Windows.Forms.TextBox textBoxStudentPin;
         private System.Windows.Forms.Button btnAddStudent;
-        private System.Windows.Forms.Button btnSaveChanges;
+        private System.Windows.Forms.Button btnSaveNameChanges;
     }
 }

@@ -20,8 +20,10 @@
             <PropertyRef Name="admin_id" />
           </Key>
           <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="admin_username" Type="nvarchar" MaxLength="50" />
-          <Property Name="admin_password" Type="ntext" />
+          <Property Name="admin_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="admin_password" Type="ntext" Nullable="false" />
+          <Property Name="admin_firstN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="admin_lastN" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -224,14 +226,6 @@
           <Property Name="street_num" Type="Int32" />
           <NavigationProperty Name="Students" Relationship="SchoolDBModel.FK_address_id" FromRole="Address" ToRole="Student" />
         </EntityType>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="admin_id" />
-          </Key>
-          <Property Name="admin_id" Type="Int32" Nullable="false" />
-          <Property Name="admin_username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="admin_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Parent">
           <Key>
             <PropertyRef Name="parent_Id" />
@@ -279,7 +273,6 @@
         </Association>
         <EntityContainer Name="SchoolDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
-          <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Parents" EntityType="Self.Parent" />
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <EntitySet Name="Teachers" EntityType="Self.Teacher" />
@@ -314,6 +307,7 @@
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Grade" EntitySet="Grades" />
           </AssociationSet>
+          <EntitySet Name="Admins" EntityType="SchoolDBModel.Admin" />
           </EntityContainer>
         <EntityType Name="Student">
           <Key>
@@ -431,6 +425,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin_password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="admin_firstN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin_lastN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -445,15 +449,6 @@
                 <ScalarProperty Name="city" ColumnName="city" />
                 <ScalarProperty Name="street" ColumnName="street" />
                 <ScalarProperty Name="street_num" ColumnName="street_num" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="SchoolDBModel.Admin">
-              <MappingFragment StoreEntitySet="Admins">
-                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
-                <ScalarProperty Name="admin_username" ColumnName="admin_username" />
-                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -524,6 +519,17 @@
                 <ScalarProperty Name="grade_seen" ColumnName="grade_seen" />
                 <ScalarProperty Name="grade" ColumnName="grade" />
                 <ScalarProperty Name="grade_id" ColumnName="grade_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="SchoolDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="admin_lastN" ColumnName="admin_lastN" />
+                <ScalarProperty Name="admin_firstN" ColumnName="admin_firstN" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+                <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

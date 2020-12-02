@@ -12,7 +12,7 @@ namespace EduWatch.Views
         void Hide();
         void Show();
         void Close();
-        void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK);
+        MessageResult Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK);
     }
 
     // Universal enum with Message icons
@@ -32,5 +32,13 @@ namespace EduWatch.Views
         OKCancel,
         YesNo,
         YesNoCancel
+    }
+
+    public enum MessageResult
+    {
+        OK,
+        Cancel,
+        Yes,
+        No
     }
 }

@@ -13,5 +13,6 @@ namespace EduWatch.Presenters
         void OnChangePassButtonClick();
         void OnAddStudentButtonClick();
         void OnBackButtonClick();
+        void OnSaveNameChangesButtonClick();
     }
 }

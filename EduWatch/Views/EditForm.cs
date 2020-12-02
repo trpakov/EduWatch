@@ -21,7 +21,13 @@ namespace EduWatch.Views
 
         public IEditPresenter Presenter { private get; set; }
 
-        public bool MainDisplayVisible => panelMain.Visible;
+        public bool MainScreenVisible => panelMain.Visible;
+        public string FirstNameTextBoxText { get => textBoxFirstName.Text; set => textBoxFirstName.Text = value; }
+        public string LastNameTextBoxText { get => textBoxLastName.Text; set => textBoxLastName.Text = value; }
+
+        public bool ChangeNameScreenVisible => panelNames.Visible;
+        public bool ChangePassScreenVisible => panelPass.Visible;
+        public bool AddStudentScreenVisible => panelStudent.Visible;
 
         public void DisplayAddStudentScreen()
         {
@@ -55,14 +61,16 @@ namespace EduWatch.Views
             panelMain.BringToFront();
         }
 
-        public void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
+        public MessageResult Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
         {
-            MessageBox.Show(
-                msg,
-                caption,
-                (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
-                (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
-                );
+            var result = MessageBox.Show(
+                    msg,
+                    caption,
+                    (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
+                    (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
+                    );
+
+            return (MessageResult)Enum.Parse(typeof(MessageResult), result.ToString());
         }
 
         private void goBackPic_Click(object sender, EventArgs e)
@@ -100,6 +108,11 @@ namespace EduWatch.Views
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
             Presenter.OnAddStudentButtonClick();
+        }
+
+        private void btnSaveNameChanges_Click(object sender, EventArgs e)
+        {
+            Presenter.OnSaveNameChangesButtonClick();
         }
 
         /*В  зависимост от това кой бутон е натиснат ще се визуализират текстбоксовете със съответстващите им лейбъли като 

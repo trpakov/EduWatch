@@ -49,14 +49,16 @@ namespace EduWatch.Views
             comboBoxSubject.DataSource = subjects;        
         }
 
-        public void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
+        public MessageResult Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
         {
-            MessageBox.Show(
-                msg,
-                caption,
-                (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
-                (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
-                );
+            var result = MessageBox.Show(
+                    msg,
+                    caption,
+                    (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
+                    (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
+                    );
+
+            return (MessageResult)Enum.Parse(typeof(MessageResult), result.ToString());
         }
 
         private void btnExit_Click(object sender, EventArgs e)

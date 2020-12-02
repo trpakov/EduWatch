@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="97587c2026f74332b282bf67c69af90a" Name="Diagram1">
         <EntityTypeShape EntityType="SchoolDBModel.Address" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Admin" Width="1.5" PointX="5.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.Parent" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.Subject" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.Teacher" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
@@ -20,6 +19,7 @@
         <EntityTypeShape EntityType="SchoolDBModel.Grade" Width="1.5" PointX="5.25" PointY="3.5" />
         <AssociationConnector Association="SchoolDBModel.FK_student_id1" />
         <AssociationConnector Association="SchoolDBModel.FK_subject_id" />
+        <EntityTypeShape EntityType="SchoolDBModel.Admin" Width="1.5" PointX="5.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

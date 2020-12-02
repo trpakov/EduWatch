@@ -35,14 +35,16 @@ namespace EduWatch.Views
 
         }
 
-        public void Message(string msg, string caption, MessageIcon msgIcon, MessageButton msgBtn)
+        public MessageResult Message(string msg, string caption, MessageIcon msgIcon, MessageButton msgBtn)
         {
-            MessageBox.Show(
-                msg, 
-                caption, 
-                (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
-                (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
-                );
+            var result = MessageBox.Show(
+                    msg,
+                    caption,
+                    (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
+                    (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
+                    );
+
+            return (MessageResult)Enum.Parse(typeof(MessageResult), result.ToString());
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
