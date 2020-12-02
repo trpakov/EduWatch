@@ -9,5 +9,9 @@ namespace EduWatch.Presenters
     public interface IEditPresenter
     {
         void Start();
+        void OnChangeNamesButtonClick();
+        void OnChangePassButtonClick();
+        void OnAddStudentButtonClick();
+        void OnBackButtonClick();
     }
 }

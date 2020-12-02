@@ -21,10 +21,35 @@ namespace EduWatch.Presenters
             view.Presenter = this;
             this.data = data;
             this.user = user;
+
+            view.DisplayMainScreen();
         }
 
         public EditPresenter(Model.SchoolDBEntities data, Model.IUser user) : this(new Views.EditForm(), data, user) { }
 
         public void Start() => view.ShowAsModal();
+
+        public void OnChangeNamesButtonClick()
+        {
+
+        }
+
+        public void OnChangePassButtonClick()
+        {
+
+        }
+
+        public void OnAddStudentButtonClick()
+        {
+
+        }
+
+        public void OnBackButtonClick()
+        {
+            if (!view.SaveChangesButtonVisible)
+                view.Close();
+            else
+                view.DisplayMainScreen();
+        }
     }
 }

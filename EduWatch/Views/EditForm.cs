@@ -20,12 +20,14 @@ namespace EduWatch.Views
 
         public IEditPresenter Presenter { private get; set; }
 
-        public void DisplayAddStudentScreem()
+        public bool SaveChangesButtonVisible => btnSaveChanges.Visible;
+
+        public void DisplayAddStudentScreen()
         {
             throw new NotImplementedException();
         }
 
-        public void DisplayChangeNameScreem()
+        public void DisplayChangeNameScreen()
         {
             throw new NotImplementedException();
         }
@@ -37,7 +39,11 @@ namespace EduWatch.Views
 
         public void DisplayMainScreen()
         {
-            throw new NotImplementedException();
+            HideAllControls();
+            btnChangeNames.Visible = true;
+            btnChangePass.Visible = true;
+            btnAddStudent.Visible = true;
+            lblLogo.Visible = true;
         }
 
         public void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
@@ -52,12 +58,34 @@ namespace EduWatch.Views
 
         private void goBackPic_Click(object sender, EventArgs e)
         {
-            Close();
+            Presenter.OnBackButtonClick();
         }
 
         public void ShowAsModal()
         {
             ShowDialog();
+        }
+
+        void HideAllControls()
+        {
+            foreach (var btn in Controls.OfType<Button>()) btn.Visible = false;
+            foreach (var tb in Controls.OfType<TextBox>()) tb.Visible = false;
+            foreach (var lbl in Controls.OfType<Label>()) lbl.Visible = false;
+        }
+
+        private void btnChangeNames_Click(object sender, EventArgs e)
+        {
+            Presenter.OnChangeNamesButtonClick();
+        }
+
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+            Presenter.OnChangePassButtonClick();
+        }
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+            Presenter.OnAddStudentButtonClick();
         }
 
         /*В  зависимост от това кой бутон е натиснат ще се визуализират текстбоксовете със съответстващите им лейбъли като 
