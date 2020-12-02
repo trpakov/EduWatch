@@ -29,7 +29,12 @@ namespace EduWatch.Views
 
         public void DisplayChangeNameScreen()
         {
-            throw new NotImplementedException();
+            HideAllControls();
+            lblFirstName.Visible = true;
+            lblLastName.Visible = true;
+            textBoxFirstName.Visible = true;
+            textBoxLastName.Visible = true;
+            btnSaveChanges.Visible = true;
         }
 
         public void DisplayChangePassScreen()
@@ -43,7 +48,7 @@ namespace EduWatch.Views
             btnChangeNames.Visible = true;
             btnChangePass.Visible = true;
             btnAddStudent.Visible = true;
-            lblLogo.Visible = true;
+            foreach (var tb in Controls.OfType<TextBox>()) tb.Text = string.Empty;
         }
 
         public void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
@@ -71,6 +76,7 @@ namespace EduWatch.Views
             foreach (var btn in Controls.OfType<Button>()) btn.Visible = false;
             foreach (var tb in Controls.OfType<TextBox>()) tb.Visible = false;
             foreach (var lbl in Controls.OfType<Label>()) lbl.Visible = false;
+            lblLogo.Visible = true;
         }
 
         private void btnChangeNames_Click(object sender, EventArgs e)
@@ -86,6 +92,11 @@ namespace EduWatch.Views
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
             Presenter.OnAddStudentButtonClick();
+        }
+
+        private void lblLastName_Click(object sender, EventArgs e)
+        {
+
         }
 
         /*В  зависимост от това кой бутон е натиснат ще се визуализират текстбоксовете със съответстващите им лейбъли като 

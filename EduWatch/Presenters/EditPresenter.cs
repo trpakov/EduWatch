@@ -31,7 +31,7 @@ namespace EduWatch.Presenters
 
         public void OnChangeNamesButtonClick()
         {
-
+            view.DisplayChangeNameScreen();
         }
 
         public void OnChangePassButtonClick()

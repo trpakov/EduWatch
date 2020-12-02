@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.lblLogo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.textBoxLastName = new System.Windows.Forms.TextBox();
@@ -60,31 +60,32 @@
             this.lblLogo.Text = "EduWatch";
             this.lblLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblFirstName
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(47, 162);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Име:";
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFirstName.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFirstName.ForeColor = System.Drawing.Color.MintCream;
+            this.lblFirstName.Location = new System.Drawing.Point(143, 128);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(46, 17);
+            this.lblFirstName.TabIndex = 1;
+            this.lblFirstName.Text = "Име:";
             // 
-            // label3
+            // lblLastName
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(249, 160);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Фамилия:";
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.BackColor = System.Drawing.Color.Transparent;
+            this.lblLastName.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblLastName.ForeColor = System.Drawing.Color.MintCream;
+            this.lblLastName.Location = new System.Drawing.Point(143, 185);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(89, 17);
+            this.lblLastName.TabIndex = 2;
+            this.lblLastName.Text = "Фамилия:";
+            this.lblLastName.Click += new System.EventHandler(this.lblLastName_Click);
             // 
             // label4
             // 
@@ -97,18 +98,20 @@
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(86, 163);
+            this.textBoxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxFirstName.Location = new System.Drawing.Point(146, 154);
             this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.Size = new System.Drawing.Size(105, 20);
+            this.textBoxFirstName.Size = new System.Drawing.Size(190, 26);
             this.textBoxFirstName.TabIndex = 4;
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(314, 162);
+            this.textBoxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxLastName.Location = new System.Drawing.Point(146, 211);
             this.textBoxLastName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(112, 20);
+            this.textBoxLastName.Size = new System.Drawing.Size(190, 26);
             this.textBoxLastName.TabIndex = 5;
             // 
             // label5
@@ -126,10 +129,10 @@
             // 
             // textBoxPass1
             // 
-            this.textBoxPass1.Location = new System.Drawing.Point(187, 214);
+            this.textBoxPass1.Location = new System.Drawing.Point(146, 276);
             this.textBoxPass1.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPass1.Name = "textBoxPass1";
-            this.textBoxPass1.Size = new System.Drawing.Size(104, 20);
+            this.textBoxPass1.Size = new System.Drawing.Size(190, 20);
             this.textBoxPass1.TabIndex = 8;
             // 
             // btnChangePass
@@ -187,14 +190,14 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.BackColor = System.Drawing.Color.Transparent;
+            this.btnSaveChanges.BackColor = System.Drawing.SystemColors.Control;
             this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChanges.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSaveChanges.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSaveChanges.Location = new System.Drawing.Point(165, 300);
+            this.btnSaveChanges.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveChanges.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnSaveChanges.Location = new System.Drawing.Point(146, 265);
             this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(152, 46);
+            this.btnSaveChanges.Size = new System.Drawing.Size(190, 39);
             this.btnSaveChanges.TabIndex = 13;
             this.btnSaveChanges.Text = "Запази промените";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
@@ -244,8 +247,8 @@
             this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblLastName);
+            this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblLogo);
             this.Controls.Add(this.btnChangeNames);
             this.Controls.Add(this.btnAddStudent);
@@ -264,8 +267,8 @@
         #endregion
 
         private System.Windows.Forms.Label lblLogo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxFirstName;
         private System.Windows.Forms.TextBox textBoxLastName;
