@@ -32,16 +32,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxFirstName = new System.Windows.Forms.TextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.textBoxPass1 = new System.Windows.Forms.TextBox();
+            this.btnChangePass = new System.Windows.Forms.Button();
+            this.btnAddStudent = new System.Windows.Forms.Button();
+            this.lblRepeatPass = new System.Windows.Forms.Label();
+            this.textBoxPass2 = new System.Windows.Forms.TextBox();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
+            this.btnChangeNames = new System.Windows.Forms.Button();
             this.goBackPic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.goBackPic)).BeginInit();
             this.SuspendLayout();
@@ -52,9 +52,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Brush Script MT", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(207, 57);
+            this.label1.Location = new System.Drawing.Point(155, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 73);
+            this.label1.Size = new System.Drawing.Size(190, 59);
             this.label1.TabIndex = 0;
             this.label1.Text = "EduWatch";
             // 
@@ -64,9 +65,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(63, 199);
+            this.label2.Location = new System.Drawing.Point(47, 162);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 23);
+            this.label2.Size = new System.Drawing.Size(36, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Име:";
             // 
@@ -76,33 +78,37 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(332, 197);
+            this.label3.Location = new System.Drawing.Point(249, 160);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 23);
+            this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Фамилия:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(382, 262);
+            this.label4.Location = new System.Drawing.Point(286, 213);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 17);
+            this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 3;
             // 
-            // textBox1
+            // textBoxFirstName
             // 
-            this.textBox1.Location = new System.Drawing.Point(114, 201);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(139, 22);
-            this.textBox1.TabIndex = 4;
+            this.textBoxFirstName.Location = new System.Drawing.Point(86, 163);
+            this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.Size = new System.Drawing.Size(105, 20);
+            this.textBoxFirstName.TabIndex = 4;
             // 
-            // textBox2
+            // textBoxLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(419, 199);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 22);
-            this.textBox2.TabIndex = 5;
+            this.textBoxLastName.Location = new System.Drawing.Point(314, 162);
+            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(112, 20);
+            this.textBoxLastName.TabIndex = 5;
             // 
             // label5
             // 
@@ -110,125 +116,136 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(271, 239);
+            this.label5.Location = new System.Drawing.Point(203, 194);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 22);
+            this.label5.Size = new System.Drawing.Size(76, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Нова парола:";
             // 
-            // textBox4
+            // textBoxPass1
             // 
-            this.textBox4.Location = new System.Drawing.Point(249, 264);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(138, 22);
-            this.textBox4.TabIndex = 8;
+            this.textBoxPass1.Location = new System.Drawing.Point(187, 214);
+            this.textBoxPass1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPass1.Name = "textBoxPass1";
+            this.textBoxPass1.Size = new System.Drawing.Size(104, 20);
+            this.textBoxPass1.TabIndex = 8;
             // 
-            // button1
+            // btnChangePass
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(253, 239);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 35);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Промени парола";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnChangePass.BackColor = System.Drawing.Color.Transparent;
+            this.btnChangePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePass.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangePass.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChangePass.Location = new System.Drawing.Point(190, 194);
+            this.btnChangePass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Size = new System.Drawing.Size(120, 28);
+            this.btnChangePass.TabIndex = 9;
+            this.btnChangePass.Text = "Промени парола";
+            this.btnChangePass.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnAddStudent
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(229, 290);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(193, 37);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Добави ученик";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAddStudent.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddStudent.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddStudent.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAddStudent.Location = new System.Drawing.Point(172, 236);
+            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddStudent.Name = "btnAddStudent";
+            this.btnAddStudent.Size = new System.Drawing.Size(145, 30);
+            this.btnAddStudent.TabIndex = 10;
+            this.btnAddStudent.Text = "Добави ученик";
+            this.btnAddStudent.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // lblRepeatPass
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(246, 298);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(147, 22);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Повтори паролата:";
+            this.lblRepeatPass.AutoSize = true;
+            this.lblRepeatPass.BackColor = System.Drawing.Color.Transparent;
+            this.lblRepeatPass.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblRepeatPass.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRepeatPass.Location = new System.Drawing.Point(184, 242);
+            this.lblRepeatPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRepeatPass.Name = "lblRepeatPass";
+            this.lblRepeatPass.Size = new System.Drawing.Size(114, 17);
+            this.lblRepeatPass.TabIndex = 11;
+            this.lblRepeatPass.Text = "Повтори паролата:";
             // 
-            // textBox3
+            // textBoxPass2
             // 
-            this.textBox3.Location = new System.Drawing.Point(249, 326);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 22);
-            this.textBox3.TabIndex = 12;
+            this.textBoxPass2.Location = new System.Drawing.Point(187, 265);
+            this.textBoxPass2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPass2.Name = "textBoxPass2";
+            this.textBoxPass2.Size = new System.Drawing.Size(109, 20);
+            this.textBoxPass2.TabIndex = 12;
             // 
-            // button3
+            // btnSaveChanges
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(220, 369);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(202, 56);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Запази промените";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.BackColor = System.Drawing.Color.Transparent;
+            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChanges.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveChanges.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSaveChanges.Location = new System.Drawing.Point(165, 300);
+            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(152, 46);
+            this.btnSaveChanges.TabIndex = 13;
+            this.btnSaveChanges.Text = "Запази промените";
+            this.btnSaveChanges.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnChangeNames
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(204, 181);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(253, 42);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Промени име и фамилия";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnChangeNames.BackColor = System.Drawing.Color.Transparent;
+            this.btnChangeNames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeNames.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangeNames.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChangeNames.Location = new System.Drawing.Point(153, 147);
+            this.btnChangeNames.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangeNames.Name = "btnChangeNames";
+            this.btnChangeNames.Size = new System.Drawing.Size(190, 34);
+            this.btnChangeNames.TabIndex = 14;
+            this.btnChangeNames.Text = "Промени име и фамилия";
+            this.btnChangeNames.UseVisualStyleBackColor = false;
             // 
             // goBackPic
             // 
             this.goBackPic.BackColor = System.Drawing.Color.Transparent;
             this.goBackPic.BackgroundImage = global::EduWatch.Properties.Resources.goback;
             this.goBackPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.goBackPic.Location = new System.Drawing.Point(67, 75);
+            this.goBackPic.Location = new System.Drawing.Point(50, 61);
+            this.goBackPic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.goBackPic.Name = "goBackPic";
-            this.goBackPic.Size = new System.Drawing.Size(31, 25);
+            this.goBackPic.Size = new System.Drawing.Size(23, 20);
             this.goBackPic.TabIndex = 15;
             this.goBackPic.TabStop = false;
             // 
             // EditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(634, 537);
+            this.ClientSize = new System.Drawing.Size(476, 436);
             this.Controls.Add(this.goBackPic);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.btnChangeNames);
+            this.Controls.Add(this.btnSaveChanges);
+            this.Controls.Add(this.textBoxPass2);
+            this.Controls.Add(this.lblRepeatPass);
+            this.Controls.Add(this.btnAddStudent);
+            this.Controls.Add(this.btnChangePass);
+            this.Controls.Add(this.textBoxPass1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxLastName);
+            this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EditForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditForm";
             ((System.ComponentModel.ISupportInitialize)(this.goBackPic)).EndInit();
             this.ResumeLayout(false);
@@ -242,16 +259,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxFirstName;
+        private System.Windows.Forms.TextBox textBoxLastName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBoxPass1;
+        private System.Windows.Forms.Button btnChangePass;
+        private System.Windows.Forms.Button btnAddStudent;
+        private System.Windows.Forms.Label lblRepeatPass;
+        private System.Windows.Forms.TextBox textBoxPass2;
+        private System.Windows.Forms.Button btnSaveChanges;
+        private System.Windows.Forms.Button btnChangeNames;
         private System.Windows.Forms.PictureBox goBackPic;
     }
 }

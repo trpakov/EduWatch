@@ -7,14 +7,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EduWatch.Presenters;
 
 namespace EduWatch.Views
 {
-    public partial class EditForm : Form
+    public partial class EditForm : Form, IEditView
     {
         public EditForm()
         {
             InitializeComponent();
+        }
+
+        public IEditPresenter Presenter { private get; set; }
+
+        public void DisplayAddStudentScreem()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DisplayChangeNameScreem()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DisplayChangePassScreen()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DisplayMainScreen()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
+        {
+            MessageBox.Show(
+                msg,
+                caption,
+                (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
+                (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
+                );
         }
 
         /*В  зависимост от това кой бутон е натиснат ще се визуализират текстбоксовете със съответстващите им лейбъли като 

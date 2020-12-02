@@ -41,7 +41,9 @@
             this.radioButtonGrades = new System.Windows.Forms.RadioButton();
             this.radioButtonNotes = new System.Windows.Forms.RadioButton();
             this.LblName = new System.Windows.Forms.Label();
+            this.settingsPic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsPic)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -221,6 +223,18 @@
             this.LblName.Text = "*името на родителя*";
             this.LblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // settingsPic
+            // 
+            this.settingsPic.BackColor = System.Drawing.Color.Transparent;
+            this.settingsPic.BackgroundImage = global::EduWatch.Properties.Resources.settings_icon;
+            this.settingsPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settingsPic.Location = new System.Drawing.Point(697, 91);
+            this.settingsPic.Margin = new System.Windows.Forms.Padding(2);
+            this.settingsPic.Name = "settingsPic";
+            this.settingsPic.Size = new System.Drawing.Size(50, 50);
+            this.settingsPic.TabIndex = 25;
+            this.settingsPic.TabStop = false;
+            // 
             // ParentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +243,7 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(968, 659);
+            this.Controls.Add(this.settingsPic);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.radioButtonNotes);
             this.Controls.Add(this.radioButtonGrades);
@@ -247,6 +262,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parent";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,5 +283,6 @@
         private System.Windows.Forms.RadioButton radioButtonGrades;
         private System.Windows.Forms.RadioButton radioButtonNotes;
         private System.Windows.Forms.Label LblName;
+        private System.Windows.Forms.PictureBox settingsPic;
     }
 }
