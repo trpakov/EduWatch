@@ -10,7 +10,7 @@ namespace EduWatch.Views
     {
         Presenters.IEditPresenter Presenter { set; }
 
-        bool SaveChangesButtonVisible { get; }
+        bool MainDisplayVisible { get; }
 
         void DisplayMainScreen();
         void DisplayChangeNameScreen();

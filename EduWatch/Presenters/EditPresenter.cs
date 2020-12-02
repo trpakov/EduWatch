@@ -36,17 +36,17 @@ namespace EduWatch.Presenters
 
         public void OnChangePassButtonClick()
         {
-
+            view.DisplayChangePassScreen();
         }
 
         public void OnAddStudentButtonClick()
         {
-
+            view.DisplayAddStudentScreen();
         }
 
         public void OnBackButtonClick()
         {
-            if (!view.SaveChangesButtonVisible)
+            if (view.MainDisplayVisible)
                 view.Close();
             else
                 view.DisplayMainScreen();

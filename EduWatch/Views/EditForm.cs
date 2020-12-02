@@ -16,39 +16,43 @@ namespace EduWatch.Views
         public EditForm()
         {
             InitializeComponent();
+            foreach (var panel in Controls.OfType<Panel>()) panel.Location = new Point(90, 100);
         }
 
         public IEditPresenter Presenter { private get; set; }
 
-        public bool SaveChangesButtonVisible => btnSaveChanges.Visible;
+        public bool MainDisplayVisible => panelMain.Visible;
 
         public void DisplayAddStudentScreen()
         {
-            throw new NotImplementedException();
+            HideAllPanels();
+            ClearText();
+            panelStudent.Visible = true;
+            panelStudent.BringToFront();
         }
 
         public void DisplayChangeNameScreen()
         {
-            HideAllControls();
-            lblFirstName.Visible = true;
-            lblLastName.Visible = true;
-            textBoxFirstName.Visible = true;
-            textBoxLastName.Visible = true;
-            btnSaveChanges.Visible = true;
+            HideAllPanels();
+            ClearText();
+            panelNames.Visible = true;
+            panelNames.BringToFront();
         }
 
         public void DisplayChangePassScreen()
         {
-            throw new NotImplementedException();
+            HideAllPanels();
+            ClearText();
+            panelPass.Visible = true;
+            panelPass.BringToFront();
         }
 
         public void DisplayMainScreen()
         {
-            HideAllControls();
-            btnChangeNames.Visible = true;
-            btnChangePass.Visible = true;
-            btnAddStudent.Visible = true;
-            foreach (var tb in Controls.OfType<TextBox>()) tb.Text = string.Empty;
+            HideAllPanels();
+            ClearText();
+            panelMain.Visible = true;
+            panelMain.BringToFront();
         }
 
         public void Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
@@ -71,12 +75,16 @@ namespace EduWatch.Views
             ShowDialog();
         }
 
-        void HideAllControls()
+        void HideAllPanels()
         {
-            foreach (var btn in Controls.OfType<Button>()) btn.Visible = false;
-            foreach (var tb in Controls.OfType<TextBox>()) tb.Visible = false;
-            foreach (var lbl in Controls.OfType<Label>()) lbl.Visible = false;
-            lblLogo.Visible = true;
+            foreach (var panel in Controls.OfType<Panel>()) panel.Visible = false;
+        }
+
+        void ClearText()
+        {
+            foreach (var panel in Controls.OfType<Panel>())
+                foreach (var tb in panel.Controls.OfType<TextBox>())
+                    tb.Text = string.Empty;
         }
 
         private void btnChangeNames_Click(object sender, EventArgs e)
@@ -92,11 +100,6 @@ namespace EduWatch.Views
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
             Presenter.OnAddStudentButtonClick();
-        }
-
-        private void lblLastName_Click(object sender, EventArgs e)
-        {
-
         }
 
         /*В  зависимост от това кой бутон е натиснат ще се визуализират текстбоксовете със съответстващите им лейбъли като 
