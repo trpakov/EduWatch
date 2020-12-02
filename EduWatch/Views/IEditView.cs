@@ -16,6 +16,9 @@ namespace EduWatch.Views
         bool AddStudentScreenVisible { get; }
         string FirstNameTextBoxText { get; set; }
         string LastNameTextBoxText { get; set; }
+        string OldPassTextBoxText { get; set; }
+        string NewPassTextBoxText { get; set; }
+        string NewPassAgainTextBoxText { get; set; }
 
         void DisplayMainScreen();
         void DisplayChangeNameScreen();

@@ -67,6 +67,11 @@ namespace EduWatch.Presenters
                 }
                 view.DisplayMainScreen();
             }
+            // IF the user is on the Change pass screen
+            else if (view.ChangePassScreenVisible)
+            {
+                view.DisplayMainScreen();
+            }
         }
 
         public void OnSaveNameChangesButtonClick()
@@ -83,11 +88,55 @@ namespace EduWatch.Presenters
             try
             {
                 data.SaveChanges();
-                view.Message("Промените бяха запазени успешно", "Успех", Views.MessageIcon.Information);
+                view.Message("Промените бяха запазени успешно.", "Успех", Views.MessageIcon.Information);
             }
             catch (Exception)
             {
                
+                view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
+            }
+
+            view.DisplayMainScreen();
+        }
+
+        public void OnSavePassChangesButtonClick()
+        {
+            if(view.OldPassTextBoxText == string.Empty || view.NewPassTextBoxText == string.Empty || view.NewPassAgainTextBoxText == string.Empty)
+            {
+                view.Message("Моля, попълнате всички полета.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
+
+            if(!passHasher.Verify(view.OldPassTextBoxText, user.Password))
+            {
+                view.Message("Въвели сте грешна парола. Моля, опитайте отново.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            if(view.NewPassAgainTextBoxText != view.NewPassTextBoxText)
+            {
+                view.Message("Новата парола се различава от нейното потвърждение. Моля, опитайте отново.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            if (view.NewPassTextBoxText == view.OldPassTextBoxText)
+            {
+                view.Message("Новата парола не може да е същата като старата. Моля, опитайте отново.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            user.Password = passHasher.Generate(view.NewPassAgainTextBoxText);
+
+            try
+            {
+                data.SaveChanges();
+                view.Message("Паролата беше променена успешно.", "Успех", Views.MessageIcon.Information);
+            }
+            catch (Exception)
+            {
+
                 view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
             }
 

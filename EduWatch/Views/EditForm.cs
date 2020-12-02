@@ -21,13 +21,17 @@ namespace EduWatch.Views
 
         public IEditPresenter Presenter { private get; set; }
 
-        public bool MainScreenVisible => panelMain.Visible;
         public string FirstNameTextBoxText { get => textBoxFirstName.Text; set => textBoxFirstName.Text = value; }
         public string LastNameTextBoxText { get => textBoxLastName.Text; set => textBoxLastName.Text = value; }
 
+        public bool MainScreenVisible => panelMain.Visible;
         public bool ChangeNameScreenVisible => panelNames.Visible;
         public bool ChangePassScreenVisible => panelPass.Visible;
         public bool AddStudentScreenVisible => panelStudent.Visible;
+
+        public string OldPassTextBoxText { get => textBoxOldPass.Text; set => textBoxOldPass.Text = value; }
+        public string NewPassTextBoxText { get => textBoxPass1.Text; set => textBoxPass1.Text = value; }
+        public string NewPassAgainTextBoxText { get => textBoxPass2.Text; set => textBoxPass2.Text = value; }
 
         public void DisplayAddStudentScreen()
         {
@@ -113,6 +117,11 @@ namespace EduWatch.Views
         private void btnSaveNameChanges_Click(object sender, EventArgs e)
         {
             Presenter.OnSaveNameChangesButtonClick();
+        }
+
+        private void btnSavePassChanges_Click(object sender, EventArgs e)
+        {
+            Presenter.OnSavePassChangesButtonClick();
         }
 
         /*В  зависимост от това кой бутон е натиснат ще се визуализират текстбоксовете със съответстващите им лейбъли като 
