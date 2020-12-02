@@ -41,9 +41,8 @@
             this.radioButtonGrades = new System.Windows.Forms.RadioButton();
             this.radioButtonNotes = new System.Windows.Forms.RadioButton();
             this.LblName = new System.Windows.Forms.Label();
-            this.settingsPic = new System.Windows.Forms.PictureBox();
+            this.btnSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.settingsPic)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -138,7 +137,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.ForeColor = System.Drawing.Color.Brown;
-            this.btnExit.Location = new System.Drawing.Point(765, 99);
+            this.btnExit.Location = new System.Drawing.Point(722, 145);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(109, 30);
             this.btnExit.TabIndex = 18;
@@ -215,7 +214,7 @@
             this.LblName.BackColor = System.Drawing.Color.Transparent;
             this.LblName.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LblName.Location = new System.Drawing.Point(732, 62);
+            this.LblName.Location = new System.Drawing.Point(689, 72);
             this.LblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(174, 23);
@@ -223,17 +222,19 @@
             this.LblName.Text = "*името на родителя*";
             this.LblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // settingsPic
+            // btnSettings
             // 
-            this.settingsPic.BackColor = System.Drawing.Color.Transparent;
-            this.settingsPic.BackgroundImage = global::EduWatch.Properties.Resources.settings_icon;
-            this.settingsPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.settingsPic.Location = new System.Drawing.Point(697, 91);
-            this.settingsPic.Margin = new System.Windows.Forms.Padding(2);
-            this.settingsPic.Name = "settingsPic";
-            this.settingsPic.Size = new System.Drawing.Size(50, 50);
-            this.settingsPic.TabIndex = 25;
-            this.settingsPic.TabStop = false;
+            this.btnSettings.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSettings.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.btnSettings.Location = new System.Drawing.Point(722, 109);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(109, 30);
+            this.btnSettings.TabIndex = 26;
+            this.btnSettings.Text = "Настройки";
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // ParentForm
             // 
@@ -243,7 +244,7 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(968, 659);
-            this.Controls.Add(this.settingsPic);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.radioButtonNotes);
             this.Controls.Add(this.radioButtonGrades);
@@ -262,7 +263,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parent";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.settingsPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,6 +283,6 @@
         private System.Windows.Forms.RadioButton radioButtonGrades;
         private System.Windows.Forms.RadioButton radioButtonNotes;
         private System.Windows.Forms.Label LblName;
-        private System.Windows.Forms.PictureBox settingsPic;
+        private System.Windows.Forms.Button btnSettings;
     }
 }

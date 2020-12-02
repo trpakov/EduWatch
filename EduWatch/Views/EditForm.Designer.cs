@@ -97,7 +97,7 @@
             // textBoxFirstName
             // 
             this.textBoxFirstName.Location = new System.Drawing.Point(86, 163);
-            this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(105, 20);
             this.textBoxFirstName.TabIndex = 4;
@@ -105,7 +105,7 @@
             // textBoxLastName
             // 
             this.textBoxLastName.Location = new System.Drawing.Point(314, 162);
-            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(112, 20);
             this.textBoxLastName.TabIndex = 5;
@@ -126,7 +126,7 @@
             // textBoxPass1
             // 
             this.textBoxPass1.Location = new System.Drawing.Point(187, 214);
-            this.textBoxPass1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPass1.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPass1.Name = "textBoxPass1";
             this.textBoxPass1.Size = new System.Drawing.Size(104, 20);
             this.textBoxPass1.TabIndex = 8;
@@ -138,7 +138,7 @@
             this.btnChangePass.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnChangePass.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnChangePass.Location = new System.Drawing.Point(190, 194);
-            this.btnChangePass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangePass.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.Size = new System.Drawing.Size(120, 28);
             this.btnChangePass.TabIndex = 9;
@@ -152,7 +152,7 @@
             this.btnAddStudent.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAddStudent.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAddStudent.Location = new System.Drawing.Point(172, 236);
-            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(145, 30);
             this.btnAddStudent.TabIndex = 10;
@@ -175,7 +175,7 @@
             // textBoxPass2
             // 
             this.textBoxPass2.Location = new System.Drawing.Point(187, 265);
-            this.textBoxPass2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPass2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPass2.Name = "textBoxPass2";
             this.textBoxPass2.Size = new System.Drawing.Size(109, 20);
             this.textBoxPass2.TabIndex = 12;
@@ -187,7 +187,7 @@
             this.btnSaveChanges.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSaveChanges.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSaveChanges.Location = new System.Drawing.Point(165, 300);
-            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(152, 46);
             this.btnSaveChanges.TabIndex = 13;
@@ -201,7 +201,7 @@
             this.btnChangeNames.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnChangeNames.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnChangeNames.Location = new System.Drawing.Point(153, 147);
-            this.btnChangeNames.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangeNames.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangeNames.Name = "btnChangeNames";
             this.btnChangeNames.Size = new System.Drawing.Size(190, 34);
             this.btnChangeNames.TabIndex = 14;
@@ -214,11 +214,12 @@
             this.goBackPic.BackgroundImage = global::EduWatch.Properties.Resources.goback;
             this.goBackPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.goBackPic.Location = new System.Drawing.Point(50, 61);
-            this.goBackPic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.goBackPic.Margin = new System.Windows.Forms.Padding(2);
             this.goBackPic.Name = "goBackPic";
             this.goBackPic.Size = new System.Drawing.Size(23, 20);
             this.goBackPic.TabIndex = 15;
             this.goBackPic.TabStop = false;
+            this.goBackPic.Click += new System.EventHandler(this.goBackPic_Click);
             // 
             // EditForm
             // 
@@ -243,7 +244,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditForm";

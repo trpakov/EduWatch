@@ -14,5 +14,6 @@ namespace EduWatch.Views
         void DisplayChangeNameScreem();
         void DisplayChangePassScreen();
         void DisplayAddStudentScreem();
+        void ShowAsModal();
     }
 }

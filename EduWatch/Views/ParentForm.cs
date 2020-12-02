@@ -123,5 +123,10 @@ namespace EduWatch.Views
         {
             DisableUnseeingData();
         }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Presenter.OnSettingsButtonClick();
+        }
     }
 }

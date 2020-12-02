@@ -151,5 +151,13 @@ namespace EduWatch.Presenters
             }
             
         }
+
+        internal void OnSettingsButtonClick()
+        {
+            view.Hide();
+            IEditPresenter editPresenter = PresenterFactory.GetEditPresenter(data, user);
+            editPresenter.Start();
+            view.Show();
+        }
     }
 }
