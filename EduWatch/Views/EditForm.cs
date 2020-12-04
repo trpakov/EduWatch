@@ -32,6 +32,8 @@ namespace EduWatch.Views
         public string OldPassTextBoxText { get => textBoxOldPass.Text; set => textBoxOldPass.Text = value; }
         public string NewPassTextBoxText { get => textBoxPass1.Text; set => textBoxPass1.Text = value; }
         public string NewPassAgainTextBoxText { get => textBoxPass2.Text; set => textBoxPass2.Text = value; }
+        public bool AddStudentButtonVisible { get => btnAddStudentScreen.Visible; set => btnAddStudentScreen.Visible = value; }
+        public string StudentPinTextBoxText { get => textBoxStudentPin.Text; set => textBoxStudentPin.Text = value; }
 
         public void DisplayAddStudentScreen()
         {
@@ -124,9 +126,9 @@ namespace EduWatch.Views
             Presenter.OnSavePassChangesButtonClick();
         }
 
-        /*В  зависимост от това кой бутон е натиснат ще се визуализират текстбоксовете със съответстващите им лейбъли като 
-         като при тийчър формата ше се показва  бутона за име и бутона за промяна на парола, а при родителската форма ще се показва и бутона за 
-        добавяне на ученик имаме пикчър бокс за връщане назад, като ако не са цъкнати бутоните се връща към родителската/учителската форма,
-        ако е цъкнат бутон се връща назад към главните три бутона*/
+        private void btnSaveStudent_Click(object sender, EventArgs e)
+        {
+            Presenter.OnSaveStudentButtonClick();
+        }
     }
 }

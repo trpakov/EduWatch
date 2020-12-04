@@ -10,16 +10,16 @@
         <EntityTypeShape EntityType="SchoolDBModel.Subject" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SchoolDBModel.Teacher" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="SchoolDBModel.FK_teacher_id" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SchoolDBModel.Student" Width="1.5" PointX="3" PointY="1.75" />
-        <AssociationConnector Association="SchoolDBModel.FK_address_id" />
-        <AssociationConnector Association="SchoolDBModel.FK_parents_id" />
         <EntityTypeShape EntityType="SchoolDBModel.Note" Width="1.5" PointX="8.25" PointY="4.5" />
         <AssociationConnector Association="SchoolDBModel.FK_notes_subject_id" />
-        <AssociationConnector Association="SchoolDBModel.FK_student_id" />
         <EntityTypeShape EntityType="SchoolDBModel.Grade" Width="1.5" PointX="5.25" PointY="3.5" />
-        <AssociationConnector Association="SchoolDBModel.FK_student_id1" />
         <AssociationConnector Association="SchoolDBModel.FK_subject_id" />
         <EntityTypeShape EntityType="SchoolDBModel.Admin" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SchoolDBModel.Student" Width="1.5" PointX="3" PointY="1.625" />
+        <AssociationConnector Association="SchoolDBModel.FK_address_id" />
+        <AssociationConnector Association="SchoolDBModel.FK_student_id1" />
+        <AssociationConnector Association="SchoolDBModel.FK_student_id" />
+        <AssociationConnector Association="SchoolDBModel.FK_parents_id" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

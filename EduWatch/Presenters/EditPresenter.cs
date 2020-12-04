@@ -23,6 +23,8 @@ namespace EduWatch.Presenters
             this.data = data;
             this.user = user;
 
+            if (user is Model.Teacher) view.AddStudentButtonVisible = false;
+
             view.DisplayMainScreen();
         }
 
@@ -57,7 +59,7 @@ namespace EduWatch.Presenters
             else if (view.ChangeNameScreenVisible)
             {
                 // Warn the user if there are unsaved changes
-                if(view.FirstNameTextBoxText != user.FirstName || view.LastNameTextBoxText != user.LastName)
+                if (view.FirstNameTextBoxText != user.FirstName || view.LastNameTextBoxText != user.LastName)
                 {
                     Views.MessageResult result = view.Message("Направените промени щe бъдат изгубени. Искате ли да продължите?", "Внимание", Views.MessageIcon.Warning, Views.MessageButton.YesNo);
 
@@ -67,11 +69,7 @@ namespace EduWatch.Presenters
                 }
                 view.DisplayMainScreen();
             }
-            // IF the user is on the Change pass screen
-            else if (view.ChangePassScreenVisible)
-            {
-                view.DisplayMainScreen();
-            }
+            else view.DisplayMainScreen();
         }
 
         public void OnSaveNameChangesButtonClick()
@@ -136,7 +134,43 @@ namespace EduWatch.Presenters
             }
             catch (Exception)
             {
+                view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
+            }
 
+            view.DisplayMainScreen();
+        }
+
+        public void OnSaveStudentButtonClick()
+        {
+            if(!Regex.IsMatch(view.StudentPinTextBoxText, @"^\d{10}$"))
+            {
+                view.Message("Моля, въведете валиден единен граждански номер.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            var targetStudent = data.Students.Where(x => x.student_PIN == view.StudentPinTextBoxText).SingleOrDefault();
+
+            if(targetStudent == null)
+            {
+                view.Message("В системата не съществува ученик с това ЕГН.", "Грешка", Views.MessageIcon.Error);
+                return;
+            }
+
+            if (targetStudent.Parent != null)
+            {
+                view.Message("Този ученик вече е свързан със своя родител.", "Грешка", Views.MessageIcon.Error);
+                return;
+            }
+
+            targetStudent.Parent = user as Model.Parent;
+
+            try
+            {
+                data.SaveChanges();
+                view.Message("Ученикът е добавен към вашия профиял Вече може да следите неговия успех.", "Успех", Views.MessageIcon.Information);
+            }
+            catch (Exception)
+            {
                 view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
             }
 

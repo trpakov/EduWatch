@@ -19,6 +19,8 @@ namespace EduWatch.Views
         string OldPassTextBoxText { get; set; }
         string NewPassTextBoxText { get; set; }
         string NewPassAgainTextBoxText { get; set; }
+        bool AddStudentButtonVisible { get; set; }
+        string StudentPinTextBoxText { get; set; }
 
         void DisplayMainScreen();
         void DisplayChangeNameScreen();

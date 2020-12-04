@@ -41,6 +41,8 @@
             this.panelNames = new System.Windows.Forms.Panel();
             this.btnSaveNameChanges = new System.Windows.Forms.Button();
             this.panelPass = new System.Windows.Forms.Panel();
+            this.lblOldPass = new System.Windows.Forms.Label();
+            this.textBoxOldPass = new System.Windows.Forms.TextBox();
             this.lblNewPass = new System.Windows.Forms.Label();
             this.lblRepeatPass = new System.Windows.Forms.Label();
             this.textBoxPass1 = new System.Windows.Forms.TextBox();
@@ -49,9 +51,7 @@
             this.panelStudent = new System.Windows.Forms.Panel();
             this.lblStudentPin = new System.Windows.Forms.Label();
             this.textBoxStudentPin = new System.Windows.Forms.TextBox();
-            this.btnAddStudent = new System.Windows.Forms.Button();
-            this.lblOldPass = new System.Windows.Forms.Label();
-            this.textBoxOldPass = new System.Windows.Forms.TextBox();
+            this.btnSaveStudent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.goBackPic)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelNames.SuspendLayout();
@@ -232,6 +232,29 @@
             this.panelPass.Size = new System.Drawing.Size(307, 257);
             this.panelPass.TabIndex = 18;
             // 
+            // lblOldPass
+            // 
+            this.lblOldPass.AutoSize = true;
+            this.lblOldPass.BackColor = System.Drawing.Color.Transparent;
+            this.lblOldPass.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblOldPass.ForeColor = System.Drawing.Color.MintCream;
+            this.lblOldPass.Location = new System.Drawing.Point(47, 8);
+            this.lblOldPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOldPass.Name = "lblOldPass";
+            this.lblOldPass.Size = new System.Drawing.Size(132, 17);
+            this.lblOldPass.TabIndex = 14;
+            this.lblOldPass.Text = "Стара парола:";
+            // 
+            // textBoxOldPass
+            // 
+            this.textBoxOldPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxOldPass.Location = new System.Drawing.Point(50, 34);
+            this.textBoxOldPass.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxOldPass.Name = "textBoxOldPass";
+            this.textBoxOldPass.PasswordChar = '*';
+            this.textBoxOldPass.Size = new System.Drawing.Size(190, 26);
+            this.textBoxOldPass.TabIndex = 3;
+            // 
             // lblNewPass
             // 
             this.lblNewPass.AutoSize = true;
@@ -298,8 +321,8 @@
             this.panelStudent.BackColor = System.Drawing.Color.Transparent;
             this.panelStudent.Controls.Add(this.lblStudentPin);
             this.panelStudent.Controls.Add(this.textBoxStudentPin);
-            this.panelStudent.Controls.Add(this.btnAddStudent);
-            this.panelStudent.Location = new System.Drawing.Point(29, 333);
+            this.panelStudent.Controls.Add(this.btnSaveStudent);
+            this.panelStudent.Location = new System.Drawing.Point(29, 279);
             this.panelStudent.Name = "panelStudent";
             this.panelStudent.Size = new System.Drawing.Size(307, 240);
             this.panelStudent.TabIndex = 19;
@@ -326,42 +349,20 @@
             this.textBoxStudentPin.Size = new System.Drawing.Size(190, 26);
             this.textBoxStudentPin.TabIndex = 4;
             // 
-            // btnAddStudent
+            // btnSaveStudent
             // 
-            this.btnAddStudent.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddStudent.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddStudent.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnAddStudent.Location = new System.Drawing.Point(56, 94);
-            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(193, 39);
-            this.btnAddStudent.TabIndex = 13;
-            this.btnAddStudent.Text = "Добави ученик";
-            this.btnAddStudent.UseVisualStyleBackColor = false;
-            // 
-            // lblOldPass
-            // 
-            this.lblOldPass.AutoSize = true;
-            this.lblOldPass.BackColor = System.Drawing.Color.Transparent;
-            this.lblOldPass.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblOldPass.ForeColor = System.Drawing.Color.MintCream;
-            this.lblOldPass.Location = new System.Drawing.Point(47, 8);
-            this.lblOldPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOldPass.Name = "lblOldPass";
-            this.lblOldPass.Size = new System.Drawing.Size(132, 17);
-            this.lblOldPass.TabIndex = 14;
-            this.lblOldPass.Text = "Стара парола:";
-            // 
-            // textBoxOldPass
-            // 
-            this.textBoxOldPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxOldPass.Location = new System.Drawing.Point(50, 34);
-            this.textBoxOldPass.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxOldPass.Name = "textBoxOldPass";
-            this.textBoxOldPass.PasswordChar = '*';
-            this.textBoxOldPass.Size = new System.Drawing.Size(190, 26);
-            this.textBoxOldPass.TabIndex = 3;
+            this.btnSaveStudent.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSaveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveStudent.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveStudent.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnSaveStudent.Location = new System.Drawing.Point(56, 94);
+            this.btnSaveStudent.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSaveStudent.Name = "btnSaveStudent";
+            this.btnSaveStudent.Size = new System.Drawing.Size(193, 39);
+            this.btnSaveStudent.TabIndex = 13;
+            this.btnSaveStudent.Text = "Добави ученик";
+            this.btnSaveStudent.UseVisualStyleBackColor = false;
+            this.btnSaveStudent.Click += new System.EventHandler(this.btnSaveStudent_Click);
             // 
             // EditForm
             // 
@@ -416,7 +417,7 @@
         private System.Windows.Forms.Panel panelStudent;
         private System.Windows.Forms.Label lblStudentPin;
         private System.Windows.Forms.TextBox textBoxStudentPin;
-        private System.Windows.Forms.Button btnAddStudent;
+        private System.Windows.Forms.Button btnSaveStudent;
         private System.Windows.Forms.Button btnSaveNameChanges;
         private System.Windows.Forms.Label lblOldPass;
         private System.Windows.Forms.TextBox textBoxOldPass;

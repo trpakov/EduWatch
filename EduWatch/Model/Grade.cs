@@ -22,7 +22,7 @@ namespace EduWatch.Model
         public int subject_Id { get; set; }
         public System.DateTime date { get; set; }
     
-        public virtual Student Student { get; set; }
         public virtual Subject Subject { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

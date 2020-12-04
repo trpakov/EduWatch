@@ -158,6 +158,23 @@ namespace EduWatch.Presenters
             IEditPresenter editPresenter = PresenterFactory.GetEditPresenter(data, user);
             editPresenter.Start();
             view.Show();
+            ResetViewAfterUserChangesTheirProfile();
+            
+        }
+
+        void ResetViewAfterUserChangesTheirProfile()
+        {
+            view.ParentNameLabelText = user.FirstName + ' ' + user.LastName;
+
+            var students = (user as Model.Parent).Students.Select(x => Tuple.Create(x.student_id, x.student_firstN + ' ' + x.student_lastN));
+            view.FillInCorrespondingStudents(students.ToList());
+            view.ComboBoxStudentSelectedIndex = -1;
+            view.ComboboxSubjectSelectedIndex = -1;
+            view.ComboBoxSubjectEnabled = false;
+            view.GradesRadioButtonEnabledState = false;
+            view.NotesRadioButtonEnabledState = false;
+            view.AverageGradeButtonEnabled = false;
+            view.ClearData();
         }
     }
 }
