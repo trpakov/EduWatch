@@ -21,7 +21,7 @@ namespace EduWatch.Presenters
             this.data = data;
 
             // Shows the user what types of accounts are available so they can choose accordingly.
-            view.FillInTypesOfUsers(new string[]{ "Учител", "Родител"});
+            view.FillInTypesOfUsers(new string[]{ "Учител", "Родител", "Администратор"});
         }
 
         // Alternative constructors
@@ -59,6 +59,9 @@ namespace EduWatch.Presenters
                         break;
                     case "Родител":
                         currentUser = data.Parents.Where(x => x.username == view.Username).SingleOrDefault();
+                        break;
+                    case "Администратор":
+                        currentUser = data.Admins.Where(x => x.admin_username == view.Username).SingleOrDefault();
                         break;
                 }
             }
@@ -101,6 +104,15 @@ namespace EduWatch.Presenters
                     Views.IParentView parentView = view.CreateParentView();
                     IParentPresenter parentPresenter = PresenterFactory.GetParentPresenter(parentView, data, currentUser, this);
                     parentPresenter.Start();
+                    break;
+                case Model.UserType.Admin:
+                    // Not implemented
+
+                    //Views.IParentView adminView = view.CreateAdminView();
+                    //IAdminPresenter adminPresenter = PresenterFactory.GetAdminPresenter(adminView, data, currentUser, this);
+                    //adminPresenter.Start();
+                    view.Close();
+                    
                     break;
             }
         }
