@@ -30,23 +30,24 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.comboBoxProfile = new System.Windows.Forms.ComboBox();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.AddDeleteBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBoxUsername = new System.Windows.Forms.ComboBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.firstNTextBox = new System.Windows.Forms.TextBox();
+            this.lastNTextBox = new System.Windows.Forms.TextBox();
+            this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.PINTextBox = new System.Windows.Forms.TextBox();
+            this.subjectsTextBox = new System.Windows.Forms.TextBox();
+            this.adminLabelText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -75,70 +76,70 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Вид профил:";
             // 
-            // comboBox1
+            // comboBoxProfile
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(383, 255);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(308, 24);
-            this.comboBox1.TabIndex = 4;
+            this.comboBoxProfile.FormattingEnabled = true;
+            this.comboBoxProfile.Location = new System.Drawing.Point(383, 255);
+            this.comboBoxProfile.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxProfile.Name = "comboBoxProfile";
+            this.comboBoxProfile.Size = new System.Drawing.Size(308, 24);
+            this.comboBoxProfile.TabIndex = 4;
             // 
-            // button1
+            // addBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(870, 244);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 41);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Добавяне";
-            this.button1.UseVisualStyleBackColor = false;
+            this.addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.addBtn.Location = new System.Drawing.Point(870, 244);
+            this.addBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(145, 41);
+            this.addBtn.TabIndex = 5;
+            this.addBtn.Text = "Добавяне";
+            this.addBtn.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // deleteBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(717, 243);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 41);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Изтриване";
-            this.button2.UseVisualStyleBackColor = false;
+            this.deleteBtn.BackColor = System.Drawing.Color.Red;
+            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.deleteBtn.Location = new System.Drawing.Point(717, 243);
+            this.deleteBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(145, 41);
+            this.deleteBtn.TabIndex = 6;
+            this.deleteBtn.Text = "Изтриване";
+            this.deleteBtn.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // AddDeleteBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(373, 511);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(318, 56);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "ИЗТРИЙ/ДОБАВИ";
-            this.button4.UseVisualStyleBackColor = false;
+            this.AddDeleteBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AddDeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddDeleteBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddDeleteBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddDeleteBtn.Location = new System.Drawing.Point(373, 511);
+            this.AddDeleteBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.AddDeleteBtn.Name = "AddDeleteBtn";
+            this.AddDeleteBtn.Size = new System.Drawing.Size(318, 56);
+            this.AddDeleteBtn.TabIndex = 19;
+            this.AddDeleteBtn.Text = "ИЗТРИЙ/ДОБАВИ";
+            this.AddDeleteBtn.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // exitBtn
             // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.ForeColor = System.Drawing.Color.Red;
-            this.button5.Location = new System.Drawing.Point(898, 127);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 33);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Изход";
-            this.button5.UseVisualStyleBackColor = false;
+            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitBtn.ForeColor = System.Drawing.Color.Red;
+            this.exitBtn.Location = new System.Drawing.Point(898, 127);
+            this.exitBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(100, 33);
+            this.exitBtn.TabIndex = 20;
+            this.exitBtn.Text = "Изход";
+            this.exitBtn.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -152,20 +153,20 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "Потребителско име:";
             // 
-            // comboBox2
+            // comboBoxUsername
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(71, 301);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(206, 24);
-            this.comboBox2.TabIndex = 22;
+            this.comboBoxUsername.FormattingEnabled = true;
+            this.comboBoxUsername.Location = new System.Drawing.Point(71, 301);
+            this.comboBoxUsername.Name = "comboBoxUsername";
+            this.comboBoxUsername.Size = new System.Drawing.Size(206, 24);
+            this.comboBoxUsername.TabIndex = 22;
             // 
-            // textBox1
+            // usernameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(70, 304);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 22);
-            this.textBox1.TabIndex = 23;
+            this.usernameTextBox.Location = new System.Drawing.Point(70, 303);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(206, 22);
+            this.usernameTextBox.TabIndex = 23;
             // 
             // label4
             // 
@@ -203,27 +204,27 @@
             this.label6.TabIndex = 26;
             this.label6.Text = "Предмет:";
             // 
-            // textBox2
+            // firstNTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(448, 378);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 22);
-            this.textBox2.TabIndex = 27;
+            this.firstNTextBox.Location = new System.Drawing.Point(448, 378);
+            this.firstNTextBox.Name = "firstNTextBox";
+            this.firstNTextBox.Size = new System.Drawing.Size(169, 22);
+            this.firstNTextBox.TabIndex = 27;
             // 
-            // textBox3
+            // lastNTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(445, 438);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(172, 22);
-            this.textBox3.TabIndex = 28;
+            this.lastNTextBox.Location = new System.Drawing.Point(445, 438);
+            this.lastNTextBox.Name = "lastNTextBox";
+            this.lastNTextBox.Size = new System.Drawing.Size(172, 22);
+            this.lastNTextBox.TabIndex = 28;
             // 
-            // comboBox3
+            // comboBoxSubject
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(71, 376);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(188, 24);
-            this.comboBox3.TabIndex = 29;
+            this.comboBoxSubject.FormattingEnabled = true;
+            this.comboBoxSubject.Location = new System.Drawing.Point(71, 376);
+            this.comboBoxSubject.Name = "comboBoxSubject";
+            this.comboBoxSubject.Size = new System.Drawing.Size(188, 24);
+            this.comboBoxSubject.TabIndex = 29;
             // 
             // label7
             // 
@@ -237,20 +238,32 @@
             this.label7.TabIndex = 30;
             this.label7.Text = "ЕГН:";
             // 
-            // textBox4
+            // PINTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(84, 438);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(154, 22);
-            this.textBox4.TabIndex = 31;
+            this.PINTextBox.Location = new System.Drawing.Point(84, 438);
+            this.PINTextBox.Name = "PINTextBox";
+            this.PINTextBox.Size = new System.Drawing.Size(154, 22);
+            this.PINTextBox.TabIndex = 31;
             // 
-            // textBox5
+            // subjectsTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(70, 438);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(175, 106);
-            this.textBox5.TabIndex = 32;
+            this.subjectsTextBox.Location = new System.Drawing.Point(70, 438);
+            this.subjectsTextBox.Multiline = true;
+            this.subjectsTextBox.Name = "subjectsTextBox";
+            this.subjectsTextBox.Size = new System.Drawing.Size(175, 106);
+            this.subjectsTextBox.TabIndex = 32;
+            // 
+            // adminLabelText
+            // 
+            this.adminLabelText.AutoSize = true;
+            this.adminLabelText.BackColor = System.Drawing.Color.Transparent;
+            this.adminLabelText.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.adminLabelText.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.adminLabelText.Location = new System.Drawing.Point(916, 92);
+            this.adminLabelText.Name = "adminLabelText";
+            this.adminLabelText.Size = new System.Drawing.Size(54, 24);
+            this.adminLabelText.TabIndex = 33;
+            this.adminLabelText.Text = "label8";
             // 
             // AdminForm
             // 
@@ -260,23 +273,24 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 652);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.adminLabelText);
+            this.Controls.Add(this.subjectsTextBox);
+            this.Controls.Add(this.PINTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.comboBoxSubject);
+            this.Controls.Add(this.lastNTextBox);
+            this.Controls.Add(this.firstNTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.usernameTextBox);
+            this.Controls.Add(this.comboBoxUsername);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.AddDeleteBtn);
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.addBtn);
+            this.Controls.Add(this.comboBoxProfile);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -291,22 +305,23 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox comboBoxProfile;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button AddDeleteBtn;
+        private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBoxUsername;
+        private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox firstNTextBox;
+        private System.Windows.Forms.TextBox lastNTextBox;
+        private System.Windows.Forms.ComboBox comboBoxSubject;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox PINTextBox;
+        private System.Windows.Forms.TextBox subjectsTextBox;
+        private System.Windows.Forms.Label adminLabelText;
     }
 }

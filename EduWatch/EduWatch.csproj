@@ -91,7 +91,9 @@
       <DependentUpon>SchoolDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\IUser.cs" />
+    <Compile Include="Presenters\AdminPresenter.cs" />
     <Compile Include="Presenters\EditPresenter.cs" />
+    <Compile Include="Presenters\IAdminPresenter.cs" />
     <Compile Include="Presenters\IEditPresenter.cs" />
     <Compile Include="Presenters\ILoginPresenter.cs" />
     <Compile Include="Presenters\IParentPresenter.cs" />
@@ -145,6 +147,7 @@
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\GradeViewData.cs" />
+    <Compile Include="Views\IAdminView.cs" />
     <Compile Include="Views\IEditView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IParentView.cs" />
