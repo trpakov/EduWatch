@@ -40,14 +40,15 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.subject1gradeLabel = new System.Windows.Forms.Label();
             this.firstNTextBox = new System.Windows.Forms.TextBox();
             this.lastNTextBox = new System.Windows.Forms.TextBox();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.PIN1subjectLabel = new System.Windows.Forms.Label();
             this.PINTextBox = new System.Windows.Forms.TextBox();
             this.subjectsTextBox = new System.Windows.Forms.TextBox();
             this.adminLabelText = new System.Windows.Forms.Label();
+            this.comboBoxGrade = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -192,17 +193,17 @@
             this.label5.TabIndex = 25;
             this.label5.Text = "Фамилия:";
             // 
-            // label6
+            // subject1gradeLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(118, 351);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 24);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Предмет:";
+            this.subject1gradeLabel.AutoSize = true;
+            this.subject1gradeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.subject1gradeLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.subject1gradeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.subject1gradeLabel.Location = new System.Drawing.Point(118, 351);
+            this.subject1gradeLabel.Name = "subject1gradeLabel";
+            this.subject1gradeLabel.Size = new System.Drawing.Size(88, 24);
+            this.subject1gradeLabel.TabIndex = 26;
+            this.subject1gradeLabel.Text = "Предмет:";
             // 
             // firstNTextBox
             // 
@@ -226,17 +227,17 @@
             this.comboBoxSubject.Size = new System.Drawing.Size(188, 24);
             this.comboBoxSubject.TabIndex = 29;
             // 
-            // label7
+            // PIN1subjectLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(137, 411);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 24);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "ЕГН:";
+            this.PIN1subjectLabel.AutoSize = true;
+            this.PIN1subjectLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PIN1subjectLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PIN1subjectLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.PIN1subjectLabel.Location = new System.Drawing.Point(137, 411);
+            this.PIN1subjectLabel.Name = "PIN1subjectLabel";
+            this.PIN1subjectLabel.Size = new System.Drawing.Size(47, 24);
+            this.PIN1subjectLabel.TabIndex = 30;
+            this.PIN1subjectLabel.Text = "ЕГН:";
             // 
             // PINTextBox
             // 
@@ -247,7 +248,7 @@
             // 
             // subjectsTextBox
             // 
-            this.subjectsTextBox.Location = new System.Drawing.Point(70, 438);
+            this.subjectsTextBox.Location = new System.Drawing.Point(71, 438);
             this.subjectsTextBox.Multiline = true;
             this.subjectsTextBox.Name = "subjectsTextBox";
             this.subjectsTextBox.Size = new System.Drawing.Size(175, 106);
@@ -259,11 +260,19 @@
             this.adminLabelText.BackColor = System.Drawing.Color.Transparent;
             this.adminLabelText.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.adminLabelText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.adminLabelText.Location = new System.Drawing.Point(916, 92);
+            this.adminLabelText.Location = new System.Drawing.Point(894, 92);
             this.adminLabelText.Name = "adminLabelText";
             this.adminLabelText.Size = new System.Drawing.Size(54, 24);
             this.adminLabelText.TabIndex = 33;
             this.adminLabelText.Text = "label8";
+            // 
+            // comboBoxGrade
+            // 
+            this.comboBoxGrade.FormattingEnabled = true;
+            this.comboBoxGrade.Location = new System.Drawing.Point(79, 376);
+            this.comboBoxGrade.Name = "comboBoxGrade";
+            this.comboBoxGrade.Size = new System.Drawing.Size(180, 24);
+            this.comboBoxGrade.TabIndex = 34;
             // 
             // AdminForm
             // 
@@ -273,14 +282,15 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 652);
+            this.Controls.Add(this.comboBoxGrade);
             this.Controls.Add(this.adminLabelText);
             this.Controls.Add(this.subjectsTextBox);
             this.Controls.Add(this.PINTextBox);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.PIN1subjectLabel);
             this.Controls.Add(this.comboBoxSubject);
             this.Controls.Add(this.lastNTextBox);
             this.Controls.Add(this.firstNTextBox);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.subject1gradeLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.usernameTextBox);
@@ -315,13 +325,14 @@
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label subject1gradeLabel;
         private System.Windows.Forms.TextBox firstNTextBox;
         private System.Windows.Forms.TextBox lastNTextBox;
         private System.Windows.Forms.ComboBox comboBoxSubject;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label PIN1subjectLabel;
         private System.Windows.Forms.TextBox PINTextBox;
         private System.Windows.Forms.TextBox subjectsTextBox;
         private System.Windows.Forms.Label adminLabelText;
+        private System.Windows.Forms.ComboBox comboBoxGrade;
     }
 }

@@ -106,13 +106,9 @@ namespace EduWatch.Presenters
                     parentPresenter.Start();
                     break;
                 case Model.UserType.Admin:
-                    // Not implemented
-
-                    //Views.IParentView adminView = view.CreateAdminView();
-                    //IAdminPresenter adminPresenter = PresenterFactory.GetAdminPresenter(adminView, data, currentUser, this);
-                    //adminPresenter.Start();
-                    view.Close();
-                    
+                    Views.IAdminView adminView = view.CreateAdminView();
+                    IAdminPresenter adminPresenter = PresenterFactory.GetAdminPresenter(adminView, data, currentUser, this);
+                    adminPresenter.Start();                    
                     break;
             }
         }

@@ -13,6 +13,6 @@ namespace EduWatch.Presenters
         public static ILoginPresenter GetLoginPresenter() => new LoginPresenter();
         public static ISignUpPresenter GetSignUpPresenter(Views.ISignUpView view, Model.SchoolDBEntities data, ILoginPresenter loginPresenter) => new SignUpPresenter(view, data, loginPresenter);
         public static IEditPresenter GetEditPresenter( Model.SchoolDBEntities data, Model.IUser currentUser) => new EditPresenter(data, currentUser);
-        public static IAdminPresenter GetAdminPresenter(Views.IAdminView view, Model.SchoolDBEntities data, IAdminPresenter adminPresenter) => new AdminPresenter(view, data, adminPresenter);
+        public static IAdminPresenter GetAdminPresenter(Views.IAdminView view, Model.SchoolDBEntities data, Model.IUser currentUser, ILoginPresenter loginPresenter) => new AdminPresenter(view, data,currentUser, loginPresenter);
     }
 }

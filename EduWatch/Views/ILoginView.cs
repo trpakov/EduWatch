@@ -19,6 +19,7 @@ namespace EduWatch.Views
         IParentView CreateParentView();
         ITeacherView CreateTeacherView();
         ISignUpView CreateSignUpView();
+        IAdminView CreateAdminView();
         void StartApplication();
    
     }

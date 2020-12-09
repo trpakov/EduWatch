@@ -24,17 +24,6 @@ namespace EduWatch.Views
             InitializeComponent();
         }
 
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public MessageResult Message(string msg, string caption, MessageIcon msgIcon, MessageButton msgBtn)
         {
             var result = MessageBox.Show(
@@ -69,8 +58,8 @@ namespace EduWatch.Views
         }
 
         public IParentView CreateParentView() => new ParentForm();
-
         public ITeacherView CreateTeacherView() => new TeacherForm();
+        public IAdminView CreateAdminView() => new AdminForm();
 
         public void StartApplication()
         {

@@ -20,6 +20,15 @@ namespace EduWatch.Views
 
         public AdminPresenter Presenter { private get; set; }
         public string AdminLabelText { get => adminLabelText.Text; set => adminLabelText.Text = value; }
+        public string ComboBoxProfile { get => comboBoxProfile.Text; set => comboBoxProfile.Text = value; }
+        public string FirstNTextBox { get => firstNTextBox.Text; set => firstNTextBox.Text = value; }
+        public string LastNTextBox { get => lastNTextBox.Text; set => lastNTextBox.Text = value; }
+        public string UserNameTextBox { get => usernameTextBox.Text; set => usernameTextBox.Text = value; }
+        public string ComboBoxUserName { get => comboBoxUsername.Text; set => comboBoxUsername.Text=value; }
+        public string ComboBoxSubject {get=> comboBoxSubject.Text ; set => comboBoxSubject.Text=value; }
+        public string SubjectTextBox { get => subjectsTextBox.Text; set => subjectsTextBox.Text=value; }
+        public string ComboBoxGrade { get => comboBoxGrade.Text;  set => comboBoxGrade.Text=value; }
+        string IAdminView.PINTextBox { get => PINTextBox.Text; set => PINTextBox.Text=value; }
 
         public MessageResult Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
         {
