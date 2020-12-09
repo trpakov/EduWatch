@@ -10,5 +10,10 @@ namespace EduWatch.Presenters
     {
         void Start();
         void OnExitButtonClick();
+        void OnStudentSelection();
+        void OnGradesButtonClick();
+        void OnSubjectSelection();
+        void OnAverageGradeButtonClick();
+        void OnSettingsButtonClick();
     }
 }

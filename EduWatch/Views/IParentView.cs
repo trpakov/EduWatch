@@ -8,7 +8,7 @@ namespace EduWatch.Views
 {
     public interface IParentView : IView
     {
-        Presenters.ParentPresenter Presenter { set; }
+        Presenters.IParentPresenter Presenter { set; }
         string ParentNameLabelText { get; set; }
         int ComboBoxStudentSelectedIndex { get; set; }
         int ComboboxSubjectSelectedIndex { get; set; }

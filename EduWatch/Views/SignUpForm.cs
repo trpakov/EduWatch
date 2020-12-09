@@ -13,7 +13,7 @@ namespace EduWatch.Views
 {
     public partial class SignUpForm : Form, ISignUpView
     {
-        public SignUpPresenter Presenter { private get; set; }
+        public ISignUpPresenter Presenter { private get; set; }
 
         public string Username => textBoxUsername.Text;
         public string Pass => textBoxPassword.Text;

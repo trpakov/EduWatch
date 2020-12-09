@@ -10,5 +10,7 @@ namespace EduWatch.Presenters
     {
         void Start();
         void OnCancelButtonClick();
+        void OnCreateButtonClick();
+        void OnPasswordVisibleCheckBoxChange();
     }
 }

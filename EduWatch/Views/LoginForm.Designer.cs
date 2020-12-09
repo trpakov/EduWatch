@@ -46,7 +46,6 @@
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(175, 20);
             this.userNameTextBox.TabIndex = 0;
-            this.userNameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // passwordTextBox
             // 

@@ -53,7 +53,7 @@ namespace EduWatch.Presenters
             loginPresenter.ShowLoginView();
         }
 
-        internal void OnStudentSelection()
+        public void OnStudentSelection()
         {
             if (view.ComboBoxStudentSelectedIndex == -1) return;
 
@@ -75,14 +75,14 @@ namespace EduWatch.Presenters
             view.ClearData();
         }
 
-        internal void OnGradesButtonClick()
+        public void OnGradesButtonClick()
         {
             SaveChanges(true);
             PrepareDataForView();
             if (view.SelectedGradesView) view.AverageGradeButtonEnabled = true; else view.AverageGradeButtonEnabled = false;
         }
 
-        internal void OnSubjectSelection()
+        public void OnSubjectSelection()
         {
             // Get selected subject
             currentSubject = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single();
@@ -115,7 +115,7 @@ namespace EduWatch.Presenters
             view.FormatDataDisplay();
         }
 
-        internal void OnAverageGradeButtonClick()
+        public void OnAverageGradeButtonClick()
         {
             view.AverageGradeText = currentGrades.Average(x => x.grade).ToString();
         }
@@ -152,7 +152,7 @@ namespace EduWatch.Presenters
             
         }
 
-        internal void OnSettingsButtonClick()
+        public void OnSettingsButtonClick()
         {
             view.Hide();
             IEditPresenter editPresenter = PresenterFactory.GetEditPresenter(data, user);
