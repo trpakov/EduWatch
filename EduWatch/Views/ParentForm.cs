@@ -19,7 +19,7 @@ namespace EduWatch.Views
             InitializeComponent();
         }
 
-        public ParentPresenter Presenter { private get; set; }
+        public IParentPresenter Presenter { private get; set; }
         public string ParentNameLabelText { get => LblName.Text; set => LblName.Text = value; }
         public int ComboBoxStudentSelectedIndex { get => comboBoxStudent.SelectedIndex; set => comboBoxStudent.SelectedIndex = value; }
         public int SelectedStudentID => (int)comboBoxStudent.SelectedValue;

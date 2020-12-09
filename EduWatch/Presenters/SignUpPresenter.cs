@@ -35,12 +35,12 @@ namespace EduWatch.Presenters
 
         public void Start() => view.Show();
 
-        internal void OnPasswordVisibleCheckBoxChange()
+        public void OnPasswordVisibleCheckBoxChange()
         {
             view.PasswordChar = view.PasswordChar == '*' ? '\0' : '*';
         }
 
-        internal void OnCreateButtonClick()
+        public void OnCreateButtonClick()
         {
             if(view.Username == string.Empty)
             {
