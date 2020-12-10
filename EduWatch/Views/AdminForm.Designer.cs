@@ -33,13 +33,13 @@
             this.comboBoxProfile = new System.Windows.Forms.ComboBox();
             this.addBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
-            this.AddDeleteBtn = new System.Windows.Forms.Button();
+            this.DeleteInfoBTN = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.userNameLabel = new System.Windows.Forms.Label();
             this.comboBoxUsername = new System.Windows.Forms.ComboBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.firstNLabel = new System.Windows.Forms.Label();
+            this.LastNLabel = new System.Windows.Forms.Label();
             this.subject1gradeLabel = new System.Windows.Forms.Label();
             this.firstNTextBox = new System.Windows.Forms.TextBox();
             this.lastNTextBox = new System.Windows.Forms.TextBox();
@@ -49,6 +49,7 @@
             this.subjectsTextBox = new System.Windows.Forms.TextBox();
             this.adminLabelText = new System.Windows.Forms.Label();
             this.comboBoxGrade = new System.Windows.Forms.ComboBox();
+            this.AddInfoBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -114,19 +115,19 @@
             this.deleteBtn.Text = "Изтриване";
             this.deleteBtn.UseVisualStyleBackColor = false;
             // 
-            // AddDeleteBtn
+            // DeleteInfoBTN
             // 
-            this.AddDeleteBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AddDeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddDeleteBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddDeleteBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.AddDeleteBtn.Location = new System.Drawing.Point(373, 511);
-            this.AddDeleteBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.AddDeleteBtn.Name = "AddDeleteBtn";
-            this.AddDeleteBtn.Size = new System.Drawing.Size(318, 56);
-            this.AddDeleteBtn.TabIndex = 19;
-            this.AddDeleteBtn.Text = "ИЗТРИЙ/ДОБАВИ";
-            this.AddDeleteBtn.UseVisualStyleBackColor = false;
+            this.DeleteInfoBTN.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteInfoBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteInfoBTN.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteInfoBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.DeleteInfoBTN.Location = new System.Drawing.Point(373, 511);
+            this.DeleteInfoBTN.Margin = new System.Windows.Forms.Padding(4);
+            this.DeleteInfoBTN.Name = "DeleteInfoBTN";
+            this.DeleteInfoBTN.Size = new System.Drawing.Size(318, 56);
+            this.DeleteInfoBTN.TabIndex = 19;
+            this.DeleteInfoBTN.Text = "ИЗТРИЙ";
+            this.DeleteInfoBTN.UseVisualStyleBackColor = false;
             // 
             // exitBtn
             // 
@@ -142,17 +143,17 @@
             this.exitBtn.Text = "Изход";
             this.exitBtn.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // userNameLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(65, 271);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(211, 29);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Потребителско име:";
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.userNameLabel.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userNameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.userNameLabel.Location = new System.Drawing.Point(65, 271);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(211, 29);
+            this.userNameLabel.TabIndex = 21;
+            this.userNameLabel.Text = "Потребителско име:";
             // 
             // comboBoxUsername
             // 
@@ -169,29 +170,29 @@
             this.usernameTextBox.Size = new System.Drawing.Size(206, 22);
             this.usernameTextBox.TabIndex = 23;
             // 
-            // label4
+            // firstNLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(508, 351);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 24);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Име:";
+            this.firstNLabel.AutoSize = true;
+            this.firstNLabel.BackColor = System.Drawing.Color.Transparent;
+            this.firstNLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstNLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.firstNLabel.Location = new System.Drawing.Point(508, 351);
+            this.firstNLabel.Name = "firstNLabel";
+            this.firstNLabel.Size = new System.Drawing.Size(47, 24);
+            this.firstNLabel.TabIndex = 24;
+            this.firstNLabel.Text = "Име:";
             // 
-            // label5
+            // LastNLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(486, 411);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 24);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Фамилия:";
+            this.LastNLabel.AutoSize = true;
+            this.LastNLabel.BackColor = System.Drawing.Color.Transparent;
+            this.LastNLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LastNLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.LastNLabel.Location = new System.Drawing.Point(486, 411);
+            this.LastNLabel.Name = "LastNLabel";
+            this.LastNLabel.Size = new System.Drawing.Size(84, 24);
+            this.LastNLabel.TabIndex = 25;
+            this.LastNLabel.Text = "Фамилия:";
             // 
             // subject1gradeLabel
             // 
@@ -274,6 +275,20 @@
             this.comboBoxGrade.Size = new System.Drawing.Size(180, 24);
             this.comboBoxGrade.TabIndex = 34;
             // 
+            // AddInfoBTN
+            // 
+            this.AddInfoBTN.BackColor = System.Drawing.Color.Transparent;
+            this.AddInfoBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddInfoBTN.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddInfoBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddInfoBTN.Location = new System.Drawing.Point(373, 511);
+            this.AddInfoBTN.Margin = new System.Windows.Forms.Padding(4);
+            this.AddInfoBTN.Name = "AddInfoBTN";
+            this.AddInfoBTN.Size = new System.Drawing.Size(318, 56);
+            this.AddInfoBTN.TabIndex = 35;
+            this.AddInfoBTN.Text = "Добави";
+            this.AddInfoBTN.UseVisualStyleBackColor = false;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -282,6 +297,7 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 652);
+            this.Controls.Add(this.AddInfoBTN);
             this.Controls.Add(this.comboBoxGrade);
             this.Controls.Add(this.adminLabelText);
             this.Controls.Add(this.subjectsTextBox);
@@ -291,13 +307,13 @@
             this.Controls.Add(this.lastNTextBox);
             this.Controls.Add(this.firstNTextBox);
             this.Controls.Add(this.subject1gradeLabel);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.LastNLabel);
+            this.Controls.Add(this.firstNLabel);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.comboBoxUsername);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.exitBtn);
-            this.Controls.Add(this.AddDeleteBtn);
+            this.Controls.Add(this.DeleteInfoBTN);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.comboBoxProfile);
@@ -318,13 +334,13 @@
         private System.Windows.Forms.ComboBox comboBoxProfile;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button AddDeleteBtn;
+        private System.Windows.Forms.Button DeleteInfoBTN;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.ComboBox comboBoxUsername;
         private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label firstNLabel;
+        private System.Windows.Forms.Label LastNLabel;
         private System.Windows.Forms.Label subject1gradeLabel;
         private System.Windows.Forms.TextBox firstNTextBox;
         private System.Windows.Forms.TextBox lastNTextBox;
@@ -334,5 +350,6 @@
         private System.Windows.Forms.TextBox subjectsTextBox;
         private System.Windows.Forms.Label adminLabelText;
         private System.Windows.Forms.ComboBox comboBoxGrade;
+        private System.Windows.Forms.Button AddInfoBTN;
     }
 }

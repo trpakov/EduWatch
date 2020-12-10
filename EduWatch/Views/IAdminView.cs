@@ -20,10 +20,37 @@ namespace EduWatch.Views
         string SubjectTextBox { get; set; }
         string ComboBoxGrade { get; set; }
         string PINTextBox { get; set; }
+        int ComboBoxSubjectSelectedIndex { get; set; }
+        int ComboBoxUserNameSelectedIndex { get; set; }
+        int SelectedSubjectID { get; }
+        int SelectedUserNameID { get; }
         string typeOfProfile { get;}
-        void FillInProfile(string[] gprofiles);
+        bool isbtnDeleteVisible { get; }
+        bool isbtnAddVisible { get; }
+        bool isUserNameTextBoxVisible { get; }
+        bool isUserNameComboBoxVisible { get; }
+        bool isPINTextBoxVisible { get; }
+        bool isSubjectComboBoxVisible { get; }
+        bool isSubjectTextBoxVisible { get; }
+        bool isBTNAddisible { get; }
+        bool isBTNDeleteVisible { get; }
+        bool isFirstNTextBoxVisible { get; }
+        bool isLastNTextBoxVisible { get; }
+        bool isSubjectGradeLabelVisible { get; }
+        bool isPINSubjectLabelVisible { get; }
+
+        void FillInProfile(string[] typeOfProfiles);
         void FillInWhichGrade(string[] grade);
 
+        void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects);
+        void FillInCorrespondingUserNames(List<Tuple<int, string>> usernames);
+        void AddTeacher();
+        void AddStudent();
+        void DeleteTeacher();
+        void DeleteStudent();
+        void DeleteParent();
+        void AdminStartView();
+ 
 
 
     }

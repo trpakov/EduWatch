@@ -39,8 +39,6 @@ namespace EduWatch.Presenters
         }
         public void OnDeleteProfileSelection()
         {
-
-            //Model.IUser currentUser = null;
             string typeOfProfile = view.typeOfProfile;
            
                 switch (typeOfProfile)
@@ -49,11 +47,28 @@ namespace EduWatch.Presenters
                         view.Message("Моля, посочете вида потребител.", "Внимание", Views.MessageIcon.Warning);
                         return;
                     case "Учител":
+                    var teachers = teacher.username;
+                   // view.FIllInCorrespondingUserNames(teachers.ToList());
+                    view.ComboBoxSubjectSelectedIndex = -1;
+                    try
+                    {
+                        data.SaveChanges();
+                        view.Message("Промените бяха запазени успешно.", "Успех", Views.MessageIcon.Information);
+                    }
+                    catch (Exception)
+                    {
+
+                        view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
+                    }
+
+                    view.AdminStartView();
+
+                    break;
+                    case "Родител":
 
                         break;
-                    case "Родител":
-                        break;
                     case "Ученик":
+
 
                         break;
                 }
@@ -64,7 +79,7 @@ namespace EduWatch.Presenters
 
         }
    
-        public void Start() => view.Show();
+        public void Start() => view.AdminStartView();
 
         public void OnExitButtonClick()
         {
