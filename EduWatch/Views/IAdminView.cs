@@ -42,6 +42,7 @@ namespace EduWatch.Views
         bool isPINLabelVisible { get; }
         bool isPasswordTextBoxVisible { get; }
         bool isPasswordLabelVisible { get; }
+        bool isCheckBtnVisible { get; }
 
 
         void FillInProfile(string[] typeOfProfiles);

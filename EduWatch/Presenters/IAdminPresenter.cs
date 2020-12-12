@@ -13,7 +13,7 @@ namespace EduWatch.Presenters
         void OnSaveClick();
         void OnRemoveClick();
         void OnTeacherRemove();
-        void OnParentAdd();
+        void OnParentRemove();
         void OnTeacherSelection();
         void OnParentSelection();
         void OnStudentSelection();

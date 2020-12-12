@@ -53,6 +53,8 @@
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.studentNumberLabel = new System.Windows.Forms.Label();
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
+            this.checkPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.checkPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -89,6 +91,7 @@
             this.comboBoxProfile.Name = "comboBoxProfile";
             this.comboBoxProfile.Size = new System.Drawing.Size(308, 24);
             this.comboBoxProfile.TabIndex = 4;
+            this.comboBoxProfile.SelectionChangeCommitted += new System.EventHandler(this.comboBoxProfile_SelectionChangeCommitted);
             // 
             // addBtn
             // 
@@ -328,6 +331,18 @@
             this.studentNumberTextBox.Size = new System.Drawing.Size(100, 22);
             this.studentNumberTextBox.TabIndex = 39;
             // 
+            // checkPictureBox
+            // 
+            this.checkPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.checkPictureBox.BackgroundImage = global::EduWatch.Properties.Resources.checkpic;
+            this.checkPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.checkPictureBox.Location = new System.Drawing.Point(254, 431);
+            this.checkPictureBox.Name = "checkPictureBox";
+            this.checkPictureBox.Size = new System.Drawing.Size(34, 29);
+            this.checkPictureBox.TabIndex = 40;
+            this.checkPictureBox.TabStop = false;
+            this.checkPictureBox.Click += new System.EventHandler(this.checkPictureBox_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -336,6 +351,7 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 652);
+            this.Controls.Add(this.checkPictureBox);
             this.Controls.Add(this.studentNumberTextBox);
             this.Controls.Add(this.studentNumberLabel);
             this.Controls.Add(this.passwordTextBox);
@@ -364,6 +380,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminForm";
             this.Text = "admin";
+            ((System.ComponentModel.ISupportInitialize)(this.checkPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,5 +413,6 @@
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label studentNumberLabel;
         private System.Windows.Forms.TextBox studentNumberTextBox;
+        private System.Windows.Forms.PictureBox checkPictureBox;
     }
 }

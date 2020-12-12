@@ -243,6 +243,7 @@
     <None Include="Resources\background1.jpg" />
     <None Include="Resources\goback.png" />
     <None Include="Resources\settings-icon.png" />
+    <None Include="Resources\checkpic.png" />
     <Content Include="SchoolDB.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

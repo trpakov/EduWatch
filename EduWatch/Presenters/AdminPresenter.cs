@@ -32,7 +32,8 @@ namespace EduWatch.Presenters
 
             view.FillInProfile(new string[] { "Учител", "Ученик", "Родител" });
             view.FillInWhichGrade(new string[] { "8", "9", "10", "11", "12" });
-            view.FIllInCorrespondingSubjects(new string[] { "Математика", "География", "История", "Физическо възпитание и спорт", "Биология", "Химия" });
+            var subjects = data.Subjects.Select(x => x.subject_name);
+            view.FIllInCorrespondingSubjects(subjects.ToArray());
 
         }
         public void Start() => view.AdminStartView();
@@ -93,11 +94,12 @@ namespace EduWatch.Presenters
                     data.Teachers.Remove(teacher);
                     break;
                 case "Ученик":
-                    var student = new Model.Student() { student_PIN = view.PINTextBox };
+                    var student = data.Students.Where(x => x.student_PIN == view.PINTextBox).Single();
                     data.Students.Remove(student);
                     break;
                 case "Родител":
-                    var parent = new Model.Parent() { username = view.UserNameTextBox };
+                    var parent = data.Parents.Where(x => x.username == view.ComboBoxUserName).Single();
+                    data.Parents.Remove(parent);
                     break;
 
             }
@@ -122,7 +124,7 @@ namespace EduWatch.Presenters
 
         }
 
-        public void OnParentAdd()
+        public void OnParentRemove()
         {
             var selectedColumn = data.Parents.Select(x => x.username);
             view.FillInCorrespondingUserNames(selectedColumn.ToArray());
@@ -134,16 +136,28 @@ namespace EduWatch.Presenters
             var teacher =data.Teachers.Where(x => x.username == view.ComboBoxUserName).Single();
             view.FirstNTextBox = teacher.teacher_firstN;
             view.LastNTextBox = teacher.teacher_lastN;
+        
         }
 
         public void OnParentSelection()
         {
-            throw new NotImplementedException();
+            var parent = data.Parents.Where(x => x.username == view.ComboBoxUserName).Single();
+            view.FirstNTextBox = parent.parent_firstN;
+            view.LastNTextBox = parent.parent_firstN;
         }
 
         public void OnStudentSelection()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var student = data.Students.Where(x => x.student_PIN == view.PINTextBox).Single();
+                view.FirstNTextBox = student.student_firstN;
+                view.LastNTextBox = student.student_lastN;
+            }
+            catch
+            {
+                view.Message("Моля въведете коректно ЕГН","ОК" ,Views.MessageIcon.Information);
+            }
         }
     }
     

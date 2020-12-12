@@ -20,13 +20,13 @@ namespace EduWatch.Views
 
         public AdminPresenter Presenter { private get; set; }
         public string AdminLabelText { get => adminLabelText.Text; set => adminLabelText.Text = value; }
-        public string ComboBoxProfile { get => comboBoxProfile.Text; set => comboBoxProfile.Text = value; }
+        public string ComboBoxProfile { get => comboBoxProfile.SelectedItem.ToString(); set => comboBoxProfile.SelectedItem = value; }
         public string FirstNTextBox { get => firstNTextBox.Text; set => firstNTextBox.Text = value; }
         public string LastNTextBox { get => lastNTextBox.Text; set => lastNTextBox.Text = value; }
         public string UserNameTextBox { get => usernameTextBox.Text; set => usernameTextBox.Text = value; }
         public string ComboBoxUserName { get => comboBoxUsername.SelectedItem.ToString(); set => comboBoxUsername.SelectedItem = value; }
-        public string ComboBoxSubject { get => comboBoxSubject.Text; set => comboBoxSubject.Text = value; }
-        public string ComboBoxGrade { get => comboBoxGrade.Text; set => comboBoxGrade.Text = value; }
+        public string ComboBoxSubject { get => comboBoxSubject.SelectedItem.ToString(); set => comboBoxSubject.SelectedItem = value; }
+        public string ComboBoxGrade { get => comboBoxGrade.SelectedItem.ToString(); set => comboBoxGrade.SelectedItem= value; }
 
         public string typeOfProfile => comboBoxProfile.SelectedItem?.ToString();
 
@@ -72,6 +72,8 @@ namespace EduWatch.Views
         public bool isStudentNumberTextBoxVisivle => studentNumberTextBox.Visible;
 
         public bool isStudentNumberLabelVisible => studentNumberLabel.Visible;
+
+        public bool isCheckBtnVisible => checkPictureBox.Visible;
 
         public void FillInProfile(string[] typeOfProfiles)
         {
@@ -135,6 +137,7 @@ namespace EduWatch.Views
             passwordLabel.Visible = false;
             studentNumberLabel.Visible = false;
             studentNumberTextBox.Visible = false;
+            checkPictureBox.Visible = false;
 
 
     }
@@ -150,8 +153,7 @@ namespace EduWatch.Views
 
             firstNTextBox.Text = string.Empty;
             lastNTextBox.Text = string.Empty;
-            passwordTextBox.Text = string.Empty;
-            comboBoxProfile.Text = string.Empty;
+            passwordTextBox.Text = string.Empty;         
             studentNumberTextBox.Text = string.Empty;
 
 
@@ -173,7 +175,8 @@ namespace EduWatch.Views
         {
             HideAll();
             ClearText();
-           
+            firstNTextBox.Enabled = false;
+            lastNTextBox.Enabled = false;
                 if(typeOfProfile=="Учител")
                 {
 
@@ -197,6 +200,7 @@ namespace EduWatch.Views
                 LastNLabel.Visible = true;
                 PINTextBox.Visible = true;
                 PINLabel.Visible = true;
+                checkPictureBox.Visible = true;
                 DeleteInfoBTN.Visible = true;
             }
                 else if (typeOfProfile=="Родител")
@@ -208,7 +212,7 @@ namespace EduWatch.Views
                 firstNLabel.Visible = true;
                 LastNLabel.Visible = true;
                 DeleteInfoBTN.Visible = true;
-                Presenter.OnParentAdd();
+                Presenter.OnParentRemove();
             }    
             else
             {
@@ -274,9 +278,6 @@ namespace EduWatch.Views
                 deleteBtn.Visible = true;
             }
 
-            
-            
-
 
 
         }
@@ -299,6 +300,7 @@ namespace EduWatch.Views
 
         private void comboBoxUsername_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            ClearText();
             if(typeOfProfile=="Учител")
             {
                 Presenter.OnTeacherSelection();
@@ -308,6 +310,21 @@ namespace EduWatch.Views
                 Presenter.OnParentSelection();
             }
 
+        }
+
+  
+
+        private void comboBoxProfile_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            HideAll();
+            ClearText();
+            addBtn.Visible = true;
+            deleteBtn.Visible = true;
+        }
+
+        private void checkPictureBox_Click(object sender, EventArgs e)
+        {
+            Presenter.OnStudentSelection();
         }
     }
 }
