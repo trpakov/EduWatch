@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxGrade1to12 = new System.Windows.Forms.ComboBox();
             this.averageGradeTextBox = new System.Windows.Forms.TextBox();
+            this.optionsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,7 +128,7 @@
             this.Exitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Exitbtn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Exitbtn.ForeColor = System.Drawing.Color.Red;
-            this.Exitbtn.Location = new System.Drawing.Point(1066, 129);
+            this.Exitbtn.Location = new System.Drawing.Point(1065, 146);
             this.Exitbtn.Margin = new System.Windows.Forms.Padding(4);
             this.Exitbtn.Name = "Exitbtn";
             this.Exitbtn.Size = new System.Drawing.Size(100, 33);
@@ -221,7 +222,7 @@
             this.teachersNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.teachersNameLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.teachersNameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.teachersNameLabel.Location = new System.Drawing.Point(1032, 90);
+            this.teachersNameLabel.Location = new System.Drawing.Point(1032, 118);
             this.teachersNameLabel.Name = "teachersNameLabel";
             this.teachersNameLabel.Size = new System.Drawing.Size(168, 24);
             this.teachersNameLabel.TabIndex = 29;
@@ -332,6 +333,20 @@
             this.averageGradeTextBox.Size = new System.Drawing.Size(119, 38);
             this.averageGradeTextBox.TabIndex = 40;
             // 
+            // optionsBtn
+            // 
+            this.optionsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.optionsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.optionsBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.optionsBtn.ForeColor = System.Drawing.Color.White;
+            this.optionsBtn.Location = new System.Drawing.Point(1206, 70);
+            this.optionsBtn.Name = "optionsBtn";
+            this.optionsBtn.Size = new System.Drawing.Size(51, 44);
+            this.optionsBtn.TabIndex = 41;
+            this.optionsBtn.Text = "?";
+            this.optionsBtn.UseVisualStyleBackColor = false;
+            this.optionsBtn.Click += new System.EventHandler(this.optionsBtn_Click);
+            // 
             // TeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,6 +355,7 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1320, 911);
+            this.Controls.Add(this.optionsBtn);
             this.Controls.Add(this.averageGradeTextBox);
             this.Controls.Add(this.comboBoxGrade1to12);
             this.Controls.Add(this.label2);
@@ -398,5 +414,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxGrade1to12;
         private System.Windows.Forms.TextBox averageGradeTextBox;
+        private System.Windows.Forms.Button optionsBtn;
     }
 }

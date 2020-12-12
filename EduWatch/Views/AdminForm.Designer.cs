@@ -44,12 +44,15 @@
             this.firstNTextBox = new System.Windows.Forms.TextBox();
             this.lastNTextBox = new System.Windows.Forms.TextBox();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
-            this.PIN1subjectLabel = new System.Windows.Forms.Label();
+            this.PINLabel = new System.Windows.Forms.Label();
             this.PINTextBox = new System.Windows.Forms.TextBox();
-            this.subjectsTextBox = new System.Windows.Forms.TextBox();
             this.adminLabelText = new System.Windows.Forms.Label();
             this.comboBoxGrade = new System.Windows.Forms.ComboBox();
             this.AddInfoBTN = new System.Windows.Forms.Button();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.studentNumberLabel = new System.Windows.Forms.Label();
+            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -93,13 +96,14 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.addBtn.Location = new System.Drawing.Point(870, 244);
+            this.addBtn.Location = new System.Drawing.Point(870, 243);
             this.addBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(145, 41);
             this.addBtn.TabIndex = 5;
             this.addBtn.Text = "Добавяне";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // deleteBtn
             // 
@@ -114,6 +118,7 @@
             this.deleteBtn.TabIndex = 6;
             this.deleteBtn.Text = "Изтриване";
             this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // DeleteInfoBTN
             // 
@@ -128,6 +133,7 @@
             this.DeleteInfoBTN.TabIndex = 19;
             this.DeleteInfoBTN.Text = "ИЗТРИЙ";
             this.DeleteInfoBTN.UseVisualStyleBackColor = false;
+            this.DeleteInfoBTN.Click += new System.EventHandler(this.DeleteInfoBTN_Click);
             // 
             // exitBtn
             // 
@@ -142,6 +148,7 @@
             this.exitBtn.TabIndex = 20;
             this.exitBtn.Text = "Изход";
             this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // userNameLabel
             // 
@@ -162,6 +169,7 @@
             this.comboBoxUsername.Name = "comboBoxUsername";
             this.comboBoxUsername.Size = new System.Drawing.Size(206, 24);
             this.comboBoxUsername.TabIndex = 22;
+            this.comboBoxUsername.SelectionChangeCommitted += new System.EventHandler(this.comboBoxUsername_SelectionChangeCommitted);
             // 
             // usernameTextBox
             // 
@@ -228,17 +236,17 @@
             this.comboBoxSubject.Size = new System.Drawing.Size(188, 24);
             this.comboBoxSubject.TabIndex = 29;
             // 
-            // PIN1subjectLabel
+            // PINLabel
             // 
-            this.PIN1subjectLabel.AutoSize = true;
-            this.PIN1subjectLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PIN1subjectLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PIN1subjectLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PIN1subjectLabel.Location = new System.Drawing.Point(137, 411);
-            this.PIN1subjectLabel.Name = "PIN1subjectLabel";
-            this.PIN1subjectLabel.Size = new System.Drawing.Size(47, 24);
-            this.PIN1subjectLabel.TabIndex = 30;
-            this.PIN1subjectLabel.Text = "ЕГН:";
+            this.PINLabel.AutoSize = true;
+            this.PINLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PINLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PINLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.PINLabel.Location = new System.Drawing.Point(137, 411);
+            this.PINLabel.Name = "PINLabel";
+            this.PINLabel.Size = new System.Drawing.Size(47, 24);
+            this.PINLabel.TabIndex = 30;
+            this.PINLabel.Text = "ЕГН:";
             // 
             // PINTextBox
             // 
@@ -246,14 +254,6 @@
             this.PINTextBox.Name = "PINTextBox";
             this.PINTextBox.Size = new System.Drawing.Size(154, 22);
             this.PINTextBox.TabIndex = 31;
-            // 
-            // subjectsTextBox
-            // 
-            this.subjectsTextBox.Location = new System.Drawing.Point(71, 438);
-            this.subjectsTextBox.Multiline = true;
-            this.subjectsTextBox.Name = "subjectsTextBox";
-            this.subjectsTextBox.Size = new System.Drawing.Size(175, 106);
-            this.subjectsTextBox.TabIndex = 32;
             // 
             // adminLabelText
             // 
@@ -270,7 +270,7 @@
             // comboBoxGrade
             // 
             this.comboBoxGrade.FormattingEnabled = true;
-            this.comboBoxGrade.Location = new System.Drawing.Point(79, 376);
+            this.comboBoxGrade.Location = new System.Drawing.Point(71, 376);
             this.comboBoxGrade.Name = "comboBoxGrade";
             this.comboBoxGrade.Size = new System.Drawing.Size(180, 24);
             this.comboBoxGrade.TabIndex = 34;
@@ -288,6 +288,45 @@
             this.AddInfoBTN.TabIndex = 35;
             this.AddInfoBTN.Text = "Добави";
             this.AddInfoBTN.UseVisualStyleBackColor = false;
+            this.AddInfoBTN.Click += new System.EventHandler(this.AddInfoBTN_Click);
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
+            this.passwordLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.passwordLabel.Location = new System.Drawing.Point(782, 357);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(72, 24);
+            this.passwordLabel.TabIndex = 36;
+            this.passwordLabel.Text = "Парола:";
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(749, 384);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(154, 22);
+            this.passwordTextBox.TabIndex = 37;
+            // 
+            // studentNumberLabel
+            // 
+            this.studentNumberLabel.AutoSize = true;
+            this.studentNumberLabel.BackColor = System.Drawing.Color.Transparent;
+            this.studentNumberLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.studentNumberLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.studentNumberLabel.Location = new System.Drawing.Point(80, 492);
+            this.studentNumberLabel.Name = "studentNumberLabel";
+            this.studentNumberLabel.Size = new System.Drawing.Size(153, 24);
+            this.studentNumberLabel.TabIndex = 38;
+            this.studentNumberLabel.Text = "Номер на ученика:";
+            // 
+            // studentNumberTextBox
+            // 
+            this.studentNumberTextBox.Location = new System.Drawing.Point(106, 519);
+            this.studentNumberTextBox.Name = "studentNumberTextBox";
+            this.studentNumberTextBox.Size = new System.Drawing.Size(100, 22);
+            this.studentNumberTextBox.TabIndex = 39;
             // 
             // AdminForm
             // 
@@ -297,12 +336,15 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 652);
+            this.Controls.Add(this.studentNumberTextBox);
+            this.Controls.Add(this.studentNumberLabel);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.AddInfoBTN);
             this.Controls.Add(this.comboBoxGrade);
             this.Controls.Add(this.adminLabelText);
-            this.Controls.Add(this.subjectsTextBox);
             this.Controls.Add(this.PINTextBox);
-            this.Controls.Add(this.PIN1subjectLabel);
+            this.Controls.Add(this.PINLabel);
             this.Controls.Add(this.comboBoxSubject);
             this.Controls.Add(this.lastNTextBox);
             this.Controls.Add(this.firstNTextBox);
@@ -345,11 +387,14 @@
         private System.Windows.Forms.TextBox firstNTextBox;
         private System.Windows.Forms.TextBox lastNTextBox;
         private System.Windows.Forms.ComboBox comboBoxSubject;
-        private System.Windows.Forms.Label PIN1subjectLabel;
+        private System.Windows.Forms.Label PINLabel;
         private System.Windows.Forms.TextBox PINTextBox;
-        private System.Windows.Forms.TextBox subjectsTextBox;
         private System.Windows.Forms.Label adminLabelText;
         private System.Windows.Forms.ComboBox comboBoxGrade;
         private System.Windows.Forms.Button AddInfoBTN;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label studentNumberLabel;
+        private System.Windows.Forms.TextBox studentNumberTextBox;
     }
 }

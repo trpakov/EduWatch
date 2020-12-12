@@ -24,9 +24,8 @@ namespace EduWatch.Views
         public string FirstNTextBox { get => firstNTextBox.Text; set => firstNTextBox.Text = value; }
         public string LastNTextBox { get => lastNTextBox.Text; set => lastNTextBox.Text = value; }
         public string UserNameTextBox { get => usernameTextBox.Text; set => usernameTextBox.Text = value; }
-        public string ComboBoxUserName { get => comboBoxUsername.Text; set => comboBoxUsername.Text = value; }
+        public string ComboBoxUserName { get => comboBoxUsername.SelectedItem.ToString(); set => comboBoxUsername.SelectedItem = value; }
         public string ComboBoxSubject { get => comboBoxSubject.Text; set => comboBoxSubject.Text = value; }
-        public string SubjectTextBox { get => subjectsTextBox.Text; set => subjectsTextBox.Text = value; }
         public string ComboBoxGrade { get => comboBoxGrade.Text; set => comboBoxGrade.Text = value; }
 
         public string typeOfProfile => comboBoxProfile.SelectedItem?.ToString();
@@ -43,8 +42,6 @@ namespace EduWatch.Views
 
         public bool isSubjectComboBoxVisible => comboBoxSubject.Visible;
 
-        public bool isSubjectTextBoxVisible => subjectsTextBox.Visible;
-
         string IAdminView.PINTextBox { get => PINTextBox.Text; set => PINTextBox.Text = value; }
 
         public bool isBTNAddisible => AddInfoBTN.Visible;
@@ -57,13 +54,24 @@ namespace EduWatch.Views
 
         public bool isSubjectGradeLabelVisible => subject1gradeLabel.Visible;
 
-        public bool isPINSubjectLabelVisible => PIN1subjectLabel.Visible;
+        public bool isPINLabelVisible => PINLabel.Visible;
         public int ComboBoxSubjectSelectedIndex { get => comboBoxSubject.SelectedIndex; set => comboBoxSubject.SelectedIndex = value; }
         public int SelectedSubjectID => (int)comboBoxSubject.SelectedValue;
         
         public int ComboBoxUserNameSelectedIndex { get => comboBoxUsername.SelectedIndex; set =>comboBoxUsername.SelectedIndex=value; }
 
         public int SelectedUserNameID => (int)comboBoxUsername.SelectedValue;
+
+        public string PasswordTextBox { get => passwordTextBox.Text; set => passwordLabel.Text=value; }
+
+        public bool isPasswordTextBoxVisible => passwordTextBox.Visible;
+
+        public bool isPasswordLabelVisible => passwordTextBox.Visible;
+        public string StudentNumberTextBox { get =>studentNumberTextBox.Text; set => studentNumberTextBox.Text = value; }
+
+        public bool isStudentNumberTextBoxVisivle => studentNumberTextBox.Visible;
+
+        public bool isStudentNumberLabelVisible => studentNumberLabel.Visible;
 
         public void FillInProfile(string[] typeOfProfiles)
         {
@@ -77,7 +85,14 @@ namespace EduWatch.Views
 
         public MessageResult Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
         {
-            throw new NotImplementedException();
+            var result = MessageBox.Show(
+                    msg,
+                    caption,
+                    (MessageBoxButtons)Enum.Parse(typeof(MessageBoxButtons), msgBtn.ToString()),
+                    (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), msgIcon.ToString())
+                    );
+
+            return (MessageResult)Enum.Parse(typeof(MessageResult), result.ToString());
         }
 
         public void AdminStartView()
@@ -87,36 +102,6 @@ namespace EduWatch.Views
             addBtn.Visible = true;
             deleteBtn.Visible = true;
             ShowDialog();
-        }
-
-        public void AddStudent()
-        {
-            HideAll();
-            ClearText();
-        }
-
-        public void AddTeacher()
-        {
-            HideAll();
-            ClearText();
-        }
-
-        public void DeleteParent()
-        {
-            HideAll();
-            ClearText();
-        }
-
-        public void DeleteStudent()
-        {
-            HideAll();
-            ClearText();
-        }
-
-        public void DeleteTeacher()
-        {
-            HideAll();
-            ClearText();
         }
 
         public void HideAll()
@@ -133,7 +118,6 @@ namespace EduWatch.Views
 
             comboBoxSubject.Visible = false;
 
-            subjectsTextBox.Visible = false;
            
             AddInfoBTN.Visible=false;
            
@@ -142,11 +126,16 @@ namespace EduWatch.Views
             firstNTextBox.Visible = false;
             lastNTextBox.Visible = false;
             subject1gradeLabel.Visible = false;
-            PIN1subjectLabel.Visible = false;
+            PINLabel.Visible = false;
             userNameLabel.Visible = false;
             firstNLabel.Visible = false;
             LastNLabel.Visible = false;
             comboBoxGrade.Visible = false;
+            passwordTextBox.Visible = false;
+            passwordLabel.Visible = false;
+            studentNumberLabel.Visible = false;
+            studentNumberTextBox.Visible = false;
+
 
     }
         public void ClearText()
@@ -159,25 +148,166 @@ namespace EduWatch.Views
 
             comboBoxSubject.Text = string.Empty;
 
-            subjectsTextBox.Text = string.Empty;
             firstNTextBox.Text = string.Empty;
             lastNTextBox.Text = string.Empty;
+            passwordTextBox.Text = string.Empty;
+            comboBoxProfile.Text = string.Empty;
+            studentNumberTextBox.Text = string.Empty;
 
 
         }
 
-        public void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects)
+        public void FIllInCorrespondingSubjects(string[] subjects)
         {
-            comboBoxSubject.DisplayMember = "Item2";
-            comboBoxSubject.ValueMember = "Item1";
-            comboBoxSubject.DataSource = subjects;
+            comboBoxSubject.Items.AddRange(subjects);
         }
 
-        public void FillInCorrespondingUserNames(List<Tuple<int, string>> usernames)
+        public void FillInCorrespondingUserNames(string[] usernames)
         {
-            comboBoxUsername.DisplayMember = "Item2";
-            comboBoxUsername.ValueMember = "Item1";
-            comboBoxUsername.DataSource = usernames;
+            comboBoxUsername.Items.AddRange(usernames);
+        }
+
+
+      
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            HideAll();
+            ClearText();
+           
+                if(typeOfProfile=="Учител")
+                {
+
+                    comboBoxUsername.Visible = true;
+                    firstNTextBox.Visible = true;
+                    lastNTextBox.Visible = true;
+                    userNameLabel.Visible = true;
+                    firstNLabel.Visible = true;
+                    LastNLabel.Visible = true;
+
+                DeleteInfoBTN.Visible = true;
+                Presenter.OnTeacherRemove();
+
+            }
+                else if (typeOfProfile == "Ученик")
+              
+            {
+                firstNTextBox.Visible = true;
+                lastNTextBox.Visible = true;
+                firstNLabel.Visible = true;
+                LastNLabel.Visible = true;
+                PINTextBox.Visible = true;
+                PINLabel.Visible = true;
+                DeleteInfoBTN.Visible = true;
+            }
+                else if (typeOfProfile=="Родител")
+            {
+                comboBoxUsername.Visible = true;
+                firstNTextBox.Visible = true;
+                lastNTextBox.Visible = true;
+                userNameLabel.Visible = true;
+                firstNLabel.Visible = true;
+                LastNLabel.Visible = true;
+                DeleteInfoBTN.Visible = true;
+                Presenter.OnParentAdd();
+            }    
+            else
+            {
+                Message("Изберете профил.", "Внимание", Views.MessageIcon.Warning);
+                addBtn.Visible = true;
+                deleteBtn.Visible = true;
+            }
+
+
+
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+
+            HideAll();
+            ClearText();
+        
+             if (typeOfProfile=="Учител")
+                {
+
+                    usernameTextBox.Visible = true;
+                    firstNTextBox.Visible = true;
+                    lastNTextBox.Visible = true;
+                    userNameLabel.Visible = true;
+                    firstNLabel.Visible = true;
+                    LastNLabel.Visible = true;
+                    subject1gradeLabel.Visible = true;
+                    subject1gradeLabel.Text = "Предмет:";
+                    comboBoxSubject.Visible = true;
+                    passwordLabel.Visible = true;
+                    passwordTextBox.Visible = true;
+                    AddInfoBTN.Visible = true;
+
+            }
+                else if (typeOfProfile == "Ученик")
+                {
+                firstNTextBox.Visible = true;
+                lastNTextBox.Visible = true;
+                firstNLabel.Visible = true;
+                LastNLabel.Visible = true;
+                subject1gradeLabel.Visible = true;
+                subject1gradeLabel.Text = "Клас:";
+                comboBoxGrade.Visible = true;
+                PINLabel.Visible = true;
+                PINTextBox.Visible = true;
+                studentNumberLabel.Visible = true;
+                studentNumberTextBox.Visible = true;
+                AddInfoBTN.Visible = true;
+                
+            }
+           else if (typeOfProfile=="Родител")
+            {
+                Message("Не можете да добавяте профил на родител.", "Внимание", Views.MessageIcon.Warning);
+                ClearText();
+                addBtn.Visible = true;
+                deleteBtn.Visible = true;
+            }    
+            else
+            {
+                Message("Изберете профил.", "Внимание", Views.MessageIcon.Warning);
+                addBtn.Visible = true;
+                deleteBtn.Visible = true;
+            }
+
+            
+            
+
+
+
+        }
+
+        private void AddInfoBTN_Click(object sender, EventArgs e)
+        {
+            Presenter.OnSaveClick();
+
+        }
+
+        private void DeleteInfoBTN_Click(object sender, EventArgs e)
+        {
+            Presenter.OnRemoveClick();
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            Presenter.OnExitButtonClick();
+        }
+
+        private void comboBoxUsername_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if(typeOfProfile=="Учител")
+            {
+                Presenter.OnTeacherSelection();
+            }
+            else
+            {
+                Presenter.OnParentSelection();
+            }
+
         }
     }
 }

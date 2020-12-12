@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace EduWatch.Views
 {
-    public interface ITeacherView :IView
+    public interface ITeacherView : IView
     {
         Presenters.TeacherPresenter Presenter { set; }
         string TeacherNameLabelText { get; set; }
         int ComboBoxSubjectSelectedIndex { get; set; }
-        int ComboBoxStudentSelectedIndex { get; set; }  
-        int SelectedSubjectID { get; }
-        int SelectedStudentID { get; }
+        int ComboBoxStudentSelectedIndex { get; set; }
+        int SelectedSubjectID { get;}
+        int SelectedStudentID { get;}
         bool ComboBoxStudentEnabled { get; set; }
+        bool ComboBoxSubjectEnabled { get; set;}
+        bool gradeRadioBtnEnabled { get; set; }
+        bool noteRadioBtnEnabled { get; set; }
         string ComboBoxGrade { get; }
         string TextBoxComment { get; set; }
         string ComboBoxGrade1to12 { get; }
@@ -24,6 +27,12 @@ namespace EduWatch.Views
         bool SelectedGradesView { get; set; }
         bool AverageGradeButtonEnabled { get; set; }
         string AverageGradeTextBox { get; set; }
+        bool isDataGridViewVisible { get;  }
+        bool isTextBoxCommentVisible { get;  }
+        bool isCommentLabelVisible { get;  }
+        bool isGradeLabelVisible { get; }
+        bool isGradeComboBoxVisible { get; } 
+        bool isSaveBTNVisible { get; }
 
         void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects);
         void FillInCorrespondingStudents(List<Tuple<int, string>> students);

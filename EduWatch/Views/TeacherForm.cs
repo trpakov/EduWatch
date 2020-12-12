@@ -44,7 +44,16 @@ namespace EduWatch.Views
 
         public string ComboBoxGrade1to12 { get => comboBoxGrade1to12.Text; set => comboBoxGrade1to12.Text = value; }
         public string TextBoxComment { get => commentTextBox.Text; set =>commentTextBox.Text=value; }
-       
+        public bool isDataGridViewVisible => dataGridView1.Visible;
+        public bool isTextBoxCommentVisible => commentTextBox.Visible;
+        public bool isCommentLabelVisible => CommentLabel.Visible;
+        public bool isGradeLabelVisible => GradeLabel.Visible;
+        public bool isGradeComboBoxVisible => gradeComboBox.Visible;
+        public bool isSaveBTNVisible => Savebtn.Visible;
+
+        public bool ComboBoxSubjectEnabled { get => comboBoxSubject.Enabled; set => comboBoxSubject.Enabled=value; }
+        public bool gradeRadioBtnEnabled { get => radioButtonGrade.Enabled; set => radioButtonGrade.Enabled=value; }
+        public bool noteRadioBtnEnabled { get => radioButtonNote.Enabled; set => radioButtonNote.Enabled=value; }
         public void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects)
         {
             comboBoxSubject.DisplayMember = "Item2";
@@ -95,12 +104,8 @@ namespace EduWatch.Views
 
         private void SeeDatabtn_Click(object sender, EventArgs e)
         {
-            CommentLabel.Hide();
-            commentTextBox.Hide();
-            GradeLabel.Hide();
-            gradeComboBox.Hide();
-            dataGridView1.Show();
-            Savebtn.Hide();
+            HideAll();        
+            dataGridView1.Visible=true;
         
         }
 
@@ -108,23 +113,21 @@ namespace EduWatch.Views
         {
             if (radioButtonGrade.Checked)
             {
-                dataGridView1.Hide();
+                HideAll();
                 CommentLabel.Text = "Коментар:";
-                CommentLabel.Show();
-                commentTextBox.Show();
-                GradeLabel.Show();
-                gradeComboBox.Show();
-                Savebtn.Show();
+                CommentLabel.Visible = true; ;
+                commentTextBox.Visible = true ;
+                GradeLabel.Visible=true;
+                gradeComboBox.Visible=true;
+                Savebtn.Visible=true;
             }
             else if (radioButtonNote.Checked)
             {
-                dataGridView1.Hide();
-                GradeLabel.Hide();
-                gradeComboBox.Hide();
+                HideAll();
                 CommentLabel.Text = "Забележка:";
-                CommentLabel.Show();
-                commentTextBox.Show();
-                Savebtn.Show();
+                CommentLabel.Visible=true;
+                commentTextBox.Visible=true;
+                Savebtn.Visible=true;
             }
             else
             {
@@ -177,6 +180,21 @@ namespace EduWatch.Views
         private void radioButtonGrade_CheckedChanged(object sender, EventArgs e)
         {
             Presenter.OnGradesButtonClick();
+        }
+
+        private void optionsBtn_Click(object sender, EventArgs e)
+        {
+            Presenter.OnSettingsButtonClick();
+
+        }
+        void HideAll()
+        {
+            CommentLabel.Visible = false;
+            commentTextBox.Visible=false;
+            GradeLabel.Visible = false; ;
+            gradeComboBox.Visible=false;
+            dataGridView1.Visible = false;
+            Savebtn.Visible = false;
         }
     }
 }

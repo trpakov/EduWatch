@@ -17,7 +17,6 @@ namespace EduWatch.Presenters
         Model.Student currentStudent;
         List<Model.Grade> currentGrades;
         List<Model.Note> currentNotes;
-
         public TeacherPresenter(Views.ITeacherView view, Model.SchoolDBEntities data, Model.IUser user, ILoginPresenter loginPresenter)
         {
             this.view = view;
@@ -33,6 +32,7 @@ namespace EduWatch.Presenters
             var subject = teacher.Subjects.Select(x => Tuple.Create(x.subject_id, x.subject_name));
             view.FIllInCorrespondingSubjects(subject.ToList());
             view.ComboBoxSubjectSelectedIndex = -1;
+            view.ComboBoxStudentSelectedIndex = -1;
 
             view.FillInGrades(new string[] { "6", "5", "4", "3", "2" });
             view.FillInWhichGrade(new string[] { "8", "9", "10", "11", "12" });
@@ -51,10 +51,10 @@ namespace EduWatch.Presenters
         {
             if (view.ComboBoxSubjectSelectedIndex == -1) return;
 
-            var studentsWithGrades =data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Grades.Select(x => x.Student).ToList();
+           var studentsWithGrades =data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Grades.Select(x => x.Student).ToList();
             var studentsWithNotes = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Notes.Select(x => x.Student).ToList();
-            var students = studentsWithGrades.Union(studentsWithNotes).Where(x => x.grade == view.ComboBoxGrade1to12);
-            var studentsData = students.Select(x => Tuple.Create(x.student_id, x.student_firstN + ' ' + x.student_lastN)).ToList();
+           var students = studentsWithGrades.Union(studentsWithNotes).Where(x => x.grade == view.ComboBoxGrade1to12);
+            var studentsData = students.Select(x => Tuple.Create(x.student_id, x.student_firstN + ' ' + x.student_lastN)).ToList();           
             view.FillInCorrespondingStudents(studentsData);
             view.ComboBoxStudentSelectedIndex = -1;
             view.ComboBoxStudentEnabled = true;
@@ -116,6 +116,26 @@ namespace EduWatch.Presenters
             data.Grades.Add(grade);
             data.SaveChanges();
         }
-      
+        public void OnSettingsButtonClick()
+        {
+            view.Hide();
+            IEditPresenter editPresenter = PresenterFactory.GetEditPresenter(data, user);
+            editPresenter.Start();
+            view.Show();
+            ResetViewAfterUserChangesTheirProfile();
+
+        }
+
+        void ResetViewAfterUserChangesTheirProfile()
+        {
+            view.TeacherNameLabelText= user.FirstName + ' ' + user.LastName;
+            view.ComboBoxStudentSelectedIndex = -1;
+            view.ComboBoxSubjectSelectedIndex = -1;
+            view.gradeRadioBtnEnabled = false;
+            view.noteRadioBtnEnabled = false;
+            view.AverageGradeButtonEnabled = false;
+            view.ClearData();
+        }
+
     }
 }
