@@ -16,14 +16,12 @@ namespace EduWatch.Views
         string LastNTextBox { get; set; }
         string UserNameTextBox { get; set; }
         string ComboBoxUserName { get; set; }
-        string ComboBoxSubject { get; set; }
+        string TextBoxSubject { get; set; }
         string ComboBoxGrade { get; set; }
         string PINTextBox { get; set; }
         string PasswordTextBox { get; set; }
-        int ComboBoxSubjectSelectedIndex { get; set; }
         int ComboBoxUserNameSelectedIndex { get; set; }
         string StudentNumberTextBox { get; set; }
-        int SelectedSubjectID { get; }
         int SelectedUserNameID { get; }
         string typeOfProfile { get;}
         bool isbtnDeleteVisible { get; }
@@ -31,7 +29,6 @@ namespace EduWatch.Views
         bool isUserNameTextBoxVisible { get; }
         bool isUserNameComboBoxVisible { get; }
         bool isPINTextBoxVisible { get; }
-        bool isSubjectComboBoxVisible { get; }
         bool isBTNAddisible { get; }
         bool isBTNDeleteVisible { get; }
         bool isFirstNTextBoxVisible { get; }
@@ -43,12 +40,11 @@ namespace EduWatch.Views
         bool isPasswordTextBoxVisible { get; }
         bool isPasswordLabelVisible { get; }
         bool isCheckBtnVisible { get; }
+        bool isSubjectTextBoxVisible { get; }
 
 
         void FillInProfile(string[] typeOfProfiles);
         void FillInWhichGrade(string[] grade);
-
-        void FIllInCorrespondingSubjects(string[] subjects);
         void FillInCorrespondingUserNames(string[] usernames);
 
         void AdminStartView();

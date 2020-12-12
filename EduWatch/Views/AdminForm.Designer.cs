@@ -43,7 +43,6 @@
             this.subject1gradeLabel = new System.Windows.Forms.Label();
             this.firstNTextBox = new System.Windows.Forms.TextBox();
             this.lastNTextBox = new System.Windows.Forms.TextBox();
-            this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.PINLabel = new System.Windows.Forms.Label();
             this.PINTextBox = new System.Windows.Forms.TextBox();
             this.adminLabelText = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.studentNumberLabel = new System.Windows.Forms.Label();
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.checkPictureBox = new System.Windows.Forms.PictureBox();
+            this.subjectTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.checkPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -231,14 +231,6 @@
             this.lastNTextBox.Size = new System.Drawing.Size(172, 22);
             this.lastNTextBox.TabIndex = 28;
             // 
-            // comboBoxSubject
-            // 
-            this.comboBoxSubject.FormattingEnabled = true;
-            this.comboBoxSubject.Location = new System.Drawing.Point(71, 376);
-            this.comboBoxSubject.Name = "comboBoxSubject";
-            this.comboBoxSubject.Size = new System.Drawing.Size(188, 24);
-            this.comboBoxSubject.TabIndex = 29;
-            // 
             // PINLabel
             // 
             this.PINLabel.AutoSize = true;
@@ -343,6 +335,13 @@
             this.checkPictureBox.TabStop = false;
             this.checkPictureBox.Click += new System.EventHandler(this.checkPictureBox_Click);
             // 
+            // subjectTextBox
+            // 
+            this.subjectTextBox.Location = new System.Drawing.Point(95, 378);
+            this.subjectTextBox.Name = "subjectTextBox";
+            this.subjectTextBox.Size = new System.Drawing.Size(138, 22);
+            this.subjectTextBox.TabIndex = 41;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -351,6 +350,7 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 652);
+            this.Controls.Add(this.subjectTextBox);
             this.Controls.Add(this.checkPictureBox);
             this.Controls.Add(this.studentNumberTextBox);
             this.Controls.Add(this.studentNumberLabel);
@@ -361,7 +361,6 @@
             this.Controls.Add(this.adminLabelText);
             this.Controls.Add(this.PINTextBox);
             this.Controls.Add(this.PINLabel);
-            this.Controls.Add(this.comboBoxSubject);
             this.Controls.Add(this.lastNTextBox);
             this.Controls.Add(this.firstNTextBox);
             this.Controls.Add(this.subject1gradeLabel);
@@ -403,7 +402,6 @@
         private System.Windows.Forms.Label subject1gradeLabel;
         private System.Windows.Forms.TextBox firstNTextBox;
         private System.Windows.Forms.TextBox lastNTextBox;
-        private System.Windows.Forms.ComboBox comboBoxSubject;
         private System.Windows.Forms.Label PINLabel;
         private System.Windows.Forms.TextBox PINTextBox;
         private System.Windows.Forms.Label adminLabelText;
@@ -414,5 +412,6 @@
         private System.Windows.Forms.Label studentNumberLabel;
         private System.Windows.Forms.TextBox studentNumberTextBox;
         private System.Windows.Forms.PictureBox checkPictureBox;
+        private System.Windows.Forms.TextBox subjectTextBox;
     }
 }

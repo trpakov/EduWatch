@@ -32,8 +32,6 @@ namespace EduWatch.Presenters
 
             view.FillInProfile(new string[] { "Учител", "Ученик", "Родител" });
             view.FillInWhichGrade(new string[] { "8", "9", "10", "11", "12" });
-            var subjects = data.Subjects.Select(x => x.subject_name);
-            view.FIllInCorrespondingSubjects(subjects.ToArray());
 
         }
         public void Start() => view.AdminStartView();
@@ -54,10 +52,12 @@ namespace EduWatch.Presenters
                     return;
                 case "Учител":
                     Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
-                    var passHash = passHasher.Generate(view.PasswordTextBox);            
+                    var passHash = passHasher.Generate(view.PasswordTextBox);
                     var teacher = new Model.Teacher() { username = view.UserNameTextBox, teacher_firstN = view.FirstNTextBox, teacher_lastN = view.LastNTextBox, password_hash = passHash };
                     data.Teachers.Add(teacher);
-
+                    var teacherid = teacher.teacher_id;
+                    var subject = new Model.Subject() { subject_name = view.TextBoxSubject, teacher_id = teacherid };
+                    data.Subjects.Add(subject);
                     break;
                 case "Учeник":
                    var student = new Model.Student() {student_firstN=view.FirstNTextBox,student_lastN=view.LastNTextBox,grade=view.ComboBoxGrade, student_PIN=view.PasswordTextBox ,student_No=int.Parse(view.StudentNumberTextBox)};

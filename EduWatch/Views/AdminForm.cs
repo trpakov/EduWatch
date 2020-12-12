@@ -25,7 +25,7 @@ namespace EduWatch.Views
         public string LastNTextBox { get => lastNTextBox.Text; set => lastNTextBox.Text = value; }
         public string UserNameTextBox { get => usernameTextBox.Text; set => usernameTextBox.Text = value; }
         public string ComboBoxUserName { get => comboBoxUsername.SelectedItem.ToString(); set => comboBoxUsername.SelectedItem = value; }
-        public string ComboBoxSubject { get => comboBoxSubject.SelectedItem.ToString(); set => comboBoxSubject.SelectedItem = value; }
+        public string TextBoxSubject { get => subjectTextBox.Text; set => subjectTextBox.Text = value; }
         public string ComboBoxGrade { get => comboBoxGrade.SelectedItem.ToString(); set => comboBoxGrade.SelectedItem= value; }
 
         public string typeOfProfile => comboBoxProfile.SelectedItem?.ToString();
@@ -40,7 +40,7 @@ namespace EduWatch.Views
 
         public bool isPINTextBoxVisible => PINTextBox.Visible;
 
-        public bool isSubjectComboBoxVisible => comboBoxSubject.Visible;
+        public bool isSubjectTextBoxVisible => subjectTextBox.Visible;
 
         string IAdminView.PINTextBox { get => PINTextBox.Text; set => PINTextBox.Text = value; }
 
@@ -55,8 +55,6 @@ namespace EduWatch.Views
         public bool isSubjectGradeLabelVisible => subject1gradeLabel.Visible;
 
         public bool isPINLabelVisible => PINLabel.Visible;
-        public int ComboBoxSubjectSelectedIndex { get => comboBoxSubject.SelectedIndex; set => comboBoxSubject.SelectedIndex = value; }
-        public int SelectedSubjectID => (int)comboBoxSubject.SelectedValue;
         
         public int ComboBoxUserNameSelectedIndex { get => comboBoxUsername.SelectedIndex; set =>comboBoxUsername.SelectedIndex=value; }
 
@@ -118,7 +116,7 @@ namespace EduWatch.Views
 
             PINTextBox.Visible = false;
 
-            comboBoxSubject.Visible = false;
+            subjectTextBox.Visible = false;
 
            
             AddInfoBTN.Visible=false;
@@ -149,7 +147,7 @@ namespace EduWatch.Views
 
             PINTextBox.Text = string.Empty;
 
-            comboBoxSubject.Text = string.Empty;
+            subjectTextBox.Text = string.Empty;
 
             firstNTextBox.Text = string.Empty;
             lastNTextBox.Text = string.Empty;
@@ -157,11 +155,6 @@ namespace EduWatch.Views
             studentNumberTextBox.Text = string.Empty;
 
 
-        }
-
-        public void FIllInCorrespondingSubjects(string[] subjects)
-        {
-            comboBoxSubject.Items.AddRange(subjects);
         }
 
         public void FillInCorrespondingUserNames(string[] usernames)
@@ -242,7 +235,7 @@ namespace EduWatch.Views
                     LastNLabel.Visible = true;
                     subject1gradeLabel.Visible = true;
                     subject1gradeLabel.Text = "Предмет:";
-                    comboBoxSubject.Visible = true;
+                    subjectTextBox.Visible = true;
                     passwordLabel.Visible = true;
                     passwordTextBox.Visible = true;
                     AddInfoBTN.Visible = true;
