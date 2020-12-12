@@ -166,6 +166,7 @@
             // 
             // comboBoxSubject
             // 
+            this.comboBoxSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSubject.FormattingEnabled = true;
             this.comboBoxSubject.Location = new System.Drawing.Point(82, 396);
             this.comboBoxSubject.Name = "comboBoxSubject";
@@ -241,6 +242,7 @@
             // 
             // comboBoxStudent
             // 
+            this.comboBoxStudent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStudent.FormattingEnabled = true;
             this.comboBoxStudent.Location = new System.Drawing.Point(82, 468);
             this.comboBoxStudent.Name = "comboBoxStudent";
@@ -380,7 +382,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TeacherForm";
             this.Text = "Teacher";
