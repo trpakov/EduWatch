@@ -50,13 +50,9 @@ namespace EduWatch.Presenters
         internal void OnSubjectSelection()
         {
             if (view.ComboBoxSubjectSelectedIndex == -1) return;
-
-          // var studentsWithGrades =data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Grades.Select(x => x.Student).ToList();
-          //  var studentsWithNotes = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Notes.Select(x => x.Student).ToList();
-          // var students = studentsWithGrades.Union(studentsWithNotes).Where(x => x.grade == view.ComboBoxGrade1to12);
-           // var studentsData = students.Select(x => Tuple.Create(x.student_id, x.student_firstN + ' ' + x.student_lastN)).ToList(); 
-           var studentsData =data.Students.Where(x => x.grade == view.ComboBoxGrade1to12).Select(x=> Tuple.Create(x.student_id,x.student_firstN + ' ' + x.student_lastN)).ToList();
-            view.FillInCorrespondingStudents(studentsData);
+            var student = data.Students.Select(x => Tuple.Create(x.student_id,x.student_firstN +" "+x.student_lastN));
+            // излизат по клас
+            view.FillInCorrespondingStudents(student.ToList());
             view.ComboBoxStudentSelectedIndex = -1;
             view.ComboBoxStudentEnabled = true;
         }
@@ -107,15 +103,29 @@ namespace EduWatch.Presenters
 
         internal void OnSaveNoteButtonClick()
         {
-            var note =new  Model.Note() { note1 = view.TextBoxComment, note_date = DateTime.Now, note_seen = false, student_id = view.SelectedStudentID,subject_id=view.SelectedSubjectID };
-            data.Notes.Add(note);
-            data.SaveChanges();
+            if (view.TextBoxComment != string.Empty)
+            {
+                var note = new Model.Note() { note1 = view.TextBoxComment, note_date = DateTime.Now, note_seen = false, student_id = view.SelectedStudentID, subject_id = view.SelectedSubjectID };
+                data.Notes.Add(note);
+                data.SaveChanges();
+            }
+            else
+            {
+                view.Message("Не можете да добавите празна забележка.", "Грешка", Views.MessageIcon.Error);
+            }
         }
         internal void OnSaveGradeButtonClick()
         {
-            var grade = new Model.Grade() { grade = int.Parse(view.ComboBoxGrade), grade_seen = false, comment = view.TextBoxComment, student_id = view.SelectedStudentID ,subject_Id = view.SelectedSubjectID, date = DateTime.Now };
-            data.Grades.Add(grade);
-            data.SaveChanges();
+            if (view.TextBoxComment != string.Empty && view.ComboBoxGrade != string.Empty)
+            {
+                var grade = new Model.Grade() { grade = int.Parse(view.ComboBoxGrade), grade_seen = false, comment = view.TextBoxComment, student_id = view.SelectedStudentID, subject_Id = view.SelectedSubjectID, date = DateTime.Now };
+                data.Grades.Add(grade);
+                data.SaveChanges();
+            }
+            else
+            {
+                view.Message("Моля, попълнете полетата.", "Грешка", Views.MessageIcon.Error);
+            }
         }
         public void OnSettingsButtonClick()
         {

@@ -30,7 +30,7 @@ namespace EduWatch.Views
         bool IsUserNameComboBoxVisible { get; }
         bool IsPINTextBoxVisible { get; }
         bool IsBTNAddisible { get; }
-        bool IsBTNDeleteVisible { get; }
+        bool IsBTNDeleteVisible { get; set; }
         bool IsFirstNTextBoxVisible { get; }
         bool IsLastNTextBoxVisible { get; }
         bool IsSubjectGradeLabelVisible { get; }

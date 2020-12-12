@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SchoolDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Addresses">
-          <Key>
-            <PropertyRef Name="address_id" />
-          </Key>
-          <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="country" Type="nvarchar" MaxLength="50" />
-          <Property Name="city" Type="nvarchar" MaxLength="50" />
-          <Property Name="street" Type="nvarchar" MaxLength="50" />
-          <Property Name="street_num" Type="int" />
-        </EntityType>
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="admin_id" />
@@ -68,7 +58,6 @@
           <Property Name="student_No" Type="int" />
           <Property Name="student_PIN" Type="nvarchar" MaxLength="50" />
           <Property Name="parents_id" Type="int" />
-          <Property Name="address_id" Type="int" Nullable="false" />
           <Property Name="grade" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Subjects">
@@ -89,18 +78,6 @@
           <Property Name="username" Type="nvarchar" MaxLength="50" />
           <Property Name="password_hash" Type="ntext" />
         </EntityType>
-        <Association Name="FK_address_id">
-          <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
-          <End Role="Students" Type="Self.Students" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Addresses">
-              <PropertyRef Name="address_id" />
-            </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="address_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_notes_subject_id">
           <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
           <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
@@ -162,7 +139,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_teacher_id">
-          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Teachers">
@@ -174,7 +153,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SchoolDBModelStoreContainer">
-          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
@@ -182,10 +160,6 @@
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_address_id" Association="Self.FK_address_id">
-            <End Role="Addresses" EntitySet="Addresses" />
-            <End Role="Students" EntitySet="Students" />
-          </AssociationSet>
           <AssociationSet Name="FK_notes_subject_id" Association="Self.FK_notes_subject_id">
             <End Role="Subjects" EntitySet="Subjects" />
             <End Role="Notes" EntitySet="Notes" />
@@ -215,17 +189,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SchoolDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Address">
-          <Key>
-            <PropertyRef Name="address_id" />
-          </Key>
-          <Property Name="address_id" Type="Int32" Nullable="false" />
-          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="street_num" Type="Int32" />
-          <NavigationProperty Name="Students" Relationship="SchoolDBModel.FK_address_id" FromRole="Address" ToRole="Student" />
-        </EntityType>
         <EntityType Name="Parent">
           <Key>
             <PropertyRef Name="parent_Id" />
@@ -272,7 +235,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SchoolDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Parents" EntityType="Self.Parent" />
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <EntitySet Name="Teachers" EntityType="Self.Teacher" />
@@ -292,10 +254,6 @@
           </AssociationSet>
           <EntitySet Name="Admins" EntityType="SchoolDBModel.Admin" />
           <EntitySet Name="Students" EntityType="SchoolDBModel.Student" />
-          <AssociationSet Name="FK_address_id" Association="SchoolDBModel.FK_address_id">
-            <End Role="Address" EntitySet="Addresses" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
           <AssociationSet Name="FK_student_id1" Association="SchoolDBModel.FK_student_id1">
             <End Role="Student" EntitySet="Students" />
             <End Role="Grade" EntitySet="Grades" />
@@ -380,25 +338,11 @@
           <Property Name="student_No" Type="Int32" />
           <Property Name="student_PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="parents_id" Type="Int32" />
-          <Property Name="address_id" Type="Int32" Nullable="false" />
           <Property Name="grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Address" Relationship="SchoolDBModel.FK_address_id" FromRole="Student" ToRole="Address" />
           <NavigationProperty Name="Grades" Relationship="SchoolDBModel.FK_student_id1" FromRole="Student" ToRole="Grade" />
           <NavigationProperty Name="Notes" Relationship="SchoolDBModel.FK_student_id" FromRole="Student" ToRole="Note" />
           <NavigationProperty Name="Parent" Relationship="SchoolDBModel.FK_parents_id" FromRole="Student" ToRole="Parent" />
         </EntityType>
-        <Association Name="FK_address_id">
-          <End Type="SchoolDBModel.Address" Role="Address" Multiplicity="1" />
-          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Address">
-              <PropertyRef Name="address_id" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="address_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_student_id1">
           <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="1" />
           <End Type="SchoolDBModel.Grade" Role="Grade" Multiplicity="*" />
@@ -441,17 +385,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SchoolDBModelStoreContainer" CdmEntityContainer="SchoolDBEntities">
-          <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="SchoolDBModel.Address">
-              <MappingFragment StoreEntitySet="Addresses">
-                <ScalarProperty Name="address_id" ColumnName="address_id" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="street" ColumnName="street" />
-                <ScalarProperty Name="street_num" ColumnName="street_num" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Parents">
             <EntityTypeMapping TypeName="SchoolDBModel.Parent">
               <MappingFragment StoreEntitySet="Parents">
@@ -523,7 +456,6 @@
             <EntityTypeMapping TypeName="SchoolDBModel.Student">
               <MappingFragment StoreEntitySet="Students">
                 <ScalarProperty Name="grade" ColumnName="grade" />
-                <ScalarProperty Name="address_id" ColumnName="address_id" />
                 <ScalarProperty Name="parents_id" ColumnName="parents_id" />
                 <ScalarProperty Name="student_PIN" ColumnName="student_PIN" />
                 <ScalarProperty Name="student_No" ColumnName="student_No" />

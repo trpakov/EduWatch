@@ -72,11 +72,11 @@ namespace EduWatch.Presenters
                     break;
                 case "Ученик":
                     
-                    if (view.ComboBoxGrade!= string.Empty && view.FirstNTextBox != string.Empty && view.LastNTextBox != string.Empty && 
+                    if (view.ComboBoxGrade!= null && view.FirstNTextBox != string.Empty && view.LastNTextBox != string.Empty && 
                         view.StudentNumberTextBox!=string.Empty && view.PINTextBox != string.Empty && regexInt.IsMatch(view.PINTextBox)&& regexInt.IsMatch(view.StudentNumberTextBox)
                         && regexString.IsMatch(view.FirstNTextBox) && regexString.IsMatch(view.LastNTextBox))
                     {
-                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PasswordTextBox, student_No = int.Parse(view.StudentNumberTextBox) };
+                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PINTextBox, student_No = int.Parse(view.StudentNumberTextBox) };
                         data.Students.Add(student);
                     }
                     else
@@ -88,9 +88,10 @@ namespace EduWatch.Presenters
                     break;           
 
             }
+            data.SaveChanges();
             try
             {              
-                data.SaveChanges();
+               
                 view.Message("Промените бяха запазени успешно.", "Успех", Views.MessageIcon.Information);
             }
             catch (Exception)
@@ -124,10 +125,10 @@ namespace EduWatch.Presenters
                     break;
 
             }
+            data.SaveChanges();
             try
             {
-
-                data.SaveChanges();
+               
                 view.Message("Промените бяха запазени успешно.", "Успех", Views.MessageIcon.Information);
             }
             catch (Exception)
@@ -177,14 +178,15 @@ namespace EduWatch.Presenters
                     view.Message("Моля, въведете валидно ЕГН.", "Внимание", Views.MessageIcon.Warning);
                     return;
                 }
-               
+
                 var student = data.Students.Where(x => x.student_PIN == view.PINTextBox).Single();
                 view.FirstNTextBox = student.student_firstN;
-                view.LastNTextBox = student.student_lastN;              
+                view.LastNTextBox = student.student_lastN;
+                view.IsBTNDeleteVisible = true;
             }
             catch
             {
-                view.Message("Няма ученик с такова ЕГН","ОК" ,Views.MessageIcon.Information);
+                view.Message("Няма ученик с такова ЕГН", "ОК", Views.MessageIcon.Information);
             }
         }
     }

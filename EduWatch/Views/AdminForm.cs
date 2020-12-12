@@ -26,7 +26,7 @@ namespace EduWatch.Views
         public string UserNameTextBox { get => usernameTextBox.Text; set => usernameTextBox.Text = value; }
         public string ComboBoxUserName { get => comboBoxUsername.SelectedItem.ToString(); set => comboBoxUsername.SelectedItem = value; }
         public string TextBoxSubject { get => subjectTextBox.Text; set => subjectTextBox.Text = value; }
-        public string ComboBoxGrade { get => comboBoxGrade.SelectedItem.ToString(); set => comboBoxGrade.SelectedItem= value; }
+        public string ComboBoxGrade { get => comboBoxGrade.SelectedItem?.ToString(); set => comboBoxGrade.SelectedItem= value; }
 
         public string typeOfProfile => comboBoxProfile.SelectedItem?.ToString();
 
@@ -44,9 +44,9 @@ namespace EduWatch.Views
 
         string IAdminView.PINTextBox { get => PINTextBox.Text; set => PINTextBox.Text = value; }
 
-        public bool IsBTNAddisible => AddInfoBTN.Visible;
+        public bool IsBTNAddisible  => AddInfoBTN.Visible;
 
-        public bool IsBTNDeleteVisible =>  DeleteInfoBTN.Visible;
+        public bool IsBTNDeleteVisible { get => DeleteInfoBTN.Visible; set => DeleteInfoBTN.Visible = value; }
 
         public bool IsFirstNTextBoxVisible => firstNTextBox.Visible;
 
@@ -159,6 +159,7 @@ namespace EduWatch.Views
 
         public void FillInCorrespondingUserNames(string[] usernames)
         {
+            comboBoxUsername.Items.Clear();
             comboBoxUsername.Items.AddRange(usernames);
         }
 
@@ -220,7 +221,8 @@ namespace EduWatch.Views
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-
+            firstNTextBox.Enabled = true;
+            lastNTextBox.Enabled = true;
             HideAll();
             ClearText();
         
@@ -284,15 +286,9 @@ namespace EduWatch.Views
 
         private void DeleteInfoBTN_Click(object sender, EventArgs e)
         {
-            if (usernameTextBox.Text != string.Empty)
-            {
+ 
                 Presenter.OnRemoveClick();
-                ClearText();
-            }
-            else
-            {
-                Message("Моля, изберете портебителско име.", "Внимание", Views.MessageIcon.Warning);
-                }
+                ClearText();        
            
         }
 

@@ -16,12 +16,7 @@ namespace EduWatch.Views
         public TeacherForm()
         {
             InitializeComponent();
-            dataGridView1.Hide();
-            CommentLabel.Hide();
-            commentTextBox.Hide();
-            GradeLabel.Hide();
-            gradeComboBox.Hide();
-            Savebtn.Hide();
+            HideAll();
         }
         public TeacherPresenter Presenter { private get; set; }
        public string TeacherNameLabelText { get => teachersNameLabel.Text; set => teachersNameLabel.Text = value; }
@@ -63,9 +58,9 @@ namespace EduWatch.Views
 
         public void FillInCorrespondingStudents(List<Tuple<int, string>> students)
         {
-            comboBoxStudent.DisplayMember = "Item2";
-            comboBoxStudent.ValueMember = "Item1";
-            comboBoxStudent.DataSource = students;
+            comboBoxSubject.DisplayMember = "Item2";
+            comboBoxSubject.ValueMember = "Item1";
+            comboBoxSubject.DataSource = students;
         }
 
         public MessageResult Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
@@ -83,6 +78,7 @@ namespace EduWatch.Views
         private void comboBoxSubject_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Presenter.OnSubjectSelection();
+            ComboBoxStudentSelectedIndex = -1;
         }
 
         private void comboBoxStudent_SelectionChangeCommitted(object sender, EventArgs e)
@@ -195,6 +191,13 @@ namespace EduWatch.Views
             gradeComboBox.Visible=false;
             dataGridView1.Visible = false;
             Savebtn.Visible = false;
+        }
+
+        private void comboBoxGrade1to12_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ComboBoxStudentSelectedIndex = -1;
+
+            ComboBoxSubjectSelectedIndex = -1;
         }
     }
 }

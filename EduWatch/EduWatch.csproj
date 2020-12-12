@@ -75,9 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Address.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Admin.cs">
       <DependentUpon>SchoolDataModel.tt</DependentUpon>
     </Compile>

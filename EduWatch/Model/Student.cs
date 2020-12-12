@@ -27,10 +27,8 @@ namespace EduWatch.Model
         public Nullable<int> student_No { get; set; }
         public string student_PIN { get; set; }
         public Nullable<int> parents_id { get; set; }
-        public int address_id { get; set; }
         public string grade { get; set; }
     
-        public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Grade> Grades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

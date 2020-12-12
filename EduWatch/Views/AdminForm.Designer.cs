@@ -85,6 +85,7 @@
             // 
             // comboBoxProfile
             // 
+            this.comboBoxProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProfile.FormattingEnabled = true;
             this.comboBoxProfile.Location = new System.Drawing.Point(383, 255);
             this.comboBoxProfile.Margin = new System.Windows.Forms.Padding(4);
@@ -167,6 +168,7 @@
             // 
             // comboBoxUsername
             // 
+            this.comboBoxUsername.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUsername.FormattingEnabled = true;
             this.comboBoxUsername.Location = new System.Drawing.Point(71, 301);
             this.comboBoxUsername.Name = "comboBoxUsername";
@@ -264,6 +266,7 @@
             // 
             // comboBoxGrade
             // 
+            this.comboBoxGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGrade.FormattingEnabled = true;
             this.comboBoxGrade.Location = new System.Drawing.Point(71, 376);
             this.comboBoxGrade.Name = "comboBoxGrade";

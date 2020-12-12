@@ -322,6 +322,7 @@
             this.comboBoxGrade1to12.Name = "comboBoxGrade1to12";
             this.comboBoxGrade1to12.Size = new System.Drawing.Size(64, 24);
             this.comboBoxGrade1to12.TabIndex = 39;
+            this.comboBoxGrade1to12.SelectionChangeCommitted += new System.EventHandler(this.comboBoxGrade1to12_SelectionChangeCommitted);
             // 
             // averageGradeTextBox
             // 
