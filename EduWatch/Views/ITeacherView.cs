@@ -27,12 +27,12 @@ namespace EduWatch.Views
         bool SelectedGradesView { get; set; }
         bool AverageGradeButtonEnabled { get; set; }
         string AverageGradeTextBox { get; set; }
-        bool isDataGridViewVisible { get;  }
-        bool isTextBoxCommentVisible { get;  }
-        bool isCommentLabelVisible { get;  }
-        bool isGradeLabelVisible { get; }
-        bool isGradeComboBoxVisible { get; } 
-        bool isSaveBTNVisible { get; }
+        bool IsDataGridViewVisible { get;  }
+        bool IsTextBoxCommentVisible { get;  }
+        bool IsCommentLabelVisible { get;  }
+        bool IsGradeLabelVisible { get; }
+        bool IsGradeComboBoxVisible { get; } 
+        bool IsSaveBTNVisible { get; }
 
         void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects);
         void FillInCorrespondingStudents(List<Tuple<int, string>> students);

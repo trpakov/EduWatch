@@ -30,31 +30,31 @@ namespace EduWatch.Views
 
         public string typeOfProfile => comboBoxProfile.SelectedItem?.ToString();
 
-        public bool isbtnDeleteVisible => deleteBtn.Visible;
+        public bool IsbtnDeleteVisible => deleteBtn.Visible;
 
-        public bool isbtnAddVisible => addBtn.Visible;
+        public bool IsbtnAddVisible => addBtn.Visible;
 
-        public bool isUserNameTextBoxVisible => usernameTextBox.Visible;
+        public bool IsUserNameTextBoxVisible => usernameTextBox.Visible;
 
-        public bool isUserNameComboBoxVisible => comboBoxUsername.Visible;
+        public bool IsUserNameComboBoxVisible => comboBoxUsername.Visible;
 
-        public bool isPINTextBoxVisible => PINTextBox.Visible;
+        public bool IsPINTextBoxVisible => PINTextBox.Visible;
 
-        public bool isSubjectTextBoxVisible => subjectTextBox.Visible;
+        public bool IsSubjectTextBoxVisible => subjectTextBox.Visible;
 
         string IAdminView.PINTextBox { get => PINTextBox.Text; set => PINTextBox.Text = value; }
 
-        public bool isBTNAddisible => AddInfoBTN.Visible;
+        public bool IsBTNAddisible => AddInfoBTN.Visible;
 
-        public bool isBTNDeleteVisible =>  DeleteInfoBTN.Visible;
+        public bool IsBTNDeleteVisible =>  DeleteInfoBTN.Visible;
 
-        public bool isFirstNTextBoxVisible => firstNTextBox.Visible;
+        public bool IsFirstNTextBoxVisible => firstNTextBox.Visible;
 
-        public bool isLastNTextBoxVisible => lastNTextBox.Visible;
+        public bool IsLastNTextBoxVisible => lastNTextBox.Visible;
 
-        public bool isSubjectGradeLabelVisible => subject1gradeLabel.Visible;
+        public bool IsSubjectGradeLabelVisible => subject1gradeLabel.Visible;
 
-        public bool isPINLabelVisible => PINLabel.Visible;
+        public bool IsPINLabelVisible => PINLabel.Visible;
         
         public int ComboBoxUserNameSelectedIndex { get => comboBoxUsername.SelectedIndex; set =>comboBoxUsername.SelectedIndex=value; }
 
@@ -62,16 +62,16 @@ namespace EduWatch.Views
 
         public string PasswordTextBox { get => passwordTextBox.Text; set => passwordLabel.Text=value; }
 
-        public bool isPasswordTextBoxVisible => passwordTextBox.Visible;
+        public bool IsPasswordTextBoxVisible => passwordTextBox.Visible;
 
-        public bool isPasswordLabelVisible => passwordTextBox.Visible;
+        public bool IsPasswordLabelVisible => passwordTextBox.Visible;
         public string StudentNumberTextBox { get =>studentNumberTextBox.Text; set => studentNumberTextBox.Text = value; }
 
-        public bool isStudentNumberTextBoxVisivle => studentNumberTextBox.Visible;
+        public bool IsStudentNumberTextBoxVisivle => studentNumberTextBox.Visible;
 
-        public bool isStudentNumberLabelVisible => studentNumberLabel.Visible;
+        public bool IsStudentNumberLabelVisible => studentNumberLabel.Visible;
 
-        public bool isCheckBtnVisible => checkPictureBox.Visible;
+        public bool IsCheckBtnVisible => checkPictureBox.Visible;
 
         public void FillInProfile(string[] typeOfProfiles)
         {
@@ -194,7 +194,7 @@ namespace EduWatch.Views
                 PINTextBox.Visible = true;
                 PINLabel.Visible = true;
                 checkPictureBox.Visible = true;
-                DeleteInfoBTN.Visible = true;
+                
             }
                 else if (typeOfProfile=="Родител")
             {
@@ -255,7 +255,6 @@ namespace EduWatch.Views
                 studentNumberLabel.Visible = true;
                 studentNumberTextBox.Visible = true;
                 AddInfoBTN.Visible = true;
-                
             }
            else if (typeOfProfile=="Родител")
             {
@@ -278,12 +277,23 @@ namespace EduWatch.Views
         private void AddInfoBTN_Click(object sender, EventArgs e)
         {
             Presenter.OnSaveClick();
+            ClearText();
+        
 
         }
 
         private void DeleteInfoBTN_Click(object sender, EventArgs e)
         {
-            Presenter.OnRemoveClick();
+            if (usernameTextBox.Text != string.Empty)
+            {
+                Presenter.OnRemoveClick();
+                ClearText();
+            }
+            else
+            {
+                Message("Моля, изберете портебителско име.", "Внимание", Views.MessageIcon.Warning);
+                }
+           
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -294,6 +304,7 @@ namespace EduWatch.Views
         private void comboBoxUsername_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ClearText();
+           
             if(typeOfProfile=="Учител")
             {
                 Presenter.OnTeacherSelection();
@@ -302,6 +313,7 @@ namespace EduWatch.Views
             {
                 Presenter.OnParentSelection();
             }
+ 
 
         }
 
@@ -318,6 +330,7 @@ namespace EduWatch.Views
         private void checkPictureBox_Click(object sender, EventArgs e)
         {
             Presenter.OnStudentSelection();
+           
         }
     }
 }

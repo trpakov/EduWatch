@@ -24,23 +24,23 @@ namespace EduWatch.Views
         string StudentNumberTextBox { get; set; }
         int SelectedUserNameID { get; }
         string typeOfProfile { get;}
-        bool isbtnDeleteVisible { get; }
-        bool isbtnAddVisible { get; }
-        bool isUserNameTextBoxVisible { get; }
-        bool isUserNameComboBoxVisible { get; }
-        bool isPINTextBoxVisible { get; }
-        bool isBTNAddisible { get; }
-        bool isBTNDeleteVisible { get; }
-        bool isFirstNTextBoxVisible { get; }
-        bool isLastNTextBoxVisible { get; }
-        bool isSubjectGradeLabelVisible { get; }
-        bool isStudentNumberTextBoxVisivle { get; }
-        bool isStudentNumberLabelVisible { get; }
-        bool isPINLabelVisible { get; }
-        bool isPasswordTextBoxVisible { get; }
-        bool isPasswordLabelVisible { get; }
-        bool isCheckBtnVisible { get; }
-        bool isSubjectTextBoxVisible { get; }
+        bool IsbtnDeleteVisible { get; }
+        bool IsbtnAddVisible { get; }
+        bool IsUserNameTextBoxVisible { get; }
+        bool IsUserNameComboBoxVisible { get; }
+        bool IsPINTextBoxVisible { get; }
+        bool IsBTNAddisible { get; }
+        bool IsBTNDeleteVisible { get; }
+        bool IsFirstNTextBoxVisible { get; }
+        bool IsLastNTextBoxVisible { get; }
+        bool IsSubjectGradeLabelVisible { get; }
+        bool IsStudentNumberTextBoxVisivle { get; }
+        bool IsStudentNumberLabelVisible { get; }
+        bool IsPINLabelVisible { get; }
+        bool IsPasswordTextBoxVisible { get; }
+        bool IsPasswordLabelVisible { get; }
+        bool IsCheckBtnVisible { get; }
+        bool IsSubjectTextBoxVisible { get; }
 
 
         void FillInProfile(string[] typeOfProfiles);

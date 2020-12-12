@@ -51,10 +51,11 @@ namespace EduWatch.Presenters
         {
             if (view.ComboBoxSubjectSelectedIndex == -1) return;
 
-           var studentsWithGrades =data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Grades.Select(x => x.Student).ToList();
-            var studentsWithNotes = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Notes.Select(x => x.Student).ToList();
-           var students = studentsWithGrades.Union(studentsWithNotes).Where(x => x.grade == view.ComboBoxGrade1to12);
-            var studentsData = students.Select(x => Tuple.Create(x.student_id, x.student_firstN + ' ' + x.student_lastN)).ToList();           
+          // var studentsWithGrades =data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Grades.Select(x => x.Student).ToList();
+          //  var studentsWithNotes = data.Subjects.Where(x => x.subject_id == view.SelectedSubjectID).Single().Notes.Select(x => x.Student).ToList();
+          // var students = studentsWithGrades.Union(studentsWithNotes).Where(x => x.grade == view.ComboBoxGrade1to12);
+           // var studentsData = students.Select(x => Tuple.Create(x.student_id, x.student_firstN + ' ' + x.student_lastN)).ToList(); 
+           var studentsData =data.Students.Where(x => x.grade == view.ComboBoxGrade1to12).Select(x=> Tuple.Create(x.student_id,x.student_firstN + ' ' + x.student_lastN)).ToList();
             view.FillInCorrespondingStudents(studentsData);
             view.ComboBoxStudentSelectedIndex = -1;
             view.ComboBoxStudentEnabled = true;

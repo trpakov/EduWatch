@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EduWatch.Presenters
@@ -45,23 +46,45 @@ namespace EduWatch.Presenters
         public void OnSaveClick()
         {
             string typeOfProfile = view.typeOfProfile;
+            var regexString = new Regex(@"^[а-яА-Я]+$");
+            var regexInt = new Regex("^[0-9]+$");
             switch (typeOfProfile)
             {
-                case null:
-                    view.Message("Моля, посочете вида потребител.", "Внимание", Views.MessageIcon.Warning);
-                    return;
+                
                 case "Учител":
-                    Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
-                    var passHash = passHasher.Generate(view.PasswordTextBox);
-                    var teacher = new Model.Teacher() { username = view.UserNameTextBox, teacher_firstN = view.FirstNTextBox, teacher_lastN = view.LastNTextBox, password_hash = passHash };
-                    data.Teachers.Add(teacher);
-                    var teacherid = teacher.teacher_id;
-                    var subject = new Model.Subject() { subject_name = view.TextBoxSubject, teacher_id = teacherid };
-                    data.Subjects.Add(subject);
+                    if (view.UserNameTextBox != string.Empty && view.TextBoxSubject != string.Empty && view.FirstNTextBox != string.Empty
+                       && view.LastNTextBox != string.Empty &&view.PasswordTextBox!=string.Empty  && regexString.IsMatch(view.FirstNTextBox) 
+                            && regexString.IsMatch(view.LastNTextBox) &&regexString.IsMatch(view.TextBoxSubject))
+                    {
+                        Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
+                        var passHash = passHasher.Generate(view.PasswordTextBox);
+                        var teacher = new Model.Teacher() { username = view.UserNameTextBox, teacher_firstN = view.FirstNTextBox, teacher_lastN = view.LastNTextBox, password_hash = passHash };
+                        data.Teachers.Add(teacher);
+                        var teacherid = teacher.teacher_id;
+                        var subject = new Model.Subject() { subject_name = view.TextBoxSubject, teacher_id = teacherid };
+                        data.Subjects.Add(subject);
+                    }
+                    else
+                    {
+                        view.Message("Моля попълнете всички полета.", "Грешка", Views.MessageIcon.Error);
+                        return;
+                    }
                     break;
-                case "Учeник":
-                   var student = new Model.Student() {student_firstN=view.FirstNTextBox,student_lastN=view.LastNTextBox,grade=view.ComboBoxGrade, student_PIN=view.PasswordTextBox ,student_No=int.Parse(view.StudentNumberTextBox)};
-                    data.Students.Add(student);
+                case "Ученик":
+                    
+                    if (view.ComboBoxGrade!= string.Empty && view.FirstNTextBox != string.Empty && view.LastNTextBox != string.Empty && 
+                        view.StudentNumberTextBox!=string.Empty && view.PINTextBox != string.Empty && regexInt.IsMatch(view.PINTextBox)&& regexInt.IsMatch(view.StudentNumberTextBox)
+                        && regexString.IsMatch(view.FirstNTextBox) && regexString.IsMatch(view.LastNTextBox))
+                    {
+                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PasswordTextBox, student_No = int.Parse(view.StudentNumberTextBox) };
+                        data.Students.Add(student);
+                    }
+                    else
+                    {
+                        view.Message("Моля попълнете всички полета коректно.", "Грешка", Views.MessageIcon.Error);
+                        return;
+                    }
+
                     break;           
 
             }
@@ -87,15 +110,13 @@ namespace EduWatch.Presenters
                 case null:
                     view.Message("Моля, посочете вида потребител.", "Внимание", Views.MessageIcon.Warning);
                     return;
-                case "Учитeл":
-              
-                  
+                case "Учител":                
                     var teacher = data.Teachers.Where(x=>x.username==view.ComboBoxUserName).Single();
                     data.Teachers.Remove(teacher);
                     break;
-                case "Ученик":
-                    var student = data.Students.Where(x => x.student_PIN == view.PINTextBox).Single();
-                    data.Students.Remove(student);
+                case "Ученик":                   
+                        var student = data.Students.Where(x => x.student_PIN == view.PINTextBox).Single();
+                        data.Students.Remove(student);                   
                     break;
                 case "Родител":
                     var parent = data.Parents.Where(x => x.username == view.ComboBoxUserName).Single();
@@ -114,6 +135,7 @@ namespace EduWatch.Presenters
 
                 view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
             }
+
 
         }
         public void OnTeacherRemove()
@@ -150,13 +172,19 @@ namespace EduWatch.Presenters
         {
             try
             {
+                if (!Regex.IsMatch(view.PINTextBox, @"^\d{10}$"))
+                {
+                    view.Message("Моля, въведете валидно ЕГН.", "Внимание", Views.MessageIcon.Warning);
+                    return;
+                }
+               
                 var student = data.Students.Where(x => x.student_PIN == view.PINTextBox).Single();
                 view.FirstNTextBox = student.student_firstN;
-                view.LastNTextBox = student.student_lastN;
+                view.LastNTextBox = student.student_lastN;              
             }
             catch
             {
-                view.Message("Моля въведете коректно ЕГН","ОК" ,Views.MessageIcon.Information);
+                view.Message("Няма ученик с такова ЕГН","ОК" ,Views.MessageIcon.Information);
             }
         }
     }

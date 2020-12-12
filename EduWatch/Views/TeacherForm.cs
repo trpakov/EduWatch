@@ -44,12 +44,12 @@ namespace EduWatch.Views
 
         public string ComboBoxGrade1to12 { get => comboBoxGrade1to12.Text; set => comboBoxGrade1to12.Text = value; }
         public string TextBoxComment { get => commentTextBox.Text; set =>commentTextBox.Text=value; }
-        public bool isDataGridViewVisible => dataGridView1.Visible;
-        public bool isTextBoxCommentVisible => commentTextBox.Visible;
-        public bool isCommentLabelVisible => CommentLabel.Visible;
-        public bool isGradeLabelVisible => GradeLabel.Visible;
-        public bool isGradeComboBoxVisible => gradeComboBox.Visible;
-        public bool isSaveBTNVisible => Savebtn.Visible;
+        public bool IsDataGridViewVisible => dataGridView1.Visible;
+        public bool IsTextBoxCommentVisible => commentTextBox.Visible;
+        public bool IsCommentLabelVisible => CommentLabel.Visible;
+        public bool IsGradeLabelVisible => GradeLabel.Visible;
+        public bool IsGradeComboBoxVisible => gradeComboBox.Visible;
+        public bool IsSaveBTNVisible => Savebtn.Visible;
 
         public bool ComboBoxSubjectEnabled { get => comboBoxSubject.Enabled; set => comboBoxSubject.Enabled=value; }
         public bool gradeRadioBtnEnabled { get => radioButtonGrade.Enabled; set => radioButtonGrade.Enabled=value; }
