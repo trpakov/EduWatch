@@ -99,7 +99,7 @@ namespace EduWatch.Presenters
             {
                 // Get all grades of the selected student for the selected subject
                 currentGrades = currentSubject.Grades.Where(x => x.student_id == view.SelectedStudentID).ToList();
-                var dataForGridViewList = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
+                var dataForGridViewList = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade1, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
                 dataForGridView = new Utilities.SortableBindingList<Views.GradeViewData>(dataForGridViewList);
             }
             else
@@ -117,7 +117,7 @@ namespace EduWatch.Presenters
 
         public void OnAverageGradeButtonClick()
         {
-            view.AverageGradeText = currentGrades.Average(x => x.grade).ToString();
+            view.AverageGradeText = currentGrades.Average(x => x.grade1).ToString();
         }
 
 

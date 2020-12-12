@@ -23,7 +23,7 @@ namespace EduWatch.Model
     
         public int subject_id { get; set; }
         public string subject_name { get; set; }
-        public int teacher_id { get; set; }
+        public Nullable<int> teacher_id { get; set; }
     
         public virtual Teacher Teacher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

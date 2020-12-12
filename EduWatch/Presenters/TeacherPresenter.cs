@@ -50,9 +50,9 @@ namespace EduWatch.Presenters
         internal void OnSubjectSelection()
         {
             if (view.ComboBoxSubjectSelectedIndex == -1) return;
-            var student = data.Students.Select(x => Tuple.Create(x.student_id,x.student_firstN +" "+x.student_lastN));
+            var student = data.Students.Select(x => new { ID = x.student_id, Name = x.student_firstN + "" + x.student_lastN }).AsEnumerable().Select(x => Tuple.Create(x.ID, x.Name)).ToList();
             // излизат по клас
-            view.FillInCorrespondingStudents(student.ToList());
+            view.FillInCorrespondingStudents(student);
             view.ComboBoxStudentSelectedIndex = -1;
             view.ComboBoxStudentEnabled = true;
         }
@@ -77,7 +77,7 @@ namespace EduWatch.Presenters
             {
                 // Get all grades of the selected student for the selected subject
                 currentGrades = currentStudent.Grades.Where(x => x.student_id == view.SelectedStudentID).ToList();
-                var dataForGridViewList = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
+                var dataForGridViewList = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade1, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
                 dataForGridView = new Utilities.SortableBindingList<Views.GradeViewData>(dataForGridViewList);
             }
             else
@@ -98,7 +98,7 @@ namespace EduWatch.Presenters
 
         internal void OnAverageGradeButtonClick()
         {
-            view.AverageGradeTextBox = currentGrades.Average(x => x.grade).ToString();
+            view.AverageGradeTextBox = currentGrades.Average(x => x.grade1).ToString();
         }
 
         internal void OnSaveNoteButtonClick()
@@ -118,7 +118,7 @@ namespace EduWatch.Presenters
         {
             if (view.TextBoxComment != string.Empty && view.ComboBoxGrade != string.Empty)
             {
-                var grade = new Model.Grade() { grade = int.Parse(view.ComboBoxGrade), grade_seen = false, comment = view.TextBoxComment, student_id = view.SelectedStudentID, subject_Id = view.SelectedSubjectID, date = DateTime.Now };
+                var grade = new Model.Grade() { grade1 = int.Parse(view.ComboBoxGrade), grade_seen = false, comment = view.TextBoxComment, student_id = view.SelectedStudentID, subject_Id = view.SelectedSubjectID, date = DateTime.Now };
                 data.Grades.Add(grade);
                 data.SaveChanges();
             }

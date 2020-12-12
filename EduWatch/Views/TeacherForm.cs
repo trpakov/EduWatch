@@ -58,9 +58,9 @@ namespace EduWatch.Views
 
         public void FillInCorrespondingStudents(List<Tuple<int, string>> students)
         {
-            comboBoxSubject.DisplayMember = "Item2";
-            comboBoxSubject.ValueMember = "Item1";
-            comboBoxSubject.DataSource = students;
+            comboBoxStudent.DisplayMember = "Item2";
+            comboBoxStudent.ValueMember = "Item1";
+            comboBoxStudent.DataSource = students;
         }
 
         public MessageResult Message(string msg, string caption = "Съобщение", MessageIcon msgIcon = MessageIcon.None, MessageButton msgBtn = MessageButton.OK)
@@ -77,8 +77,11 @@ namespace EduWatch.Views
 
         private void comboBoxSubject_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            Presenter.OnSubjectSelection();
-            ComboBoxStudentSelectedIndex = -1;
+           
+                Presenter.OnSubjectSelection();
+                ComboBoxStudentSelectedIndex = -1;
+            
+     
         }
 
         private void comboBoxStudent_SelectionChangeCommitted(object sender, EventArgs e)

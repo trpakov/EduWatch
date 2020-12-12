@@ -23,8 +23,8 @@
           <Property Name="grade" Type="int" Nullable="false" />
           <Property Name="grade_seen" Type="bit" Nullable="false" />
           <Property Name="comment" Type="nvarchar" MaxLength="50" />
-          <Property Name="student_id" Type="int" Nullable="false" />
-          <Property Name="subject_Id" Type="int" Nullable="false" />
+          <Property Name="student_id" Type="int" />
+          <Property Name="subject_Id" Type="int" />
           <Property Name="date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Notes">
@@ -35,8 +35,8 @@
           <Property Name="note" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="note_date" Type="date" Nullable="false" />
           <Property Name="note_seen" Type="bit" Nullable="false" />
-          <Property Name="student_id" Type="int" Nullable="false" />
-          <Property Name="subject_id" Type="int" Nullable="false" />
+          <Property Name="student_id" Type="int" />
+          <Property Name="subject_id" Type="int" />
         </EntityType>
         <EntityType Name="Parents">
           <Key>
@@ -66,7 +66,7 @@
           </Key>
           <Property Name="subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="subject_name" Type="nvarchar" MaxLength="50" />
-          <Property Name="teacher_id" Type="int" Nullable="false" />
+          <Property Name="teacher_id" Type="int" />
         </EntityType>
         <EntityType Name="Teachers">
           <Key>
@@ -79,7 +79,9 @@
           <Property Name="password_hash" Type="ntext" />
         </EntityType>
         <Association Name="FK_notes_subject_id">
-          <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subjects">
@@ -103,7 +105,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_student_id">
-          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Students">
@@ -115,7 +119,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_student_id1">
-          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Students">
@@ -127,7 +133,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_subject_id">
-          <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subjects">
@@ -139,7 +147,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_teacher_id">
-          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
@@ -200,17 +208,6 @@
           <Property Name="password_hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Students" Relationship="SchoolDBModel.FK_parents_id" FromRole="Parent" ToRole="Student" />
         </EntityType>
-        <EntityType Name="Subject">
-          <Key>
-            <PropertyRef Name="subject_id" />
-          </Key>
-          <Property Name="subject_id" Type="Int32" Nullable="false" />
-          <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="teacher_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Teacher" Relationship="Self.FK_teacher_id" FromRole="Subjects" ToRole="Teachers" />
-          <NavigationProperty Name="Notes" Relationship="SchoolDBModel.FK_notes_subject_id" FromRole="Subject" ToRole="Note" />
-          <NavigationProperty Name="Grades" Relationship="SchoolDBModel.FK_subject_id" FromRole="Subject" ToRole="Grade" />
-        </EntityType>
         <EntityType Name="Teacher">
           <Key>
             <PropertyRef Name="teacher_id" />
@@ -220,27 +217,16 @@
           <Property Name="teacher_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="password_hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Subjects" Relationship="Self.FK_teacher_id" FromRole="Teachers" ToRole="Subjects" />
+          <NavigationProperty Name="Subjects" Relationship="SchoolDBModel.FK_teacher_id" FromRole="Teacher" ToRole="Subject" />
         </EntityType>
-        <Association Name="FK_teacher_id">
-          <End Role="Teachers" Type="Self.Teacher" Multiplicity="1" />
-          <End Role="Subjects" Type="Self.Subject" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teachers">
-              <PropertyRef Name="teacher_id" />
-            </Principal>
-            <Dependent Role="Subjects">
-              <PropertyRef Name="teacher_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SchoolDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Parents" EntityType="Self.Parent" />
-          <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <EntitySet Name="Teachers" EntityType="Self.Teacher" />
-          <AssociationSet Name="FK_teacher_id" Association="Self.FK_teacher_id">
-            <End Role="Teachers" EntitySet="Teachers" />
-            <End Role="Subjects" EntitySet="Subjects" />
+          <EntitySet Name="Admins" EntityType="SchoolDBModel.Admin" />
+          <EntitySet Name="Subjects" EntityType="SchoolDBModel.Subject" />
+          <AssociationSet Name="FK_teacher_id" Association="SchoolDBModel.FK_teacher_id">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Subject" EntitySet="Subjects" />
           </AssociationSet>
           <EntitySet Name="Notes" EntityType="SchoolDBModel.Note" />
           <AssociationSet Name="FK_notes_subject_id" Association="SchoolDBModel.FK_notes_subject_id">
@@ -252,7 +238,6 @@
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Grade" EntitySet="Grades" />
           </AssociationSet>
-          <EntitySet Name="Admins" EntityType="SchoolDBModel.Admin" />
           <EntitySet Name="Students" EntityType="SchoolDBModel.Student" />
           <AssociationSet Name="FK_student_id1" Association="SchoolDBModel.FK_student_id1">
             <End Role="Student" EntitySet="Students" />
@@ -267,6 +252,41 @@
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
           </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin_password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="admin_firstN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin_lastN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="subject_id" />
+          </Key>
+          <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="teacher_id" Type="Int32" />
+          <NavigationProperty Name="Teacher" Relationship="SchoolDBModel.FK_teacher_id" FromRole="Subject" ToRole="Teacher" />
+          <NavigationProperty Name="Notes" Relationship="SchoolDBModel.FK_notes_subject_id" FromRole="Subject" ToRole="Note" />
+          <NavigationProperty Name="Grades" Relationship="SchoolDBModel.FK_subject_id" FromRole="Subject" ToRole="Grade" />
+        </EntityType>
+        <Association Name="FK_teacher_id">
+          <End Type="SchoolDBModel.Teacher" Role="Teacher" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Note">
           <Key>
             <PropertyRef Name="note_Id" />
@@ -275,13 +295,15 @@
           <Property Name="note1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="note_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="note_seen" Type="Boolean" Nullable="false" />
-          <Property Name="student_id" Type="Int32" Nullable="false" />
-          <Property Name="subject_id" Type="Int32" Nullable="false" />
+          <Property Name="student_id" Type="Int32" />
+          <Property Name="subject_id" Type="Int32" />
           <NavigationProperty Name="Subject" Relationship="SchoolDBModel.FK_notes_subject_id" FromRole="Note" ToRole="Subject" />
           <NavigationProperty Name="Student" Relationship="SchoolDBModel.FK_student_id" FromRole="Note" ToRole="Student" />
         </EntityType>
         <Association Name="FK_notes_subject_id">
-          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="SchoolDBModel.Note" Role="Note" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subject">
@@ -297,17 +319,19 @@
             <PropertyRef Name="grade_id" />
           </Key>
           <Property Name="grade_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="grade" Type="Int32" Nullable="false" />
+          <Property Name="grade1" Type="Int32" Nullable="false" />
           <Property Name="grade_seen" Type="Boolean" Nullable="false" />
           <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="student_id" Type="Int32" Nullable="false" />
-          <Property Name="subject_Id" Type="Int32" Nullable="false" />
+          <Property Name="student_id" Type="Int32" />
+          <Property Name="subject_Id" Type="Int32" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Subject" Relationship="SchoolDBModel.FK_subject_id" FromRole="Grade" ToRole="Subject" />
           <NavigationProperty Name="Student" Relationship="SchoolDBModel.FK_student_id1" FromRole="Grade" ToRole="Student" />
         </EntityType>
         <Association Name="FK_subject_id">
-          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="SchoolDBModel.Grade" Role="Grade" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subject">
@@ -318,16 +342,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="admin_id" />
-          </Key>
-          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="admin_username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="admin_password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="admin_firstN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="admin_lastN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="student_id" />
@@ -344,7 +358,9 @@
           <NavigationProperty Name="Parent" Relationship="SchoolDBModel.FK_parents_id" FromRole="Student" ToRole="Parent" />
         </EntityType>
         <Association Name="FK_student_id1">
-          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="SchoolDBModel.Grade" Role="Grade" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -356,7 +372,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_student_id">
-          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="SchoolDBModel.Note" Role="Note" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -396,15 +414,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Subjects">
-            <EntityTypeMapping TypeName="SchoolDBModel.Subject">
-              <MappingFragment StoreEntitySet="Subjects">
-                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
-                <ScalarProperty Name="subject_name" ColumnName="subject_name" />
-                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Teachers">
             <EntityTypeMapping TypeName="SchoolDBModel.Teacher">
               <MappingFragment StoreEntitySet="Teachers">
@@ -413,6 +422,26 @@
                 <ScalarProperty Name="teacher_lastN" ColumnName="teacher_lastN" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="SchoolDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="admin_lastN" ColumnName="admin_lastN" />
+                <ScalarProperty Name="admin_firstN" ColumnName="admin_firstN" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+                <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="SchoolDBModel.Subject">
+              <MappingFragment StoreEntitySet="Subjects">
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+                <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -436,19 +465,8 @@
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
                 <ScalarProperty Name="comment" ColumnName="comment" />
                 <ScalarProperty Name="grade_seen" ColumnName="grade_seen" />
-                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="grade1" ColumnName="grade" />
                 <ScalarProperty Name="grade_id" ColumnName="grade_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="SchoolDBModel.Admin">
-              <MappingFragment StoreEntitySet="Admins">
-                <ScalarProperty Name="admin_lastN" ColumnName="admin_lastN" />
-                <ScalarProperty Name="admin_firstN" ColumnName="admin_firstN" />
-                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
-                <ScalarProperty Name="admin_username" ColumnName="admin_username" />
-                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
