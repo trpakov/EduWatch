@@ -173,7 +173,7 @@ namespace EduWatch.Presenters
         {
             var parent = data.Parents.Where(x => x.username == view.ComboBoxUserName).Single();
             view.FirstNTextBox = parent.parent_firstN;
-            view.LastNTextBox = parent.parent_firstN;
+            view.LastNTextBox = parent.parent_lastN;
         }
 
         public void OnStudentSelection()
