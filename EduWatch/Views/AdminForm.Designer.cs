@@ -126,7 +126,7 @@
             // 
             // DeleteInfoBTN
             // 
-            this.DeleteInfoBTN.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteInfoBTN.BackColor = System.Drawing.Color.Red;
             this.DeleteInfoBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteInfoBTN.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteInfoBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -143,12 +143,12 @@
             // 
             this.exitBtn.BackColor = System.Drawing.Color.Transparent;
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitBtn.ForeColor = System.Drawing.Color.Red;
-            this.exitBtn.Location = new System.Drawing.Point(898, 127);
+            this.exitBtn.Location = new System.Drawing.Point(870, 118);
             this.exitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(100, 33);
+            this.exitBtn.Size = new System.Drawing.Size(100, 40);
             this.exitBtn.TabIndex = 20;
             this.exitBtn.Text = "Изход";
             this.exitBtn.UseVisualStyleBackColor = false;
@@ -258,7 +258,7 @@
             this.adminLabelText.BackColor = System.Drawing.Color.Transparent;
             this.adminLabelText.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.adminLabelText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.adminLabelText.Location = new System.Drawing.Point(894, 92);
+            this.adminLabelText.Location = new System.Drawing.Point(866, 79);
             this.adminLabelText.Name = "adminLabelText";
             this.adminLabelText.Size = new System.Drawing.Size(54, 24);
             this.adminLabelText.TabIndex = 33;
@@ -275,7 +275,7 @@
             // 
             // AddInfoBTN
             // 
-            this.AddInfoBTN.BackColor = System.Drawing.Color.Transparent;
+            this.AddInfoBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.AddInfoBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddInfoBTN.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddInfoBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -304,6 +304,7 @@
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(749, 384);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(154, 22);
             this.passwordTextBox.TabIndex = 37;
             // 

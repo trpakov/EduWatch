@@ -124,14 +124,14 @@
             // 
             // Exitbtn
             // 
-            this.Exitbtn.BackColor = System.Drawing.Color.Transparent;
+            this.Exitbtn.BackColor = System.Drawing.SystemColors.Control;
             this.Exitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exitbtn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Exitbtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Exitbtn.ForeColor = System.Drawing.Color.Red;
-            this.Exitbtn.Location = new System.Drawing.Point(1065, 146);
+            this.Exitbtn.Location = new System.Drawing.Point(1055, 171);
             this.Exitbtn.Margin = new System.Windows.Forms.Padding(4);
             this.Exitbtn.Name = "Exitbtn";
-            this.Exitbtn.Size = new System.Drawing.Size(100, 33);
+            this.Exitbtn.Size = new System.Drawing.Size(120, 33);
             this.Exitbtn.TabIndex = 19;
             this.Exitbtn.Text = "Изход";
             this.Exitbtn.UseVisualStyleBackColor = false;
@@ -139,11 +139,11 @@
             // 
             // btnAverage
             // 
-            this.btnAverage.BackColor = System.Drawing.Color.Transparent;
+            this.btnAverage.BackColor = System.Drawing.SystemColors.Control;
             this.btnAverage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAverage.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAverage.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAverage.Location = new System.Drawing.Point(663, 727);
+            this.btnAverage.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnAverage.Location = new System.Drawing.Point(663, 730);
             this.btnAverage.Margin = new System.Windows.Forms.Padding(4);
             this.btnAverage.Name = "btnAverage";
             this.btnAverage.Size = new System.Drawing.Size(205, 41);
@@ -210,7 +210,7 @@
             this.SeeDatabtn.BackColor = System.Drawing.Color.Transparent;
             this.SeeDatabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SeeDatabtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SeeDatabtn.ForeColor = System.Drawing.Color.Transparent;
+            this.SeeDatabtn.ForeColor = System.Drawing.Color.Tomato;
             this.SeeDatabtn.Location = new System.Drawing.Point(56, 628);
             this.SeeDatabtn.Name = "SeeDatabtn";
             this.SeeDatabtn.Size = new System.Drawing.Size(203, 51);
@@ -225,7 +225,7 @@
             this.teachersNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.teachersNameLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.teachersNameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.teachersNameLabel.Location = new System.Drawing.Point(1032, 118);
+            this.teachersNameLabel.Location = new System.Drawing.Point(1031, 81);
             this.teachersNameLabel.Name = "teachersNameLabel";
             this.teachersNameLabel.Size = new System.Drawing.Size(168, 24);
             this.teachersNameLabel.TabIndex = 29;
@@ -297,7 +297,7 @@
             this.AddRecordbtn.BackColor = System.Drawing.Color.Transparent;
             this.AddRecordbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddRecordbtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddRecordbtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddRecordbtn.ForeColor = System.Drawing.Color.Orange;
             this.AddRecordbtn.Location = new System.Drawing.Point(265, 628);
             this.AddRecordbtn.Name = "AddRecordbtn";
             this.AddRecordbtn.Size = new System.Drawing.Size(212, 51);
@@ -341,15 +341,15 @@
             // 
             // optionsBtn
             // 
-            this.optionsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.optionsBtn.BackColor = System.Drawing.SystemColors.Control;
             this.optionsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.optionsBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.optionsBtn.ForeColor = System.Drawing.Color.White;
-            this.optionsBtn.Location = new System.Drawing.Point(1206, 70);
+            this.optionsBtn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.optionsBtn.ForeColor = System.Drawing.Color.Maroon;
+            this.optionsBtn.Location = new System.Drawing.Point(1055, 120);
             this.optionsBtn.Name = "optionsBtn";
-            this.optionsBtn.Size = new System.Drawing.Size(51, 44);
+            this.optionsBtn.Size = new System.Drawing.Size(120, 32);
             this.optionsBtn.TabIndex = 41;
-            this.optionsBtn.Text = "?";
+            this.optionsBtn.Text = "Настройки";
             this.optionsBtn.UseVisualStyleBackColor = false;
             this.optionsBtn.Click += new System.EventHandler(this.optionsBtn_Click);
             // 

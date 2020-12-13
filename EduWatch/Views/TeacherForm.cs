@@ -135,6 +135,7 @@ namespace EduWatch.Views
 
         private void AddRecordbtn_Click(object sender, EventArgs e)
         {
+            commentTextBox.Text = string.Empty;
             if (radioButtonGrade.Checked)
             {
                 HideAll();
@@ -144,6 +145,7 @@ namespace EduWatch.Views
                 GradeLabel.Visible=true;
                 gradeComboBox.Visible=true;
                 Savebtn.Visible=true;
+                
                 
             }
             else if (radioButtonNote.Checked)

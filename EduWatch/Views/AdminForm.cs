@@ -196,6 +196,7 @@ namespace EduWatch.Views
                 PINLabel.Visible = true;
                 checkPictureBox.Visible = true;
                 
+                
             }
                 else if (typeOfProfile=="Родител")
             {
@@ -280,7 +281,8 @@ namespace EduWatch.Views
         {
             Presenter.OnSaveClick();
             ClearText();
-        
+            comboBoxGrade.SelectedIndex = -1;
+
 
         }
 

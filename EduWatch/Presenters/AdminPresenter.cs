@@ -46,8 +46,10 @@ namespace EduWatch.Presenters
         public void OnSaveClick()
         {
             string typeOfProfile = view.typeOfProfile;
-            var regexString = new Regex(@"^[А-я]+$");
+            var regexString = new Regex("^[А-я]+$");
             var regexInt = new Regex("^[0-9]+$");
+            var regexPassword =new Regex("^.{8,25}$");
+            
             switch (typeOfProfile)
             {
                 
@@ -61,6 +63,11 @@ namespace EduWatch.Presenters
                         if (existingTeacher != null)
                         {
                             view.Message("Това потребителско име вече е заето. Моля, изберете друго.", "Внимание", Views.MessageIcon.Warning);
+                            return;
+                        }
+                        if(!regexPassword.IsMatch(view.PasswordTextBox))
+                        {
+                            view.Message("Паролата трябва да е с дължина между 8 и 25 символа.", "Внимание", Views.MessageIcon.Warning);
                             return;
                         }
                         Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
@@ -95,10 +102,10 @@ namespace EduWatch.Presenters
                     break;           
 
             }
-            data.SaveChanges();
+            
             try
-            {              
-               
+            {
+                data.SaveChanges();
                 view.Message("Промените бяха запазени успешно.", "Успех", Views.MessageIcon.Information);
             }
             catch (Exception)
