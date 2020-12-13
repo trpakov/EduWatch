@@ -328,6 +328,7 @@
             // 
             // averageGradeTextBox
             // 
+            this.averageGradeTextBox.Enabled = false;
             this.averageGradeTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.averageGradeTextBox.Location = new System.Drawing.Point(875, 730);
             this.averageGradeTextBox.Multiline = true;

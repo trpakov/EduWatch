@@ -50,8 +50,7 @@ namespace EduWatch.Presenters
         internal void OnSubjectSelection()
         {
             if (view.ComboBoxSubjectSelectedIndex == -1) return;
-            var student = data.Students.Select(x => new { ID = x.student_id, Name = x.student_firstN + "" + x.student_lastN }).AsEnumerable().Select(x => Tuple.Create(x.ID, x.Name)).ToList();
-            // излизат по клас
+            var student = data.Students.Where(x=>x.grade==view.ComboBoxGrade1to12).Select(x => new { ID = x.student_id, Name = x.student_firstN + " " + x.student_lastN}).AsEnumerable().Select(x => Tuple.Create(x.ID, x.Name)).ToList();
             view.FillInCorrespondingStudents(student);
             view.ComboBoxStudentSelectedIndex = -1;
             view.ComboBoxStudentEnabled = true;
@@ -59,16 +58,18 @@ namespace EduWatch.Presenters
 
         internal void OnGradesButtonClick()
         {
-            PrepareDataForView();
-            if (view.SelectedGradesView) view.AverageGradeButtonEnabled = true;
-            else view.AverageGradeButtonEnabled = false;
+                PrepareDataForView();
+
         }
 
         internal void OnStudentSelection()
         {
-            // Get selected student
-            currentStudent = data.Students.Where(x => x.student_id == view.SelectedStudentID).Single();
-            PrepareDataForView();
+
+                // Get selected student
+                currentStudent = data.Students.Where(x => x.student_id == view.SelectedStudentID).Single();
+                PrepareDataForView();
+            
+         
         }
 
          void PrepareDataForView()
@@ -98,7 +99,14 @@ namespace EduWatch.Presenters
 
         internal void OnAverageGradeButtonClick()
         {
-            view.AverageGradeTextBox = currentGrades.Average(x => x.grade1).ToString();
+            if (currentGrades.Count > 0)
+            {
+                view.AverageGradeTextBox = currentGrades.Average(x => x.grade1).ToString();
+            }
+            else
+            {
+                view.Message("Ученикът няма оценки по избрания предмет.", "Грешка", Views.MessageIcon.Error);
+            }
         }
 
         internal void OnSaveNoteButtonClick()
@@ -144,7 +152,8 @@ namespace EduWatch.Presenters
             view.ComboBoxSubjectSelectedIndex = -1;
             view.gradeRadioBtnEnabled = false;
             view.noteRadioBtnEnabled = false;
-            view.AverageGradeButtonEnabled = false;
+            view.ISAverageGradeBtnVisible = false;
+            view.ISAverageGradeTextBoxVisible = false;
             view.ClearData();
         }
 

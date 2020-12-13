@@ -125,10 +125,10 @@ namespace EduWatch.Presenters
                     break;
 
             }
-            data.SaveChanges();
+           
             try
             {
-               
+                data.SaveChanges();
                 view.Message("Промените бяха запазени успешно.", "Успех", Views.MessageIcon.Information);
             }
             catch (Exception)
