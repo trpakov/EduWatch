@@ -67,6 +67,12 @@ namespace EduWatch.Presenters
                 return;
             }
 
+            if (!Regex.IsMatch(view.Username, @"^[A-Za-z0-9_]+$"))
+            {
+                view.Message("Моля, въведете валидно потребтилеско име (разрешени са буквите от английската азбука, цифрите 0-9 и долна черта).", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
             var existingParent = data.Parents.Where(x => x.username == view.Username).SingleOrDefault();
 
             if (existingParent != null)
