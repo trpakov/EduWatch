@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Text.RegularExpressions;
 
 namespace EduWatch.Presenters
 {
@@ -57,6 +58,12 @@ namespace EduWatch.Presenters
             if (view.FirstName == string.Empty || view.Surname == string.Empty)
             {
                 view.Message("Моля, въведете вашето лично име и фамилия.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            if (!Regex.IsMatch(view.FirstName, @"^[А-я]+$") || !Regex.IsMatch(view.Surname, @"^[А-я]+$"))
+            {
+                view.Message("Моля, използвайте само букви от българската азбука за вашето собствено име и фамилия.", "Внимание", Views.MessageIcon.Warning);
                 return;
             }
 
