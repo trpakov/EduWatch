@@ -32,8 +32,8 @@ namespace EduWatch.Views
         bool IsGradeLabelVisible { get; }
         bool IsGradeComboBoxVisible { get; } 
         bool IsSaveBTNVisible { get; }
-        bool ISAverageGradeBtnVisible { get; set; }
-        bool ISAverageGradeTextBoxVisible { get; set; }
+        bool ISAverageGradeBtnVisible { get;  }
+        bool ISAverageGradeTextBoxVisible { get; }
 
         void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects);
         void FillInCorrespondingStudents(List<Tuple<int, string>> students);
@@ -43,6 +43,7 @@ namespace EduWatch.Views
 
         void FormatDataDisplay();
         void ClearData();
+        void HideAll();
        
     }
 }

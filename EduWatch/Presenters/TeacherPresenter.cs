@@ -152,9 +152,7 @@ namespace EduWatch.Presenters
             view.ComboBoxSubjectSelectedIndex = -1;
             view.gradeRadioBtnEnabled = false;
             view.noteRadioBtnEnabled = false;
-            view.ISAverageGradeBtnVisible = false;
-            view.ISAverageGradeTextBoxVisible = false;
-            view.ClearData();
+            view.HideAll();
         }
 
     }

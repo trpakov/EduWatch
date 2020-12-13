@@ -49,9 +49,9 @@ namespace EduWatch.Views
         public bool gradeRadioBtnEnabled { get => radioButtonGrade.Enabled; set => radioButtonGrade.Enabled=value; }
         public bool noteRadioBtnEnabled { get => radioButtonNote.Enabled; set => radioButtonNote.Enabled=value; }
 
-        public bool ISAverageGradeBtnVisible { get => btnAverage.Visible; set => btnAverage.Visible=value; }
+        public bool ISAverageGradeBtnVisible   => btnAverage.Visible;
 
-    public bool ISAverageGradeTextBoxVisible   { get => averageGradeTextBox.Visible; set => averageGradeTextBox.Visible=value; }
+        public bool ISAverageGradeTextBoxVisible  => averageGradeTextBox.Visible;
 
     public void FIllInCorrespondingSubjects(List<Tuple<int, string>> subjects)
         {
@@ -213,7 +213,7 @@ namespace EduWatch.Views
             Presenter.OnSettingsButtonClick();
 
         }
-        void HideAll()
+        public void HideAll()
         {
             CommentLabel.Visible = false;
             commentTextBox.Visible=false;
