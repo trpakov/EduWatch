@@ -176,10 +176,12 @@ namespace EduWatch.Views
             if(radioButtonGrade.Checked)
             {
                 Presenter.OnSaveGradeButtonClick();
+                radioButtonGrade.Checked = false;
             }
             else
             {
                 Presenter.OnSaveNoteButtonClick();
+                radioButtonNote.Checked = false;
             }
         }
 
@@ -199,8 +201,9 @@ namespace EduWatch.Views
             var gradeColumn = dataGridView1.Columns.OfType<DataGridViewTextBoxColumn>().Where(x => x.Name == "Grade").SingleOrDefault();
             if (gradeColumn != null)
                 gradeColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-         
-           
+        
+
+
         }
 
         private void radioButtonGrade_CheckedChanged(object sender, EventArgs e)
@@ -234,5 +237,6 @@ namespace EduWatch.Views
             gradeRadioBtnEnabled = false;
             noteRadioBtnEnabled = false;
         }
+        
     }
 }

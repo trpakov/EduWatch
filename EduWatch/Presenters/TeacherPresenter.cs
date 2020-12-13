@@ -116,6 +116,9 @@ namespace EduWatch.Presenters
                 var note = new Model.Note() { note1 = view.TextBoxComment, note_date = DateTime.Now, note_seen = false, student_id = view.SelectedStudentID, subject_id = view.SelectedSubjectID };
                 data.Notes.Add(note);
                 data.SaveChanges();
+                view.HideAll();
+                view.Message("Забележката е добавена.", "Успешен запис", Views.MessageIcon.Information);
+                
             }
             else
             {
@@ -129,6 +132,9 @@ namespace EduWatch.Presenters
                 var grade = new Model.Grade() { grade1 = int.Parse(view.ComboBoxGrade), grade_seen = false, comment = view.TextBoxComment, student_id = view.SelectedStudentID, subject_Id = view.SelectedSubjectID, date = DateTime.Now };
                 data.Grades.Add(grade);
                 data.SaveChanges();
+                view.HideAll();
+                view.Message("Оценката е добавена.", "Успешен запис", Views.MessageIcon.Information);
+               
             }
             else
             {

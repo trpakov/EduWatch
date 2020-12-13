@@ -46,7 +46,7 @@ namespace EduWatch.Presenters
         public void OnSaveClick()
         {
             string typeOfProfile = view.typeOfProfile;
-            var regexString = new Regex(@"^[а-яА-Я]+$");
+            var regexString = new Regex(@"^[А-я]+$");
             var regexInt = new Regex("^[0-9]+$");
             switch (typeOfProfile)
             {
