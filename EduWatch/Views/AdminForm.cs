@@ -288,7 +288,15 @@ namespace EduWatch.Views
         {
  
                 Presenter.OnRemoveClick();
-                ClearText();        
+                ClearText();
+            if (typeOfProfile == "Родител")
+            {
+                Presenter.OnParentRemove();
+            }
+            else
+            {
+                Presenter.OnTeacherRemove();
+            }
            
         }
 
@@ -308,8 +316,7 @@ namespace EduWatch.Views
             else
             {
                 Presenter.OnParentSelection();
-            }
- 
+            } 
 
         }
 

@@ -124,7 +124,7 @@ namespace EduWatch.Presenters
                     break;
                 case "Ученик":                   
                         var student = data.Students.Where(x => x.student_PIN == view.PINTextBox).Single();
-                        data.Students.Remove(student);                   
+                        data.Students.Remove(student);                  
                     break;
                 case "Родител":
                     var parent = data.Parents.Where(x => x.username == view.ComboBoxUserName).Single();

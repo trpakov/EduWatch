@@ -48,6 +48,7 @@ namespace EduWatch.Views
         void FillInCorrespondingUserNames(string[] usernames);
 
         void AdminStartView();
+        void HideAll();
 
 
     }
