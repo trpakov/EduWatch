@@ -56,6 +56,13 @@ namespace EduWatch.Presenters
                        && view.LastNTextBox != string.Empty &&view.PasswordTextBox!=string.Empty  && regexString.IsMatch(view.FirstNTextBox) 
                             && regexString.IsMatch(view.LastNTextBox) &&regexString.IsMatch(view.TextBoxSubject))
                     {
+                        var existingTeacher = data.Teachers.Where(x => x.username == view.UserNameTextBox).SingleOrDefault();
+
+                        if (existingTeacher != null)
+                        {
+                            view.Message("Това потребителско име вече е заето. Моля, изберете друго.", "Внимание", Views.MessageIcon.Warning);
+                            return;
+                        }
                         Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
                         var passHash = passHasher.Generate(view.PasswordTextBox);
                         var teacher = new Model.Teacher() { username = view.UserNameTextBox, teacher_firstN = view.FirstNTextBox, teacher_lastN = view.LastNTextBox, password_hash = passHash };
