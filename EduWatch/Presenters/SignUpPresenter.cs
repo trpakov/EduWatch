@@ -81,6 +81,12 @@ namespace EduWatch.Presenters
                 return;
             }
 
+            if (!Regex.IsMatch(view.Pass, @"^.{8,25}$"))
+            {
+                view.Message("Моля, въведете парола с дължина между 8 и 25 символа.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
             Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
             var passHash = passHasher.Generate(view.Pass);
 

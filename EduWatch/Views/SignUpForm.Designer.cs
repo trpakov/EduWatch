@@ -157,7 +157,6 @@
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(227, 347);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxPassword.MaxLength = 15;
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(155, 20);
