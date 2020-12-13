@@ -80,6 +80,12 @@ namespace EduWatch.Presenters
                 return;
             }
 
+            if (!Regex.IsMatch(view.FirstNameTextBoxText, @"^[А-я]+$") || !Regex.IsMatch(view.LastNameTextBoxText, @"^[А-я]+$"))
+            {
+                view.Message("Моля, използвайте само букви от българската азбука за вашето собствено име и фамилия.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
             user.FirstName = view.FirstNameTextBoxText;
             user.LastName = view.LastNameTextBoxText;
 
@@ -122,6 +128,12 @@ namespace EduWatch.Presenters
             if (view.NewPassTextBoxText == view.OldPassTextBoxText)
             {
                 view.Message("Новата парола не може да е същата като старата. Моля, опитайте отново.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
+            if (!Regex.IsMatch(view.NewPassTextBoxText, @"^.{8,25}$"))
+            {
+                view.Message("Новата парола трябва да е с дължина между 8 и 25 символа.", "Внимание", Views.MessageIcon.Warning);
                 return;
             }
 
