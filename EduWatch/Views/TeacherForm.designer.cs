@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,6 +53,12 @@
             this.comboBoxGrade1to12 = new System.Windows.Forms.ComboBox();
             this.averageGradeTextBox = new System.Windows.Forms.TextBox();
             this.optionsBtn = new System.Windows.Forms.Button();
+            this.toolTip_look_TF = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_addnew_TF = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_AG_TF = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_Add_TF = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_exit_TF = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_settings_TF = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,6 +126,7 @@
             this.Savebtn.Size = new System.Drawing.Size(191, 65);
             this.Savebtn.TabIndex = 18;
             this.Savebtn.Text = "Добави";
+            this.toolTip_Add_TF.SetToolTip(this.Savebtn, "Натиснете за добавяне \r\n       в дневника!");
             this.Savebtn.UseVisualStyleBackColor = false;
             this.Savebtn.Click += new System.EventHandler(this.Savebtn_Click);
             // 
@@ -134,6 +142,7 @@
             this.Exitbtn.Size = new System.Drawing.Size(120, 33);
             this.Exitbtn.TabIndex = 19;
             this.Exitbtn.Text = "Изход";
+            this.toolTip_exit_TF.SetToolTip(this.Exitbtn, "Натиснете за изход \r\n    от системата!");
             this.Exitbtn.UseVisualStyleBackColor = false;
             this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
@@ -149,6 +158,7 @@
             this.btnAverage.Size = new System.Drawing.Size(205, 41);
             this.btnAverage.TabIndex = 21;
             this.btnAverage.Text = "Среден успех:";
+            this.toolTip_AG_TF.SetToolTip(this.btnAverage, "Натиснете за пресмятане\r\n      на среден успех!");
             this.btnAverage.UseVisualStyleBackColor = false;
             this.btnAverage.Click += new System.EventHandler(this.btnAverage_Click);
             // 
@@ -216,6 +226,7 @@
             this.SeeDatabtn.Size = new System.Drawing.Size(203, 51);
             this.SeeDatabtn.TabIndex = 28;
             this.SeeDatabtn.Text = "Виж дневника";
+            this.toolTip_look_TF.SetToolTip(this.SeeDatabtn, "Натиснете за показване \r\n       на дневника!");
             this.SeeDatabtn.UseVisualStyleBackColor = false;
             this.SeeDatabtn.Click += new System.EventHandler(this.SeeDatabtn_Click);
             // 
@@ -303,6 +314,7 @@
             this.AddRecordbtn.Size = new System.Drawing.Size(212, 51);
             this.AddRecordbtn.TabIndex = 37;
             this.AddRecordbtn.Text = "Добави  нов запис";
+            this.toolTip_addnew_TF.SetToolTip(this.AddRecordbtn, "Натиснете за ново \r\n     въвеждане!");
             this.AddRecordbtn.UseVisualStyleBackColor = false;
             this.AddRecordbtn.Click += new System.EventHandler(this.AddRecordbtn_Click);
             // 
@@ -350,6 +362,7 @@
             this.optionsBtn.Size = new System.Drawing.Size(120, 32);
             this.optionsBtn.TabIndex = 41;
             this.optionsBtn.Text = "Настройки";
+            this.toolTip_settings_TF.SetToolTip(this.optionsBtn, "Натиснете за настройка \r\n       на профила!");
             this.optionsBtn.UseVisualStyleBackColor = false;
             this.optionsBtn.Click += new System.EventHandler(this.optionsBtn_Click);
             // 
@@ -422,5 +435,11 @@
         private System.Windows.Forms.ComboBox comboBoxGrade1to12;
         private System.Windows.Forms.TextBox averageGradeTextBox;
         private System.Windows.Forms.Button optionsBtn;
+        private System.Windows.Forms.ToolTip toolTip_Add_TF;
+        private System.Windows.Forms.ToolTip toolTip_exit_TF;
+        private System.Windows.Forms.ToolTip toolTip_AG_TF;
+        private System.Windows.Forms.ToolTip toolTip_look_TF;
+        private System.Windows.Forms.ToolTip toolTip_addnew_TF;
+        private System.Windows.Forms.ToolTip toolTip_settings_TF;
     }
 }
