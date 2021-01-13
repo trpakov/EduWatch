@@ -77,14 +77,14 @@ namespace EduWatch.Presenters
             if (view.SelectedGradesView)
             {
                 // Get all grades of the selected student for the selected subject
-                currentGrades = currentStudent.Grades.Where(x => x.student_id == view.SelectedStudentID).ToList();
+                currentGrades = currentStudent.Grades.Where(x => x.student_id == view.SelectedStudentID).Where(x=>x.subject_Id==view.SelectedSubjectID).ToList();
                 var dataForGridViewList = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade1, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
                 dataForGridView = new Utilities.SortableBindingList<Views.GradeViewData>(dataForGridViewList);
             }
             else
             {
                 // Get all notes of the selected student for the selected subject
-                currentNotes = currentStudent.Notes.Where(x => x.student_id == view.SelectedStudentID).ToList();
+                currentNotes = currentStudent.Notes.Where(x => x.student_id == view.SelectedStudentID).Where(x => x.subject_id == view.SelectedSubjectID).ToList();
                 var dataForGridViewList = currentNotes.Select(x => new Views.NoteViewData { ID = x.note_Id, Note = x.note1, Seen = x.note_seen, Date = x.note_date.ToLongDateString() }).ToList();
                 dataForGridView = new Utilities.SortableBindingList<Views.NoteViewData>(dataForGridViewList);
             }
@@ -101,7 +101,8 @@ namespace EduWatch.Presenters
         {
             if (currentGrades.Count > 0)
             {
-                view.AverageGradeTextBox = currentGrades.Average(x => x.grade1).ToString();
+                 double average =currentGrades.Average(x => x.grade1);
+                 view.AverageGradeTextBox = Math.Round(average, 2).ToString();
             }
             else
             {

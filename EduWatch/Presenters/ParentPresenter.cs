@@ -117,7 +117,9 @@ namespace EduWatch.Presenters
 
         public void OnAverageGradeButtonClick()
         {
-            view.AverageGradeText = currentGrades.Average(x => x.grade1).ToString();
+            double average =currentGrades.Average(x => x.grade1);
+            view.AverageGradeText = Math.Round(average, 2).ToString();
+                    
         }
 
 
