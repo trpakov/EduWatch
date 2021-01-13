@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxProfile = new System.Windows.Forms.ComboBox();
@@ -54,6 +55,13 @@
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.checkPictureBox = new System.Windows.Forms.PictureBox();
             this.subjectTextBox = new System.Windows.Forms.TextBox();
+            this.toolTip_name_tbox = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_sn_tb = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_check = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_update = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_delete_AF = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_add_AF = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip_exit_AF = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.checkPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +114,7 @@
             this.addBtn.Size = new System.Drawing.Size(145, 41);
             this.addBtn.TabIndex = 5;
             this.addBtn.Text = "Добавяне";
+            this.toolTip_add_AF.SetToolTip(this.addBtn, "Натиснете за добавяне \r\n        на профил!");
             this.addBtn.UseVisualStyleBackColor = false;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
@@ -121,6 +130,7 @@
             this.deleteBtn.Size = new System.Drawing.Size(145, 41);
             this.deleteBtn.TabIndex = 6;
             this.deleteBtn.Text = "Изтриване";
+            this.toolTip_delete_AF.SetToolTip(this.deleteBtn, "Натиснете за изтриване \r\n        на профил!");
             this.deleteBtn.UseVisualStyleBackColor = false;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
@@ -151,6 +161,7 @@
             this.exitBtn.Size = new System.Drawing.Size(100, 40);
             this.exitBtn.TabIndex = 20;
             this.exitBtn.Text = "Изход";
+            this.toolTip_exit_AF.SetToolTip(this.exitBtn, "Натиснете за изход\r\n    от системата!");
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
@@ -225,6 +236,7 @@
             this.firstNTextBox.Name = "firstNTextBox";
             this.firstNTextBox.Size = new System.Drawing.Size(169, 22);
             this.firstNTextBox.TabIndex = 27;
+            this.toolTip_name_tbox.SetToolTip(this.firstNTextBox, "Моля, въведете името\r\n      на кирилица!");
             // 
             // lastNTextBox
             // 
@@ -232,6 +244,7 @@
             this.lastNTextBox.Name = "lastNTextBox";
             this.lastNTextBox.Size = new System.Drawing.Size(172, 22);
             this.lastNTextBox.TabIndex = 28;
+            this.toolTip_sn_tb.SetToolTip(this.lastNTextBox, "Моля, въведете фамилията\r\n        на кирилица!");
             // 
             // PINLabel
             // 
@@ -285,6 +298,7 @@
             this.AddInfoBTN.Size = new System.Drawing.Size(318, 56);
             this.AddInfoBTN.TabIndex = 35;
             this.AddInfoBTN.Text = "Добави";
+            this.toolTip_update.SetToolTip(this.AddInfoBTN, "Натиснете, за да обновите\r\n            данните!");
             this.AddInfoBTN.UseVisualStyleBackColor = false;
             this.AddInfoBTN.Click += new System.EventHandler(this.AddInfoBTN_Click);
             // 
@@ -337,6 +351,7 @@
             this.checkPictureBox.Size = new System.Drawing.Size(34, 29);
             this.checkPictureBox.TabIndex = 40;
             this.checkPictureBox.TabStop = false;
+            this.toolTip_check.SetToolTip(this.checkPictureBox, "Проверете дали съществува\r\n        лице с това ЕГН!");
             this.checkPictureBox.Click += new System.EventHandler(this.checkPictureBox_Click);
             // 
             // subjectTextBox
@@ -345,6 +360,14 @@
             this.subjectTextBox.Name = "subjectTextBox";
             this.subjectTextBox.Size = new System.Drawing.Size(138, 22);
             this.subjectTextBox.TabIndex = 41;
+            // 
+            // toolTip_name_tbox
+            // 
+            this.toolTip_name_tbox.ShowAlways = true;
+            // 
+            // toolTip_sn_tb
+            // 
+            this.toolTip_sn_tb.ShowAlways = true;
             // 
             // AdminForm
             // 
@@ -419,5 +442,12 @@
         private System.Windows.Forms.TextBox studentNumberTextBox;
         private System.Windows.Forms.PictureBox checkPictureBox;
         private System.Windows.Forms.TextBox subjectTextBox;
+        private System.Windows.Forms.ToolTip toolTip_add_AF;
+        private System.Windows.Forms.ToolTip toolTip_delete_AF;
+        private System.Windows.Forms.ToolTip toolTip_exit_AF;
+        private System.Windows.Forms.ToolTip toolTip_name_tbox;
+        private System.Windows.Forms.ToolTip toolTip_sn_tb;
+        private System.Windows.Forms.ToolTip toolTip_update;
+        private System.Windows.Forms.ToolTip toolTip_check;
     }
 }

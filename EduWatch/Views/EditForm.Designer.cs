@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblLogo = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.lblStudentPin = new System.Windows.Forms.Label();
             this.textBoxStudentPin = new System.Windows.Forms.TextBox();
             this.btnSaveStudent = new System.Windows.Forms.Button();
+            this.toolTip_goback = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.goBackPic)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelNames.SuspendLayout();
@@ -173,6 +175,7 @@
             this.goBackPic.Size = new System.Drawing.Size(31, 25);
             this.goBackPic.TabIndex = 15;
             this.goBackPic.TabStop = false;
+            this.toolTip_goback.SetToolTip(this.goBackPic, "  Натиснете за \r\nвръщане назад!");
             this.goBackPic.Click += new System.EventHandler(this.goBackPic_Click);
             // 
             // panelMain
@@ -182,7 +185,7 @@
             this.panelMain.Controls.Add(this.btnChangePassScreen);
             this.panelMain.Controls.Add(this.btnAddStudentScreen);
             this.panelMain.Location = new System.Drawing.Point(133, 316);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(409, 295);
             this.panelMain.TabIndex = 16;
@@ -196,7 +199,7 @@
             this.panelNames.Controls.Add(this.btnSaveNameChanges);
             this.panelNames.Controls.Add(this.textBoxLastName);
             this.panelNames.Location = new System.Drawing.Point(114, 122);
-            this.panelNames.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelNames.Margin = new System.Windows.Forms.Padding(4);
             this.panelNames.Name = "panelNames";
             this.panelNames.Size = new System.Drawing.Size(409, 295);
             this.panelNames.TabIndex = 17;
@@ -227,7 +230,7 @@
             this.panelPass.Controls.Add(this.btnSavePassChanges);
             this.panelPass.Controls.Add(this.textBoxPass2);
             this.panelPass.Location = new System.Drawing.Point(80, 284);
-            this.panelPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPass.Margin = new System.Windows.Forms.Padding(4);
             this.panelPass.Name = "panelPass";
             this.panelPass.Size = new System.Drawing.Size(409, 316);
             this.panelPass.TabIndex = 18;
@@ -320,7 +323,7 @@
             this.panelStudent.Controls.Add(this.textBoxStudentPin);
             this.panelStudent.Controls.Add(this.btnSaveStudent);
             this.panelStudent.Location = new System.Drawing.Point(39, 343);
-            this.panelStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelStudent.Margin = new System.Windows.Forms.Padding(4);
             this.panelStudent.Name = "panelStudent";
             this.panelStudent.Size = new System.Drawing.Size(409, 295);
             this.panelStudent.TabIndex = 19;
@@ -418,5 +421,6 @@
         private System.Windows.Forms.Button btnSaveNameChanges;
         private System.Windows.Forms.Label lblOldPass;
         private System.Windows.Forms.TextBox textBoxOldPass;
+        private System.Windows.Forms.ToolTip toolTip_goback;
     }
 }
