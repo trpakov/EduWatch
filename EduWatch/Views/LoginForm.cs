@@ -15,7 +15,6 @@ namespace EduWatch.Views
     {
         public string Username => userNameTextBox.Text;
         public string Pass => passwordTextBox.Text;
-        public string TypeOfUser => comboBoxWhoAmI.SelectedItem?.ToString();
 
         public ILoginPresenter Presenter { private get;  set; }
 
@@ -39,17 +38,6 @@ namespace EduWatch.Views
         private void LoginButton_Click(object sender, EventArgs e)
         {
             Presenter.OnLoginButtonClick();
-        }
-
-        public void FillInTypesOfUsers(string[] typesOfUsers)
-        {
-            comboBoxWhoAmI.Items.AddRange(typesOfUsers);
-        }
-
-        public void ShowAvailableUserTypes()
-        {
-            comboBoxWhoAmI.Focus();
-            comboBoxWhoAmI.DroppedDown = true;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
