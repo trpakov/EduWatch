@@ -51,19 +51,40 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.17\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.EntityFramework.8.0.17\lib\net452\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,18 +97,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Admin.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+      <DependentUpon>SchoolDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Grade.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Note.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Parent.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+      <DependentUpon>SchoolDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\IUser.cs" />
+    <Compile Include="Model\Note.cs">
+      <DependentUpon>SchoolDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Parent.cs">
+      <DependentUpon>SchoolDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SchoolDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SchoolDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SchoolDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Student.cs">
+      <DependentUpon>SchoolDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Subject.cs">
+      <DependentUpon>SchoolDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Teacher.cs">
+      <DependentUpon>SchoolDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Presenters\AdminPresenter.cs" />
     <Compile Include="Presenters\EditPresenter.cs" />
     <Compile Include="Presenters\IAdminPresenter.cs" />
@@ -103,30 +148,6 @@
     <Compile Include="Presenters\TeacherPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\SchoolDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\SchoolDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\SchoolDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SchoolDataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Student.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Subject.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Teacher.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Utilities\IPasswordHash.cs" />
     <Compile Include="Utilities\PasswordHash.cs" />
     <Compile Include="Utilities\PropertyComparer.cs" />
@@ -204,6 +225,13 @@
     <EmbeddedResource Include="Views\TeacherForm.resx">
       <DependentUpon>TeacherForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\SchoolDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SchoolDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\SchoolDBModel.edmx.diagram">
+      <DependentUpon>SchoolDBModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -214,39 +242,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="Model\SchoolDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SchoolDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\SchoolDataModel.edmx.diagram">
-      <DependentUpon>SchoolDataModel.edmx</DependentUpon>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model\SchoolDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SchoolDataModel.Context.cs</LastGenOutput>
-      <DependentUpon>SchoolDataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\SchoolDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SchoolDataModel.edmx</DependentUpon>
-      <LastGenOutput>SchoolDataModel.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\log11.jpg" />
     <None Include="Resources\background1.jpg" />
     <None Include="Resources\goback.png" />
     <None Include="Resources\settings-icon.png" />
     <None Include="Resources\checkpic.png" />
-    <Content Include="SchoolDB.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="Model\SchoolDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SchoolDBModel.edmx</DependentUpon>
+      <LastGenOutput>SchoolDBModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="SchoolDB_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DependentUpon>SchoolDB.mdf</DependentUpon>
+    <Content Include="Model\SchoolDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SchoolDBModel.edmx</DependentUpon>
+      <LastGenOutput>SchoolDBModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

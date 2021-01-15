@@ -77,7 +77,7 @@ namespace EduWatch.Presenters
             if (view.SelectedGradesView)
             {
                 // Get all grades of the selected student for the selected subject
-                currentGrades = currentStudent.Grades.Where(x => x.student_id == view.SelectedStudentID).Where(x=>x.subject_Id==view.SelectedSubjectID).ToList();
+                currentGrades = currentStudent.Grades.Where(x => x.student_id == view.SelectedStudentID).Where(x=>x.subject_id==view.SelectedSubjectID).ToList();
                 var dataForGridViewList = currentGrades.Select(x => new Views.GradeViewData { ID = x.grade_id, Grade = x.grade1, Seen = x.grade_seen, Comment = x.comment, Date = x.date.ToLongDateString() }).ToList();
                 dataForGridView = new Utilities.SortableBindingList<Views.GradeViewData>(dataForGridViewList);
             }
@@ -130,7 +130,7 @@ namespace EduWatch.Presenters
         {
             if (view.TextBoxComment != string.Empty && view.ComboBoxGrade != string.Empty)
             {
-                var grade = new Model.Grade() { grade1 = int.Parse(view.ComboBoxGrade), grade_seen = false, comment = view.TextBoxComment, student_id = view.SelectedStudentID, subject_Id = view.SelectedSubjectID, date = DateTime.Now };
+                var grade = new Model.Grade() { grade1 = int.Parse(view.ComboBoxGrade), grade_seen = false, comment = view.TextBoxComment, student_id = view.SelectedStudentID, subject_id = view.SelectedSubjectID, date = DateTime.Now };
                 data.Grades.Add(grade);
                 data.SaveChanges();
                 view.HideAll();

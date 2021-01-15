@@ -19,7 +19,7 @@ namespace EduWatch.Model
         public bool grade_seen { get; set; }
         public string comment { get; set; }
         public Nullable<int> student_id { get; set; }
-        public Nullable<int> subject_Id { get; set; }
+        public Nullable<int> subject_id { get; set; }
         public System.DateTime date { get; set; }
     
         public virtual Subject Subject { get; set; }
