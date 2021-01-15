@@ -10,12 +10,10 @@ namespace EduWatch.Views
     {
         string Username { get; }
         string Pass { get; }
-        string TypeOfUser { get; }
+        //string TypeOfUser { get; }
 
         Presenters.ILoginPresenter Presenter { set; }
 
-        void FillInTypesOfUsers(string[] typesOfUsers);
-        void ShowAvailableUserTypes();
         IParentView CreateParentView();
         ITeacherView CreateTeacherView();
         ISignUpView CreateSignUpView();

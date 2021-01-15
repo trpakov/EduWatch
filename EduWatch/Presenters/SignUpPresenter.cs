@@ -74,8 +74,10 @@ namespace EduWatch.Presenters
             }
 
             var existingParent = data.Parents.Where(x => x.username == view.Username).SingleOrDefault();
+            var existingTeacher = data.Teachers.Where(x => x.username == view.Username).SingleOrDefault();
+            var existingAdmin = data.Admins.Where(x => x.admin_username == view.Username).SingleOrDefault();
 
-            if (existingParent != null)
+            if (existingParent != null || existingTeacher != null || existingAdmin != null)
             {
                 view.Message("Това потребителско име вече е заето. Моля, изберете друго.", "Внимание", Views.MessageIcon.Warning);
                 return;
