@@ -191,7 +191,7 @@ namespace EduWatch.Presenters
             try
             {
                 data.SaveChanges();
-                view.Message("Ученикът е добавен към вашия профиял Вече може да следите неговия успех.", "Успех", Views.MessageIcon.Information);
+                view.Message("Ученикът е добавен към вашия профил. Вече може да следите неговия успех.", "Успех", Views.MessageIcon.Information);
             }
             catch (Exception)
             {
