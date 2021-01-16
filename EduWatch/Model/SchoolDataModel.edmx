@@ -59,7 +59,7 @@
           <Property Name="student_PIN" Type="nvarchar" MaxLength="50" />
           <Property Name="parents_id" Type="int" />
           <Property Name="grade" Type="nvarchar" MaxLength="50" />
-          <Property Name="code" Type="nchar" MaxLength="10" />
+          <Property Name="code" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Subjects">
           <Key>
@@ -241,16 +241,16 @@
           </AssociationSet>
           <EntitySet Name="Students" EntityType="SchoolDBModel.Student" />
           <AssociationSet Name="FK_student_id1" Association="SchoolDBModel.FK_student_id1">
-            <End EntitySet="Students" Role="Student" />
-            <End EntitySet="Grades" Role="Grade" />
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Grade" EntitySet="Grades" />
           </AssociationSet>
           <AssociationSet Name="FK_student_id" Association="SchoolDBModel.FK_student_id">
-            <End EntitySet="Students" Role="Student" />
-            <End EntitySet="Notes" Role="Note" />
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Note" EntitySet="Notes" />
           </AssociationSet>
           <AssociationSet Name="FK_parents_id" Association="SchoolDBModel.FK_parents_id">
-            <End EntitySet="Parents" Role="Parent" />
-            <End EntitySet="Students" Role="Student" />
+            <End Role="Parent" EntitySet="Parents" />
+            <End Role="Student" EntitySet="Students" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Admin">
@@ -347,23 +347,23 @@
           <Key>
             <PropertyRef Name="student_id" />
           </Key>
-          <Property Name="student_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="student_firstN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="student_lastN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="student_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="student_No" Type="Int32" />
-          <Property Name="student_PIN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="student_PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="parents_id" Type="Int32" />
-          <Property Name="grade" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Grades" Relationship="SchoolDBModel.FK_student_id1" FromRole="Student" ToRole="Grade" />
           <NavigationProperty Name="Notes" Relationship="SchoolDBModel.FK_student_id" FromRole="Student" ToRole="Note" />
           <NavigationProperty Name="Parent" Relationship="SchoolDBModel.FK_parents_id" FromRole="Student" ToRole="Parent" />
-          <Property Name="code" MaxLength="10" FixedLength="true" Unicode="true" Type="String" />
         </EntityType>
         <Association Name="FK_student_id1">
-          <End Type="SchoolDBModel.Student" Multiplicity="0..1" Role="Student">
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="SchoolDBModel.Grade" Multiplicity="*" Role="Grade" />
+          <End Type="SchoolDBModel.Grade" Role="Grade" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
               <PropertyRef Name="student_id" />
@@ -374,10 +374,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_student_id">
-          <End Type="SchoolDBModel.Student" Multiplicity="0..1" Role="Student">
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="SchoolDBModel.Note" Multiplicity="*" Role="Note" />
+          <End Type="SchoolDBModel.Note" Role="Note" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
               <PropertyRef Name="student_id" />
@@ -388,8 +388,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_parents_id">
-          <End Type="SchoolDBModel.Parent" Multiplicity="0..1" Role="Parent" />
-          <End Type="SchoolDBModel.Student" Multiplicity="*" Role="Student" />
+          <End Type="SchoolDBModel.Parent" Role="Parent" Multiplicity="0..1" />
+          <End Type="SchoolDBModel.Student" Role="Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Parent">
               <PropertyRef Name="parent_Id" />

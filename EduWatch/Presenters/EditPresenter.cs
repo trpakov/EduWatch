@@ -160,6 +160,12 @@ namespace EduWatch.Presenters
                 return;
             }
 
+            if(view.StudentCodeTextBoxText == string.Empty)
+            {
+                view.Message("Моля, въведете секретен ключ.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
             var targetStudent = data.Students.Where(x => x.student_PIN == view.StudentPinTextBoxText).SingleOrDefault();
 
             if(targetStudent == null)
@@ -171,6 +177,12 @@ namespace EduWatch.Presenters
             if (targetStudent.Parent != null)
             {
                 view.Message("Този ученик вече е свързан със своя родител.", "Грешка", Views.MessageIcon.Error);
+                return;
+            }
+
+            if (targetStudent.code != view.StudentCodeTextBoxText)
+            {
+                view.Message("Въвъденият секретен ключ е невалиден.", "Грешка", Views.MessageIcon.Error);
                 return;
             }
 

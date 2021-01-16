@@ -14,7 +14,7 @@
         <AssociationConnector Association="SchoolDBModel.FK_notes_subject_id" />
         <EntityTypeShape EntityType="SchoolDBModel.Grade" Width="1.5" PointX="5.25" PointY="5.375" />
         <AssociationConnector Association="SchoolDBModel.FK_subject_id" />
-        <EntityTypeShape EntityType="SchoolDBModel.Student" PointX="3" PointY="3.75" Width="1.5" />
+        <EntityTypeShape EntityType="SchoolDBModel.Student" Width="1.5" PointX="3" PointY="3.75" />
         <AssociationConnector Association="SchoolDBModel.FK_student_id1" />
         <AssociationConnector Association="SchoolDBModel.FK_student_id" />
         <AssociationConnector Association="SchoolDBModel.FK_parents_id" />
