@@ -34,22 +34,20 @@
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblWhoAmI = new System.Windows.Forms.Label();
-            this.comboBoxWhoAmI = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.linkLabelCreateAccount = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(187, 255);
+            this.userNameTextBox.Location = new System.Drawing.Point(187, 276);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(175, 20);
             this.userNameTextBox.TabIndex = 0;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(187, 300);
+            this.passwordTextBox.Location = new System.Drawing.Point(187, 321);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(175, 20);
@@ -61,7 +59,7 @@
             this.UserNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.UserNameLabel.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UserNameLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.UserNameLabel.Location = new System.Drawing.Point(184, 235);
+            this.UserNameLabel.Location = new System.Drawing.Point(184, 256);
             this.UserNameLabel.Name = "UserNameLabel";
             this.UserNameLabel.Size = new System.Drawing.Size(172, 17);
             this.UserNameLabel.TabIndex = 3;
@@ -73,7 +71,7 @@
             this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
             this.PasswordLabel.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PasswordLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PasswordLabel.Location = new System.Drawing.Point(184, 279);
+            this.PasswordLabel.Location = new System.Drawing.Point(184, 300);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(70, 17);
             this.PasswordLabel.TabIndex = 4;
@@ -85,7 +83,7 @@
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginButton.Font = new System.Drawing.Font("Bookman Old Style", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.LoginButton.Location = new System.Drawing.Point(187, 389);
+            this.LoginButton.Location = new System.Drawing.Point(187, 365);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(69, 33);
             this.LoginButton.TabIndex = 3;
@@ -97,36 +95,14 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Matura MT Script Capitals", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Matura MT Script Capitals", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(241, 191);
+            this.label1.Location = new System.Drawing.Point(207, 208);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 32);
+            this.label1.Size = new System.Drawing.Size(155, 36);
             this.label1.TabIndex = 6;
             this.label1.Text = "EduWatch";
-            // 
-            // lblWhoAmI
-            // 
-            this.lblWhoAmI.AutoSize = true;
-            this.lblWhoAmI.BackColor = System.Drawing.Color.Transparent;
-            this.lblWhoAmI.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWhoAmI.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblWhoAmI.Location = new System.Drawing.Point(184, 326);
-            this.lblWhoAmI.Name = "lblWhoAmI";
-            this.lblWhoAmI.Size = new System.Drawing.Size(66, 17);
-            this.lblWhoAmI.TabIndex = 8;
-            this.lblWhoAmI.Text = "Аз съм:";
-            // 
-            // comboBoxWhoAmI
-            // 
-            this.comboBoxWhoAmI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxWhoAmI.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxWhoAmI.FormattingEnabled = true;
-            this.comboBoxWhoAmI.Location = new System.Drawing.Point(187, 346);
-            this.comboBoxWhoAmI.Name = "comboBoxWhoAmI";
-            this.comboBoxWhoAmI.Size = new System.Drawing.Size(175, 21);
-            this.comboBoxWhoAmI.TabIndex = 2;
             // 
             // btnExit
             // 
@@ -134,7 +110,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Bookman Old Style", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnExit.Location = new System.Drawing.Point(293, 389);
+            this.btnExit.Location = new System.Drawing.Point(293, 365);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(69, 33);
             this.btnExit.TabIndex = 4;
@@ -149,7 +125,7 @@
             this.linkLabelCreateAccount.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.linkLabelCreateAccount.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.linkLabelCreateAccount.LinkColor = System.Drawing.SystemColors.ActiveCaption;
-            this.linkLabelCreateAccount.Location = new System.Drawing.Point(95, 386);
+            this.linkLabelCreateAccount.Location = new System.Drawing.Point(95, 362);
             this.linkLabelCreateAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelCreateAccount.Name = "linkLabelCreateAccount";
             this.linkLabelCreateAccount.Size = new System.Drawing.Size(65, 36);
@@ -169,8 +145,6 @@
             this.ClientSize = new System.Drawing.Size(482, 570);
             this.Controls.Add(this.linkLabelCreateAccount);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.comboBoxWhoAmI);
-            this.Controls.Add(this.lblWhoAmI);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordLabel);
@@ -195,8 +169,6 @@
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblWhoAmI;
-        private System.Windows.Forms.ComboBox comboBoxWhoAmI;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.LinkLabel linkLabelCreateAccount;
     }

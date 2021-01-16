@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 //using System.Windows.Forms;
 
 namespace EduWatch.Presenters
@@ -20,8 +21,9 @@ namespace EduWatch.Presenters
             view.Presenter = this;
             this.data = data;
 
+            LoadData();
             // Shows the user what types of accounts are available so they can choose accordingly.
-            view.FillInTypesOfUsers(new string[]{ "Учител", "Родител", "Администратор"});
+            //view.FillInTypesOfUsers(new string[]{ "Учител", "Родител", "Администратор"});
         }
 
         // Alternative constructors
@@ -43,27 +45,15 @@ namespace EduWatch.Presenters
                 return;
             }
 
-            // Check what type the user belongs to and query the corresponding table in the dabase with the given username
+            // Check if the username is in the database
             Model.IUser currentUser = null;
-            string typeOfUser = view.TypeOfUser;
+            //string typeOfUser = view.TypeOfUser;
             try
             {
-                switch (typeOfUser)
-                {
-                    case null:
-                        view.Message("Моля, посочете какъв потребител сте.", "Внимание", Views.MessageIcon.Warning);
-                        view.ShowAvailableUserTypes();
-                        return;
-                    case "Учител":
-                        currentUser = data.Teachers.Where(x => x.username == view.Username).SingleOrDefault();
-                        break;
-                    case "Родител":
-                        currentUser = data.Parents.Where(x => x.username == view.Username).SingleOrDefault();
-                        break;
-                    case "Администратор":
-                        currentUser = data.Admins.Where(x => x.admin_username == view.Username).SingleOrDefault();
-                        break;
-                }
+                currentUser = (data.Teachers.Where(x => x.username == view.Username).SingleOrDefault() as Model.IUser) ?? 
+                              (data.Parents.Where(x => x.username == view.Username).SingleOrDefault() as Model.IUser) ?? 
+                               data.Admins.Where(x => x.admin_username == view.Username).SingleOrDefault();
+
             }
             catch (System.Data.Entity.Core.EntityException)
             {
@@ -137,6 +127,21 @@ namespace EduWatch.Presenters
             Views.ISignUpView signUpView = view.CreateSignUpView();
             ISignUpPresenter signUpPresenter = PresenterFactory.GetSignUpPresenter(signUpView, data, this);
             signUpPresenter.Start();
+        }
+
+        public void LoadData()
+        {
+            try
+            {
+                data.Parents.Load();
+                data.Teachers.Load();
+                data.Students.Load();
+            }
+            catch (System.Data.Entity.Core.EntityException)
+            {
+                view.Message("Неуспешна връзка с базата данни. Моля, опитайте отново по-късно. Съжаляваме за причиненото неудобство.", "Грешка", Views.MessageIcon.Error);
+                return;
+            }
         }
     }
 

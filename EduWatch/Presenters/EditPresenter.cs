@@ -160,6 +160,12 @@ namespace EduWatch.Presenters
                 return;
             }
 
+            if(view.StudentCodeTextBoxText == string.Empty)
+            {
+                view.Message("Моля, въведете секретен ключ.", "Внимание", Views.MessageIcon.Warning);
+                return;
+            }
+
             var targetStudent = data.Students.Where(x => x.student_PIN == view.StudentPinTextBoxText).SingleOrDefault();
 
             if(targetStudent == null)
@@ -174,12 +180,18 @@ namespace EduWatch.Presenters
                 return;
             }
 
+            if (targetStudent.code != view.StudentCodeTextBoxText)
+            {
+                view.Message("Въвъденият секретен ключ е невалиден.", "Грешка", Views.MessageIcon.Error);
+                return;
+            }
+
             targetStudent.Parent = user as Model.Parent;
 
             try
             {
                 data.SaveChanges();
-                view.Message("Ученикът е добавен към вашия профиял Вече може да следите неговия успех.", "Успех", Views.MessageIcon.Information);
+                view.Message("Ученикът е добавен към вашия профил. Вече може да следите неговия успех.", "Успех", Views.MessageIcon.Information);
             }
             catch (Exception)
             {

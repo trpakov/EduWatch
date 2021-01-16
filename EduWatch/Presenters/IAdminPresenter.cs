@@ -17,7 +17,8 @@ namespace EduWatch.Presenters
         void OnTeacherSelection();
         void OnParentSelection();
         void OnStudentSelection();
-       
+        void OnPasswordVisibleCheckBoxChange();
+
 
     }
 }

@@ -62,6 +62,7 @@
             this.toolTip_delete_AF = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_add_AF = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_exit_AF = new System.Windows.Forms.ToolTip(this.components);
+            this.checkBoxPassVisible = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.checkPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -369,6 +370,20 @@
             // 
             this.toolTip_sn_tb.ShowAlways = true;
             // 
+            // checkBoxPassVisible
+            // 
+            this.checkBoxPassVisible.AutoSize = true;
+            this.checkBoxPassVisible.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPassVisible.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxPassVisible.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPassVisible.Location = new System.Drawing.Point(765, 409);
+            this.checkBoxPassVisible.Name = "checkBoxPassVisible";
+            this.checkBoxPassVisible.Size = new System.Drawing.Size(129, 26);
+            this.checkBoxPassVisible.TabIndex = 42;
+            this.checkBoxPassVisible.Text = "виж паролата";
+            this.checkBoxPassVisible.UseVisualStyleBackColor = false;
+            this.checkBoxPassVisible.CheckedChanged += new System.EventHandler(this.checkBoxPassVisible_CheckedChanged);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -377,6 +392,7 @@
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 652);
+            this.Controls.Add(this.checkBoxPassVisible);
             this.Controls.Add(this.subjectTextBox);
             this.Controls.Add(this.checkPictureBox);
             this.Controls.Add(this.studentNumberTextBox);
@@ -449,5 +465,6 @@
         private System.Windows.Forms.ToolTip toolTip_sn_tb;
         private System.Windows.Forms.ToolTip toolTip_update;
         private System.Windows.Forms.ToolTip toolTip_check;
+        private System.Windows.Forms.CheckBox checkBoxPassVisible;
     }
 }

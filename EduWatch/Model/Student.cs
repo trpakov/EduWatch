@@ -28,6 +28,7 @@ namespace EduWatch.Model
         public string student_PIN { get; set; }
         public Nullable<int> parents_id { get; set; }
         public string grade { get; set; }
+        public string code { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Grade> Grades { get; set; }

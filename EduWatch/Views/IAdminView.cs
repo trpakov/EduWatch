@@ -19,7 +19,7 @@ namespace EduWatch.Views
         string TextBoxSubject { get; set; }
         string ComboBoxGrade { get; set; }
         string PINTextBox { get; set; }
-        string PasswordTextBox { get; set; }
+        char PasswordTextBox { get; set; }
         int ComboBoxUserNameSelectedIndex { get; set; }
         string StudentNumberTextBox { get; set; }
         int SelectedUserNameID { get; }

@@ -34,6 +34,7 @@ namespace EduWatch.Views
         public string NewPassAgainTextBoxText { get => textBoxPass2.Text; set => textBoxPass2.Text = value; }
         public bool AddStudentButtonVisible { get => btnAddStudentScreen.Visible; set => btnAddStudentScreen.Visible = value; }
         public string StudentPinTextBoxText { get => textBoxStudentPin.Text; set => textBoxStudentPin.Text = value; }
+        public string StudentCodeTextBoxText { get => textBoxCode.Text; set => textBoxCode.Text = value; }
 
         public void DisplayAddStudentScreen()
         {

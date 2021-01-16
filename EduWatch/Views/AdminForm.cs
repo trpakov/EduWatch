@@ -60,7 +60,7 @@ namespace EduWatch.Views
 
         public int SelectedUserNameID => (int)comboBoxUsername.SelectedValue;
 
-        public string PasswordTextBox { get => passwordTextBox.Text; set => passwordLabel.Text=value; }
+        public char PasswordTextBox { get => passwordTextBox.PasswordChar; set => passwordTextBox.PasswordChar=value; }
 
         public bool IsPasswordTextBoxVisible => passwordTextBox.Visible;
 
@@ -72,6 +72,7 @@ namespace EduWatch.Views
         public bool IsStudentNumberLabelVisible => studentNumberLabel.Visible;
 
         public bool IsCheckBtnVisible => checkPictureBox.Visible;
+
 
         public void FillInProfile(string[] typeOfProfiles)
         {
@@ -136,7 +137,7 @@ namespace EduWatch.Views
             studentNumberLabel.Visible = false;
             studentNumberTextBox.Visible = false;
             checkPictureBox.Visible = false;
-
+            checkBoxPassVisible.Visible = false;
 
     }
         public void ClearText()
@@ -224,6 +225,7 @@ namespace EduWatch.Views
         {
             firstNTextBox.Enabled = true;
             lastNTextBox.Enabled = true;
+            checkBoxPassVisible.Visible = true;
             HideAll();
             ClearText();
         
@@ -242,6 +244,7 @@ namespace EduWatch.Views
                     passwordLabel.Visible = true;
                     passwordTextBox.Visible = true;
                     AddInfoBTN.Visible = true;
+                   checkBoxPassVisible.Visible = true;
 
             }
                 else if (typeOfProfile == "Ученик")
@@ -336,6 +339,11 @@ namespace EduWatch.Views
         {
             Presenter.OnStudentSelection();
            
+        }
+
+        private void checkBoxPassVisible_CheckedChanged(object sender, EventArgs e)
+        {
+            Presenter.OnPasswordVisibleCheckBoxChange();
         }
     }
 }

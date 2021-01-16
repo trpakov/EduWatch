@@ -49,13 +49,15 @@ namespace EduWatch.Presenters
             var regexString = new Regex("^[А-я]+$");
             var regexInt = new Regex("^[0-9]+$");
             var regexPassword =new Regex("^.{8,25}$");
-            
+            Random random = new Random();
+            int randomNum = random.Next();
+
             switch (typeOfProfile)
             {
                 
                 case "Учител":
                     if (view.UserNameTextBox != string.Empty && view.TextBoxSubject != string.Empty && view.FirstNTextBox != string.Empty
-                       && view.LastNTextBox != string.Empty &&view.PasswordTextBox!=string.Empty  && regexString.IsMatch(view.FirstNTextBox) 
+                       && view.LastNTextBox != string.Empty &&view.PasswordTextBox.ToString()!=string.Empty  && regexString.IsMatch(view.FirstNTextBox) 
                             && regexString.IsMatch(view.LastNTextBox) &&regexString.IsMatch(view.TextBoxSubject))
                     {
                         var existingTeacher = data.Teachers.Where(x => x.username == view.UserNameTextBox).SingleOrDefault();
@@ -65,13 +67,13 @@ namespace EduWatch.Presenters
                             view.Message("Това потребителско име вече е заето. Моля, изберете друго.", "Внимание", Views.MessageIcon.Warning);
                             return;
                         }
-                        if(!regexPassword.IsMatch(view.PasswordTextBox))
+                        if(!regexPassword.IsMatch(view.PasswordTextBox.ToString()))
                         {
                             view.Message("Паролата трябва да е с дължина между 8 и 25 символа.", "Внимание", Views.MessageIcon.Warning);
                             return;
                         }
                         Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
-                        var passHash = passHasher.Generate(view.PasswordTextBox);
+                        var passHash = passHasher.Generate(view.PasswordTextBox.ToString());
                         var teacher = new Model.Teacher() { username = view.UserNameTextBox, teacher_firstN = view.FirstNTextBox, teacher_lastN = view.LastNTextBox, password_hash = passHash };
                         data.Teachers.Add(teacher);
                         var teacherid = teacher.teacher_id;
@@ -90,7 +92,7 @@ namespace EduWatch.Presenters
                         view.StudentNumberTextBox!=string.Empty && view.PINTextBox != string.Empty && regexInt.IsMatch(view.PINTextBox)&& regexInt.IsMatch(view.StudentNumberTextBox)
                         && regexString.IsMatch(view.FirstNTextBox) && regexString.IsMatch(view.LastNTextBox))
                     {
-                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PINTextBox, student_No = int.Parse(view.StudentNumberTextBox) };
+                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PINTextBox, student_No = int.Parse(view.StudentNumberTextBox ),code=randomNum.ToString() };
                         data.Students.Add(student);
                     }
                     else
@@ -106,7 +108,16 @@ namespace EduWatch.Presenters
             try
             {
                 data.SaveChanges();
-                view.Message("Промените бяха запазени успешно.", "Успех", Views.MessageIcon.Information);
+                if (typeOfProfile == "Учител")
+                {
+                    view.Message("Успешно направен профил на учител!", "Успех", Views.MessageIcon.Information);
+                }
+                else
+                {
+                    view.Message(String.Format("Успешно направен профил на ученик с код: {0}",randomNum.ToString()), "Успех", Views.MessageIcon.Information);
+
+
+                }
             }
             catch (Exception)
             {
@@ -202,6 +213,11 @@ namespace EduWatch.Presenters
             {
                 view.Message("Няма ученик с такова ЕГН", "ОК", Views.MessageIcon.Information);
             }
+        }
+
+        public void OnPasswordVisibleCheckBoxChange()
+        {
+            view.PasswordTextBox = view.PasswordTextBox== '*' ? '\0' : '*';
         }
     }
     
