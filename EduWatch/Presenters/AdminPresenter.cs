@@ -57,9 +57,9 @@ namespace EduWatch.Presenters
                 
                 case "Учител":
                     if (view.UserNameTextBox != string.Empty && view.TextBoxSubject != string.Empty && view.FirstNTextBox != string.Empty
-                       && view.LastNTextBox != string.Empty &&view.PasswordTextBox.ToString()!=string.Empty  && regexString.IsMatch(view.FirstNTextBox) 
+                       && view.LastNTextBox != string.Empty &&view.Password!=string.Empty && regexString.IsMatch(view.FirstNTextBox) 
                             && regexString.IsMatch(view.LastNTextBox) &&regexString.IsMatch(view.TextBoxSubject))
-                    {
+                    { 
                         var existingTeacher = data.Teachers.Where(x => x.username == view.UserNameTextBox).SingleOrDefault();
 
                         if (existingTeacher != null)
@@ -67,11 +67,12 @@ namespace EduWatch.Presenters
                             view.Message("Това потребителско име вече е заето. Моля, изберете друго.", "Внимание", Views.MessageIcon.Warning);
                             return;
                         }
-                        if(!regexPassword.IsMatch(view.PasswordTextBox.ToString()))
+                        if (!regexPassword.IsMatch(view.Password)) 
                         {
                             view.Message("Паролата трябва да е с дължина между 8 и 25 символа.", "Внимание", Views.MessageIcon.Warning);
                             return;
                         }
+                      
                         Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
                         var passHash = passHasher.Generate(view.PasswordTextBox.ToString());
                         var teacher = new Model.Teacher() { username = view.UserNameTextBox, teacher_firstN = view.FirstNTextBox, teacher_lastN = view.LastNTextBox, password_hash = passHash };
@@ -82,7 +83,7 @@ namespace EduWatch.Presenters
                     }
                     else
                     {
-                        view.Message("Моля попълнете всички полета.", "Грешка", Views.MessageIcon.Error);
+                        view.Message("Моля попълнете всички полета коректно.", "Грешка", Views.MessageIcon.Error);
                         return;
                     }
                     break;
@@ -115,9 +116,9 @@ namespace EduWatch.Presenters
                 else
                 {
                     view.Message(String.Format("Успешно направен профил на ученик с код: {0}",randomNum.ToString()), "Успех", Views.MessageIcon.Information);
-
-
                 }
+                view.ClearText();
+                
             }
             catch (Exception)
             {

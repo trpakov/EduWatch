@@ -73,6 +73,7 @@ namespace EduWatch.Views
 
         public bool IsCheckBtnVisible => checkPictureBox.Visible;
 
+        public string Password => passwordTextBox.Text;
 
         public void FillInProfile(string[] typeOfProfiles)
         {
@@ -283,7 +284,7 @@ namespace EduWatch.Views
         private void AddInfoBTN_Click(object sender, EventArgs e)
         {
             Presenter.OnSaveClick();
-            ClearText();
+           // ClearText();
             comboBoxGrade.SelectedIndex = -1;
 
 

@@ -24,6 +24,7 @@ namespace EduWatch.Views
         string StudentNumberTextBox { get; set; }
         int SelectedUserNameID { get; }
         string typeOfProfile { get;}
+        string Password { get; }
         bool IsbtnDeleteVisible { get; }
         bool IsbtnAddVisible { get; }
         bool IsUserNameTextBoxVisible { get; }
@@ -49,6 +50,7 @@ namespace EduWatch.Views
 
         void AdminStartView();
         void HideAll();
+        void ClearText();
 
 
     }
