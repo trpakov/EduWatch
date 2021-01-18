@@ -24,7 +24,6 @@ namespace EduWatch.Model
         public int student_id { get; set; }
         public string student_firstN { get; set; }
         public string student_lastN { get; set; }
-        public Nullable<int> student_No { get; set; }
         public string student_PIN { get; set; }
         public Nullable<int> parents_id { get; set; }
         public string grade { get; set; }

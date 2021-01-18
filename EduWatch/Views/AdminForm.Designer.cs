@@ -51,8 +51,6 @@
             this.AddInfoBTN = new System.Windows.Forms.Button();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.studentNumberLabel = new System.Windows.Forms.Label();
-            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.checkPictureBox = new System.Windows.Forms.PictureBox();
             this.subjectTextBox = new System.Windows.Forms.TextBox();
             this.toolTip_name_tbox = new System.Windows.Forms.ToolTip(this.components);
@@ -63,6 +61,7 @@
             this.toolTip_add_AF = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_exit_AF = new System.Windows.Forms.ToolTip(this.components);
             this.checkBoxPassVisible = new System.Windows.Forms.CheckBox();
+            this.toolTip_username = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.checkPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,7 +108,7 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.addBtn.Location = new System.Drawing.Point(870, 243);
+            this.addBtn.Location = new System.Drawing.Point(869, 242);
             this.addBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(145, 41);
@@ -125,7 +124,7 @@
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.deleteBtn.Location = new System.Drawing.Point(717, 243);
+            this.deleteBtn.Location = new System.Drawing.Point(717, 242);
             this.deleteBtn.Margin = new System.Windows.Forms.Padding(4);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(145, 41);
@@ -144,7 +143,7 @@
             this.DeleteInfoBTN.Location = new System.Drawing.Point(373, 511);
             this.DeleteInfoBTN.Margin = new System.Windows.Forms.Padding(4);
             this.DeleteInfoBTN.Name = "DeleteInfoBTN";
-            this.DeleteInfoBTN.Size = new System.Drawing.Size(318, 56);
+            this.DeleteInfoBTN.Size = new System.Drawing.Size(317, 57);
             this.DeleteInfoBTN.TabIndex = 19;
             this.DeleteInfoBTN.Text = "ИЗТРИЙ";
             this.DeleteInfoBTN.UseVisualStyleBackColor = false;
@@ -156,10 +155,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exitBtn.ForeColor = System.Drawing.Color.Red;
-            this.exitBtn.Location = new System.Drawing.Point(870, 118);
+            this.exitBtn.Location = new System.Drawing.Point(869, 118);
             this.exitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(100, 40);
+            this.exitBtn.Size = new System.Drawing.Size(100, 39);
             this.exitBtn.TabIndex = 20;
             this.exitBtn.Text = "Изход";
             this.toolTip_exit_AF.SetToolTip(this.exitBtn, "Натиснете за изход\r\n    от системата!");
@@ -182,18 +181,22 @@
             // 
             this.comboBoxUsername.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUsername.FormattingEnabled = true;
-            this.comboBoxUsername.Location = new System.Drawing.Point(71, 301);
+            this.comboBoxUsername.Location = new System.Drawing.Point(71, 302);
+            this.comboBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxUsername.Name = "comboBoxUsername";
-            this.comboBoxUsername.Size = new System.Drawing.Size(206, 24);
+            this.comboBoxUsername.Size = new System.Drawing.Size(207, 24);
             this.comboBoxUsername.TabIndex = 22;
             this.comboBoxUsername.SelectionChangeCommitted += new System.EventHandler(this.comboBoxUsername_SelectionChangeCommitted);
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(70, 303);
+            this.usernameTextBox.Location = new System.Drawing.Point(69, 303);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(206, 22);
+            this.usernameTextBox.Size = new System.Drawing.Size(207, 22);
             this.usernameTextBox.TabIndex = 23;
+            this.toolTip_username.SetToolTip(this.usernameTextBox, "Въведете с латински символи!");
+            this.usernameTextBox.MouseHover += new System.EventHandler(this.usernameTextBox_MouseHover);
             // 
             // firstNLabel
             // 
@@ -213,7 +216,7 @@
             this.LastNLabel.BackColor = System.Drawing.Color.Transparent;
             this.LastNLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LastNLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LastNLabel.Location = new System.Drawing.Point(486, 411);
+            this.LastNLabel.Location = new System.Drawing.Point(485, 411);
             this.LastNLabel.Name = "LastNLabel";
             this.LastNLabel.Size = new System.Drawing.Size(84, 24);
             this.LastNLabel.TabIndex = 25;
@@ -225,7 +228,7 @@
             this.subject1gradeLabel.BackColor = System.Drawing.Color.Transparent;
             this.subject1gradeLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.subject1gradeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.subject1gradeLabel.Location = new System.Drawing.Point(118, 351);
+            this.subject1gradeLabel.Location = new System.Drawing.Point(117, 351);
             this.subject1gradeLabel.Name = "subject1gradeLabel";
             this.subject1gradeLabel.Size = new System.Drawing.Size(88, 24);
             this.subject1gradeLabel.TabIndex = 26;
@@ -234,18 +237,22 @@
             // firstNTextBox
             // 
             this.firstNTextBox.Location = new System.Drawing.Point(448, 378);
+            this.firstNTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.firstNTextBox.Name = "firstNTextBox";
             this.firstNTextBox.Size = new System.Drawing.Size(169, 22);
             this.firstNTextBox.TabIndex = 27;
             this.toolTip_name_tbox.SetToolTip(this.firstNTextBox, "Моля, въведете името\r\n      на кирилица!");
+            this.firstNTextBox.MouseHover += new System.EventHandler(this.firstNTextBox_MouseHover);
             // 
             // lastNTextBox
             // 
             this.lastNTextBox.Location = new System.Drawing.Point(445, 438);
+            this.lastNTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lastNTextBox.Name = "lastNTextBox";
             this.lastNTextBox.Size = new System.Drawing.Size(172, 22);
             this.lastNTextBox.TabIndex = 28;
             this.toolTip_sn_tb.SetToolTip(this.lastNTextBox, "Моля, въведете фамилията\r\n        на кирилица!");
+            this.lastNTextBox.MouseHover += new System.EventHandler(this.lastNTextBox_MouseHover);
             // 
             // PINLabel
             // 
@@ -262,8 +269,9 @@
             // PINTextBox
             // 
             this.PINTextBox.Location = new System.Drawing.Point(84, 438);
+            this.PINTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PINTextBox.Name = "PINTextBox";
-            this.PINTextBox.Size = new System.Drawing.Size(154, 22);
+            this.PINTextBox.Size = new System.Drawing.Size(153, 22);
             this.PINTextBox.TabIndex = 31;
             // 
             // adminLabelText
@@ -272,7 +280,7 @@
             this.adminLabelText.BackColor = System.Drawing.Color.Transparent;
             this.adminLabelText.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.adminLabelText.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.adminLabelText.Location = new System.Drawing.Point(866, 79);
+            this.adminLabelText.Location = new System.Drawing.Point(867, 79);
             this.adminLabelText.Name = "adminLabelText";
             this.adminLabelText.Size = new System.Drawing.Size(54, 24);
             this.adminLabelText.TabIndex = 33;
@@ -282,7 +290,8 @@
             // 
             this.comboBoxGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGrade.FormattingEnabled = true;
-            this.comboBoxGrade.Location = new System.Drawing.Point(71, 376);
+            this.comboBoxGrade.Location = new System.Drawing.Point(71, 377);
+            this.comboBoxGrade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxGrade.Name = "comboBoxGrade";
             this.comboBoxGrade.Size = new System.Drawing.Size(180, 24);
             this.comboBoxGrade.TabIndex = 34;
@@ -296,7 +305,7 @@
             this.AddInfoBTN.Location = new System.Drawing.Point(373, 511);
             this.AddInfoBTN.Margin = new System.Windows.Forms.Padding(4);
             this.AddInfoBTN.Name = "AddInfoBTN";
-            this.AddInfoBTN.Size = new System.Drawing.Size(318, 56);
+            this.AddInfoBTN.Size = new System.Drawing.Size(317, 57);
             this.AddInfoBTN.TabIndex = 35;
             this.AddInfoBTN.Text = "Добави";
             this.toolTip_update.SetToolTip(this.AddInfoBTN, "Натиснете, за да обновите\r\n            данните!");
@@ -309,7 +318,7 @@
             this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
             this.passwordLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.passwordLabel.Location = new System.Drawing.Point(782, 357);
+            this.passwordLabel.Location = new System.Drawing.Point(781, 357);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(72, 24);
             this.passwordLabel.TabIndex = 36;
@@ -318,38 +327,21 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(749, 384);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(154, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(153, 22);
             this.passwordTextBox.TabIndex = 37;
-            // 
-            // studentNumberLabel
-            // 
-            this.studentNumberLabel.AutoSize = true;
-            this.studentNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            this.studentNumberLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.studentNumberLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.studentNumberLabel.Location = new System.Drawing.Point(80, 492);
-            this.studentNumberLabel.Name = "studentNumberLabel";
-            this.studentNumberLabel.Size = new System.Drawing.Size(153, 24);
-            this.studentNumberLabel.TabIndex = 38;
-            this.studentNumberLabel.Text = "Номер на ученика:";
-            // 
-            // studentNumberTextBox
-            // 
-            this.studentNumberTextBox.Location = new System.Drawing.Point(106, 519);
-            this.studentNumberTextBox.Name = "studentNumberTextBox";
-            this.studentNumberTextBox.Size = new System.Drawing.Size(100, 22);
-            this.studentNumberTextBox.TabIndex = 39;
             // 
             // checkPictureBox
             // 
             this.checkPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.checkPictureBox.BackgroundImage = global::EduWatch.Properties.Resources.checkpic;
             this.checkPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.checkPictureBox.Location = new System.Drawing.Point(254, 431);
+            this.checkPictureBox.Location = new System.Drawing.Point(253, 431);
+            this.checkPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkPictureBox.Name = "checkPictureBox";
-            this.checkPictureBox.Size = new System.Drawing.Size(34, 29);
+            this.checkPictureBox.Size = new System.Drawing.Size(35, 30);
             this.checkPictureBox.TabIndex = 40;
             this.checkPictureBox.TabStop = false;
             this.toolTip_check.SetToolTip(this.checkPictureBox, "Проверете дали съществува\r\n        лице с това ЕГН!");
@@ -358,8 +350,9 @@
             // subjectTextBox
             // 
             this.subjectTextBox.Location = new System.Drawing.Point(95, 378);
+            this.subjectTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subjectTextBox.Name = "subjectTextBox";
-            this.subjectTextBox.Size = new System.Drawing.Size(138, 22);
+            this.subjectTextBox.Size = new System.Drawing.Size(137, 22);
             this.subjectTextBox.TabIndex = 41;
             // 
             // toolTip_name_tbox
@@ -377,6 +370,7 @@
             this.checkBoxPassVisible.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxPassVisible.ForeColor = System.Drawing.Color.White;
             this.checkBoxPassVisible.Location = new System.Drawing.Point(765, 409);
+            this.checkBoxPassVisible.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxPassVisible.Name = "checkBoxPassVisible";
             this.checkBoxPassVisible.Size = new System.Drawing.Size(129, 26);
             this.checkBoxPassVisible.TabIndex = 42;
@@ -391,12 +385,10 @@
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.BackgroundImage = global::EduWatch.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1102, 652);
+            this.ClientSize = new System.Drawing.Size(1101, 652);
             this.Controls.Add(this.checkBoxPassVisible);
             this.Controls.Add(this.subjectTextBox);
             this.Controls.Add(this.checkPictureBox);
-            this.Controls.Add(this.studentNumberTextBox);
-            this.Controls.Add(this.studentNumberLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.AddInfoBTN);
@@ -454,8 +446,6 @@
         private System.Windows.Forms.Button AddInfoBTN;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Label studentNumberLabel;
-        private System.Windows.Forms.TextBox studentNumberTextBox;
         private System.Windows.Forms.PictureBox checkPictureBox;
         private System.Windows.Forms.TextBox subjectTextBox;
         private System.Windows.Forms.ToolTip toolTip_add_AF;
@@ -466,5 +456,6 @@
         private System.Windows.Forms.ToolTip toolTip_update;
         private System.Windows.Forms.ToolTip toolTip_check;
         private System.Windows.Forms.CheckBox checkBoxPassVisible;
+        private System.Windows.Forms.ToolTip toolTip_username;
     }
 }

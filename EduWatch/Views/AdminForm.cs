@@ -65,14 +65,10 @@ namespace EduWatch.Views
         public bool IsPasswordTextBoxVisible => passwordTextBox.Visible;
 
         public bool IsPasswordLabelVisible => passwordTextBox.Visible;
-        public string StudentNumberTextBox { get =>studentNumberTextBox.Text; set => studentNumberTextBox.Text = value; }
-
-        public bool IsStudentNumberTextBoxVisivle => studentNumberTextBox.Visible;
-
-        public bool IsStudentNumberLabelVisible => studentNumberLabel.Visible;
 
         public bool IsCheckBtnVisible => checkPictureBox.Visible;
 
+        public string Password => passwordTextBox.Text;
 
         public void FillInProfile(string[] typeOfProfiles)
         {
@@ -108,22 +104,13 @@ namespace EduWatch.Views
         public void HideAll()
         {
             deleteBtn.Visible = false;
-
             addBtn.Visible = false;
-
             usernameTextBox.Visible = false;
-
             comboBoxUsername.Visible = false;          
-
             PINTextBox.Visible = false;
-
-            subjectTextBox.Visible = false;
-
-           
-            AddInfoBTN.Visible=false;
-           
+            subjectTextBox.Visible = false;           
+            AddInfoBTN.Visible=false;         
             DeleteInfoBTN.Visible=false;
-
             firstNTextBox.Visible = false;
             lastNTextBox.Visible = false;
             subject1gradeLabel.Visible = false;
@@ -134,8 +121,6 @@ namespace EduWatch.Views
             comboBoxGrade.Visible = false;
             passwordTextBox.Visible = false;
             passwordLabel.Visible = false;
-            studentNumberLabel.Visible = false;
-            studentNumberTextBox.Visible = false;
             checkPictureBox.Visible = false;
             checkBoxPassVisible.Visible = false;
 
@@ -153,9 +138,6 @@ namespace EduWatch.Views
             firstNTextBox.Text = string.Empty;
             lastNTextBox.Text = string.Empty;
             passwordTextBox.Text = string.Empty;         
-            studentNumberTextBox.Text = string.Empty;
-
-
         }
 
         public void FillInCorrespondingUserNames(string[] usernames)
@@ -258,8 +240,6 @@ namespace EduWatch.Views
                 comboBoxGrade.Visible = true;
                 PINLabel.Visible = true;
                 PINTextBox.Visible = true;
-                studentNumberLabel.Visible = true;
-                studentNumberTextBox.Visible = true;
                 AddInfoBTN.Visible = true;
             }
            else if (typeOfProfile=="Родител")
@@ -283,7 +263,7 @@ namespace EduWatch.Views
         private void AddInfoBTN_Click(object sender, EventArgs e)
         {
             Presenter.OnSaveClick();
-            ClearText();
+           // ClearText();
             comboBoxGrade.SelectedIndex = -1;
 
 
@@ -345,5 +325,22 @@ namespace EduWatch.Views
         {
             Presenter.OnPasswordVisibleCheckBoxChange();
         }
+
+        private void firstNTextBox_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_name_tbox.Show("Въведете име на кирилица!" , firstNTextBox);
+        }
+
+        private void lastNTextBox_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_sn_tb.Show("Въведете фамилия на кирилица!", lastNTextBox);
+        }
+
+        private void usernameTextBox_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_username.Show("Въведете потребителското име с латински символи!", usernameTextBox);
+        }
+
+ 
     }
 }

@@ -2,6 +2,7 @@
 using EduWatch.Views;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -49,6 +50,7 @@ namespace EduWatch.Presenters
             var regexString = new Regex("^[А-я]+$");
             var regexInt = new Regex("^[0-9]+$");
             var regexPassword =new Regex("^.{8,25}$");
+            var regexUserName = new Regex("^[A-Za-z0-9_]+$");
             Random random = new Random();
             int randomNum = random.Next();
 
@@ -57,9 +59,9 @@ namespace EduWatch.Presenters
                 
                 case "Учител":
                     if (view.UserNameTextBox != string.Empty && view.TextBoxSubject != string.Empty && view.FirstNTextBox != string.Empty
-                       && view.LastNTextBox != string.Empty &&view.PasswordTextBox.ToString()!=string.Empty  && regexString.IsMatch(view.FirstNTextBox) 
-                            && regexString.IsMatch(view.LastNTextBox) &&regexString.IsMatch(view.TextBoxSubject))
-                    {
+                       && view.LastNTextBox != string.Empty &&view.Password!=string.Empty && regexString.IsMatch(view.FirstNTextBox) 
+                            && regexString.IsMatch(view.LastNTextBox) &&regexString.IsMatch(view.TextBoxSubject) &&regexUserName.IsMatch(view.UserNameTextBox))
+                    { 
                         var existingTeacher = data.Teachers.Where(x => x.username == view.UserNameTextBox).SingleOrDefault();
 
                         if (existingTeacher != null)
@@ -67,11 +69,12 @@ namespace EduWatch.Presenters
                             view.Message("Това потребителско име вече е заето. Моля, изберете друго.", "Внимание", Views.MessageIcon.Warning);
                             return;
                         }
-                        if(!regexPassword.IsMatch(view.PasswordTextBox.ToString()))
+                        if (!regexPassword.IsMatch(view.Password)) 
                         {
                             view.Message("Паролата трябва да е с дължина между 8 и 25 символа.", "Внимание", Views.MessageIcon.Warning);
                             return;
                         }
+                      
                         Utilities.IPasswordHash passHasher = new Utilities.PasswordHash();
                         var passHash = passHasher.Generate(view.PasswordTextBox.ToString());
                         var teacher = new Model.Teacher() { username = view.UserNameTextBox, teacher_firstN = view.FirstNTextBox, teacher_lastN = view.LastNTextBox, password_hash = passHash };
@@ -82,17 +85,17 @@ namespace EduWatch.Presenters
                     }
                     else
                     {
-                        view.Message("Моля попълнете всички полета.", "Грешка", Views.MessageIcon.Error);
+                        view.Message("Моля попълнете всички полета коректно.", "Грешка", Views.MessageIcon.Error);
                         return;
                     }
                     break;
                 case "Ученик":
                     
                     if (view.ComboBoxGrade!= null && view.FirstNTextBox != string.Empty && view.LastNTextBox != string.Empty && 
-                        view.StudentNumberTextBox!=string.Empty && view.PINTextBox != string.Empty && regexInt.IsMatch(view.PINTextBox)&& regexInt.IsMatch(view.StudentNumberTextBox)
+                         view.PINTextBox != string.Empty && regexInt.IsMatch(view.PINTextBox)
                         && regexString.IsMatch(view.FirstNTextBox) && regexString.IsMatch(view.LastNTextBox))
                     {
-                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PINTextBox, student_No = int.Parse(view.StudentNumberTextBox ),code=randomNum.ToString() };
+                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PINTextBox,code=randomNum.ToString() };
                         data.Students.Add(student);
                     }
                     else
@@ -115,14 +118,19 @@ namespace EduWatch.Presenters
                 else
                 {
                     view.Message(String.Format("Успешно направен профил на ученик с код: {0}",randomNum.ToString()), "Успех", Views.MessageIcon.Information);
-
-
+                    string path = "StudentsProfiles.txt";
+                    string studentInfo =  String.Concat(view.PINTextBox +" ",view.FirstNTextBox +" " , view.LastNTextBox +" " ,randomNum.ToString(),"\n");
+                    File.AppendAllText(path, studentInfo);
+  
                 }
+                view.ClearText();
+                
             }
             catch (Exception)
             {
 
                 view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
+                return;
             }
         
         }

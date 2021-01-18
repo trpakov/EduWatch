@@ -55,7 +55,6 @@
           <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="student_firstN" Type="varchar" MaxLength="50" />
           <Property Name="student_lastN" Type="varchar" MaxLength="50" />
-          <Property Name="student_No" Type="int" />
           <Property Name="student_PIN" Type="varchar" MaxLength="50" />
           <Property Name="parents_id" Type="int" />
           <Property Name="grade" Type="varchar" MaxLength="50" />
@@ -342,7 +341,7 @@
             <End Role="Parent" EntitySet="Parents" />
             <End Role="student" EntitySet="Students" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="student_id" />
@@ -350,7 +349,6 @@
           <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="student_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="student_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="student_No" Type="Int32" />
           <Property Name="student_PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="parents_id" Type="Int32" />
           <Property Name="grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -399,7 +397,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -479,7 +477,6 @@
                 <ScalarProperty Name="grade" ColumnName="grade" />
                 <ScalarProperty Name="parents_id" ColumnName="parents_id" />
                 <ScalarProperty Name="student_PIN" ColumnName="student_PIN" />
-                <ScalarProperty Name="student_No" ColumnName="student_No" />
                 <ScalarProperty Name="student_lastN" ColumnName="student_lastN" />
                 <ScalarProperty Name="student_firstN" ColumnName="student_firstN" />
                 <ScalarProperty Name="student_id" ColumnName="student_id" />

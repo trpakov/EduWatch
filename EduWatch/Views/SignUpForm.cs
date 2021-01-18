@@ -52,5 +52,20 @@ namespace EduWatch.Views
         {
             Presenter.OnCreateButtonClick();
         }
+
+        private void textBoxName_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_name.Show("Въведете име на кирилица!", textBoxName);
+        }
+
+        private void textBoxSurname_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_Sname.Show("Въведете фамилия на кирилица!", textBoxSurname);
+        }
+
+        private void textBoxUsername_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_username.Show("Въведете с латински символи!", textBoxUsername);
+        }
     }
 }
