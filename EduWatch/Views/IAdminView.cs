@@ -21,7 +21,6 @@ namespace EduWatch.Views
         string PINTextBox { get; set; }
         char PasswordTextBox { get; set; }
         int ComboBoxUserNameSelectedIndex { get; set; }
-        string StudentNumberTextBox { get; set; }
         int SelectedUserNameID { get; }
         string typeOfProfile { get;}
         string Password { get; }
@@ -35,8 +34,7 @@ namespace EduWatch.Views
         bool IsFirstNTextBoxVisible { get; }
         bool IsLastNTextBoxVisible { get; }
         bool IsSubjectGradeLabelVisible { get; }
-        bool IsStudentNumberTextBoxVisivle { get; }
-        bool IsStudentNumberLabelVisible { get; }
+   
         bool IsPINLabelVisible { get; }
         bool IsPasswordTextBoxVisible { get; }
         bool IsPasswordLabelVisible { get; }

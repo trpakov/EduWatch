@@ -55,7 +55,6 @@
           <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="student_firstN" Type="nvarchar" MaxLength="50" />
           <Property Name="student_lastN" Type="nvarchar" MaxLength="50" />
-          <Property Name="student_No" Type="int" />
           <Property Name="student_PIN" Type="nvarchar" MaxLength="50" />
           <Property Name="parents_id" Type="int" />
           <Property Name="grade" Type="nvarchar" MaxLength="50" />
@@ -202,22 +201,22 @@
           <Key>
             <PropertyRef Name="parent_Id" />
           </Key>
-          <Property Name="parent_Id" Type="Int32" Nullable="false" />
-          <Property Name="parent_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="parent_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="password_hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="parent_Id" Nullable="false" Type="Int32" />
+          <Property Name="parent_firstN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="parent_lastN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="username" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="password_hash" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="Students" Relationship="SchoolDBModel.FK_parents_id" FromRole="Parent" ToRole="Student" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
             <PropertyRef Name="teacher_id" />
           </Key>
-          <Property Name="teacher_id" Type="Int32" Nullable="false" />
-          <Property Name="teacher_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="teacher_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="password_hash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="teacher_id" Nullable="false" Type="Int32" />
+          <Property Name="teacher_firstN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="teacher_lastN" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="username" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="password_hash" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="Subjects" Relationship="SchoolDBModel.FK_teacher_id" FromRole="Teacher" ToRole="Subject" />
         </EntityType>
         <EntityContainer Name="SchoolDBEntities" annotation:LazyLoadingEnabled="true">
@@ -226,18 +225,18 @@
           <EntitySet Name="Admins" EntityType="SchoolDBModel.Admin" />
           <EntitySet Name="Subjects" EntityType="SchoolDBModel.Subject" />
           <AssociationSet Name="FK_teacher_id" Association="SchoolDBModel.FK_teacher_id">
-            <End Role="Teacher" EntitySet="Teachers" />
-            <End Role="Subject" EntitySet="Subjects" />
+            <End EntitySet="Teachers" Role="Teacher" />
+            <End EntitySet="Subjects" Role="Subject" />
           </AssociationSet>
           <EntitySet Name="Notes" EntityType="SchoolDBModel.Note" />
           <AssociationSet Name="FK_notes_subject_id" Association="SchoolDBModel.FK_notes_subject_id">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="Note" EntitySet="Notes" />
+            <End EntitySet="Subjects" Role="Subject" />
+            <End EntitySet="Notes" Role="Note" />
           </AssociationSet>
           <EntitySet Name="Grades" EntityType="SchoolDBModel.Grade" />
           <AssociationSet Name="FK_subject_id" Association="SchoolDBModel.FK_subject_id">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="Grade" EntitySet="Grades" />
+            <End EntitySet="Subjects" Role="Subject" />
+            <End EntitySet="Grades" Role="Grade" />
           </AssociationSet>
           <EntitySet Name="Students" EntityType="SchoolDBModel.Student" />
           <AssociationSet Name="FK_student_id1" Association="SchoolDBModel.FK_student_id1">
@@ -257,28 +256,28 @@
           <Key>
             <PropertyRef Name="admin_id" />
           </Key>
-          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="admin_username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="admin_password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="admin_firstN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="admin_lastN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="admin_username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="admin_password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="admin_firstN" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="admin_lastN" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
             <PropertyRef Name="subject_id" />
           </Key>
-          <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subject_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="subject_name" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="teacher_id" Type="Int32" />
           <NavigationProperty Name="Teacher" Relationship="SchoolDBModel.FK_teacher_id" FromRole="Subject" ToRole="Teacher" />
           <NavigationProperty Name="Notes" Relationship="SchoolDBModel.FK_notes_subject_id" FromRole="Subject" ToRole="Note" />
           <NavigationProperty Name="Grades" Relationship="SchoolDBModel.FK_subject_id" FromRole="Subject" ToRole="Grade" />
         </EntityType>
         <Association Name="FK_teacher_id">
-          <End Type="SchoolDBModel.Teacher" Role="Teacher" Multiplicity="0..1">
+          <End Type="SchoolDBModel.Teacher" Multiplicity="0..1" Role="Teacher">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="*" />
+          <End Type="SchoolDBModel.Subject" Multiplicity="*" Role="Subject" />
           <ReferentialConstraint>
             <Principal Role="Teacher">
               <PropertyRef Name="teacher_id" />
@@ -292,20 +291,20 @@
           <Key>
             <PropertyRef Name="note_Id" />
           </Key>
-          <Property Name="note_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="note1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="note_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="note_seen" Type="Boolean" Nullable="false" />
+          <Property Name="note_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="note1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="note_date" Nullable="false" Precision="0" Type="DateTime" />
+          <Property Name="note_seen" Nullable="false" Type="Boolean" />
           <Property Name="student_id" Type="Int32" />
           <Property Name="subject_id" Type="Int32" />
           <NavigationProperty Name="Subject" Relationship="SchoolDBModel.FK_notes_subject_id" FromRole="Note" ToRole="Subject" />
           <NavigationProperty Name="Student" Relationship="SchoolDBModel.FK_student_id" FromRole="Note" ToRole="Student" />
         </EntityType>
         <Association Name="FK_notes_subject_id">
-          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="0..1">
+          <End Type="SchoolDBModel.Subject" Multiplicity="0..1" Role="Subject">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="SchoolDBModel.Note" Role="Note" Multiplicity="*" />
+          <End Type="SchoolDBModel.Note" Multiplicity="*" Role="Note" />
           <ReferentialConstraint>
             <Principal Role="Subject">
               <PropertyRef Name="subject_id" />
@@ -319,21 +318,21 @@
           <Key>
             <PropertyRef Name="grade_id" />
           </Key>
-          <Property Name="grade_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="grade1" Type="Int32" Nullable="false" />
-          <Property Name="grade_seen" Type="Boolean" Nullable="false" />
-          <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="grade_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="grade1" Nullable="false" Type="Int32" />
+          <Property Name="grade_seen" Nullable="false" Type="Boolean" />
+          <Property Name="comment" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="student_id" Type="Int32" />
           <Property Name="subject_Id" Type="Int32" />
-          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="date" Nullable="false" Precision="0" Type="DateTime" />
           <NavigationProperty Name="Subject" Relationship="SchoolDBModel.FK_subject_id" FromRole="Grade" ToRole="Subject" />
           <NavigationProperty Name="Student" Relationship="SchoolDBModel.FK_student_id1" FromRole="Grade" ToRole="Student" />
         </EntityType>
         <Association Name="FK_subject_id">
-          <End Type="SchoolDBModel.Subject" Role="Subject" Multiplicity="0..1">
+          <End Type="SchoolDBModel.Subject" Multiplicity="0..1" Role="Subject">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="SchoolDBModel.Grade" Role="Grade" Multiplicity="*" />
+          <End Type="SchoolDBModel.Grade" Multiplicity="*" Role="Grade" />
           <ReferentialConstraint>
             <Principal Role="Subject">
               <PropertyRef Name="subject_id" />
@@ -350,7 +349,6 @@
           <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="student_firstN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="student_lastN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="student_No" Type="Int32" />
           <Property Name="student_PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="parents_id" Type="Int32" />
           <Property Name="grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -479,7 +477,6 @@
                 <ScalarProperty Name="grade" ColumnName="grade" />
                 <ScalarProperty Name="parents_id" ColumnName="parents_id" />
                 <ScalarProperty Name="student_PIN" ColumnName="student_PIN" />
-                <ScalarProperty Name="student_No" ColumnName="student_No" />
                 <ScalarProperty Name="student_lastN" ColumnName="student_lastN" />
                 <ScalarProperty Name="student_firstN" ColumnName="student_firstN" />
                 <ScalarProperty Name="student_id" ColumnName="student_id" />

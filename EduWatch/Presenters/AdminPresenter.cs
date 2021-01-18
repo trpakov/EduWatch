@@ -50,6 +50,7 @@ namespace EduWatch.Presenters
             var regexString = new Regex("^[А-я]+$");
             var regexInt = new Regex("^[0-9]+$");
             var regexPassword =new Regex("^.{8,25}$");
+            var regexUserName = new Regex("^[A-Za-z0-9_]+$");
             Random random = new Random();
             int randomNum = random.Next();
 
@@ -59,7 +60,7 @@ namespace EduWatch.Presenters
                 case "Учител":
                     if (view.UserNameTextBox != string.Empty && view.TextBoxSubject != string.Empty && view.FirstNTextBox != string.Empty
                        && view.LastNTextBox != string.Empty &&view.Password!=string.Empty && regexString.IsMatch(view.FirstNTextBox) 
-                            && regexString.IsMatch(view.LastNTextBox) &&regexString.IsMatch(view.TextBoxSubject))
+                            && regexString.IsMatch(view.LastNTextBox) &&regexString.IsMatch(view.TextBoxSubject) &&regexUserName.IsMatch(view.UserNameTextBox))
                     { 
                         var existingTeacher = data.Teachers.Where(x => x.username == view.UserNameTextBox).SingleOrDefault();
 
@@ -91,10 +92,10 @@ namespace EduWatch.Presenters
                 case "Ученик":
                     
                     if (view.ComboBoxGrade!= null && view.FirstNTextBox != string.Empty && view.LastNTextBox != string.Empty && 
-                        view.StudentNumberTextBox!=string.Empty && view.PINTextBox != string.Empty && regexInt.IsMatch(view.PINTextBox)&& regexInt.IsMatch(view.StudentNumberTextBox)
+                         view.PINTextBox != string.Empty && regexInt.IsMatch(view.PINTextBox)
                         && regexString.IsMatch(view.FirstNTextBox) && regexString.IsMatch(view.LastNTextBox))
                     {
-                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PINTextBox, student_No = int.Parse(view.StudentNumberTextBox ),code=randomNum.ToString() };
+                        var student = new Model.Student() { student_firstN = view.FirstNTextBox, student_lastN = view.LastNTextBox, grade = view.ComboBoxGrade, student_PIN = view.PINTextBox,code=randomNum.ToString() };
                         data.Students.Add(student);
                     }
                     else
@@ -129,6 +130,7 @@ namespace EduWatch.Presenters
             {
 
                 view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
+                return;
             }
         
         }

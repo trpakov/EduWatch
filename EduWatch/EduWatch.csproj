@@ -88,6 +88,9 @@
       <DependentUpon>SchoolDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\IUser.cs" />
+    <Compile Include="Model\Student.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Presenters\AdminPresenter.cs" />
     <Compile Include="Presenters\EditPresenter.cs" />
     <Compile Include="Presenters\IAdminPresenter.cs" />
@@ -117,9 +120,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SchoolDataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Student.cs">
-      <DependentUpon>SchoolDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subject.cs">
       <DependentUpon>SchoolDataModel.tt</DependentUpon>

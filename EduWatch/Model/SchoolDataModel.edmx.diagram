@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="97587c2026f74332b282bf67c69af90a" Name="Diagram1">
-        <EntityTypeShape EntityType="SchoolDBModel.Parent" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Teacher" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SchoolDBModel.Admin" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="SchoolDBModel.Subject" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="SchoolDBModel.Parent" PointX="0.75" PointY="4.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Teacher" PointX="0.75" PointY="1.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDBModel.Admin" PointX="0.75" PointY="8.375" Width="1.5" />
+        <EntityTypeShape EntityType="SchoolDBModel.Subject" PointX="3" PointY="0.75" Width="1.5" />
         <AssociationConnector Association="SchoolDBModel.FK_teacher_id" />
-        <EntityTypeShape EntityType="SchoolDBModel.Note" Width="1.5" PointX="7.625" PointY="4.875" />
+        <EntityTypeShape EntityType="SchoolDBModel.Note" PointX="5.25" PointY="4.5" Width="1.5" />
         <AssociationConnector Association="SchoolDBModel.FK_notes_subject_id" />
-        <EntityTypeShape EntityType="SchoolDBModel.Grade" Width="1.5" PointX="5.25" PointY="5.375" />
+        <EntityTypeShape EntityType="SchoolDBModel.Grade" PointX="8.25" PointY="4.5" Width="1.5" />
         <AssociationConnector Association="SchoolDBModel.FK_subject_id" />
-        <EntityTypeShape EntityType="SchoolDBModel.Student" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="SchoolDBModel.Student" Width="1.5" PointX="3" PointY="4.375" />
         <AssociationConnector Association="SchoolDBModel.FK_student_id1" />
         <AssociationConnector Association="SchoolDBModel.FK_student_id" />
         <AssociationConnector Association="SchoolDBModel.FK_parents_id" />
