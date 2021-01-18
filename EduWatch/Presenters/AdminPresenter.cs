@@ -2,6 +2,7 @@
 using EduWatch.Views;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -116,6 +117,10 @@ namespace EduWatch.Presenters
                 else
                 {
                     view.Message(String.Format("Успешно направен профил на ученик с код: {0}",randomNum.ToString()), "Успех", Views.MessageIcon.Information);
+                    string path = "StudentsProfiles.txt";
+                    string studentInfo =  String.Concat(view.PINTextBox +" ",view.FirstNTextBox +" " , view.LastNTextBox +" " ,randomNum.ToString(),"\n");
+                    File.AppendAllText(path, studentInfo);
+  
                 }
                 view.ClearText();
                 
