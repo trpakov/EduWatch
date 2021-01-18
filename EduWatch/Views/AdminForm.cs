@@ -346,5 +346,20 @@ namespace EduWatch.Views
         {
             Presenter.OnPasswordVisibleCheckBoxChange();
         }
+
+        private void firstNTextBox_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_name_tbox.Show("Въведете име на кирилица!" , firstNTextBox);
+        }
+
+        private void lastNTextBox_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_sn_tb.Show("Въведете фамилия на кирилица!", lastNTextBox);
+        }
+
+        private void usernameTextBox_MouseHover(object sender, EventArgs e)
+        {
+            toolTip_username.Show("Въведете потребителското име с латински символи!", usernameTextBox);
+        }
     }
 }
