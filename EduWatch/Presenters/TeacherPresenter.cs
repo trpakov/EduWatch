@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -119,6 +121,19 @@ namespace EduWatch.Presenters
                 try
                 {
                     data.SaveChanges();
+                    string senderEmail = "awms14school13@gmail.com";
+                    string senderPass = "nKVLB8UrFdRsBVz";
+                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+                    {
+                        Port = 587,
+                        Credentials = new NetworkCredential(senderEmail, senderPass),
+                        EnableSsl = true,
+                    };
+                    string body = $"Вашото дете {this.currentStudent.student_firstN} {this.currentStudent.student_lastN} получи нова забележка: {note.note1}" + Environment.NewLine;
+                    body += $"по {note.Subject.subject_name} на дата {note.note_date}";
+                    string title = $"Вашето дете {this.currentStudent.student_firstN} {this.currentStudent.student_lastN} получи нова забележка";
+                    smtpClient.Send(senderEmail, this.currentStudent.Parent.email, title, body);
+                    smtpClient.Dispose();
                 }
                 catch (Exception)
                 {
@@ -143,9 +158,24 @@ namespace EduWatch.Presenters
                 try
                 {
                     data.SaveChanges();
+
+                    string senderEmail = "awms14school13@gmail.com";
+                    string senderPass = "nKVLB8UrFdRsBVz";
+                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+                    {
+                        Port = 587,
+                        Credentials = new NetworkCredential(senderEmail, senderPass),
+                        EnableSsl = true,
+                    };
+                    string body = $"Вашото дете {this.currentStudent.student_firstN} {this.currentStudent.student_lastN} получи нова оценка: {grade.grade1}" + Environment.NewLine;
+                    body +=  $"по {grade.Subject.subject_name} на дата: {grade.date}";
+                    string title = $"Вашето дете {this.currentStudent.student_firstN} {this.currentStudent.student_lastN} получи нова оценка";
+                    smtpClient.Send(senderEmail, this.currentStudent.Parent.email, title, body);
+                    smtpClient.Dispose();
                 }
-                catch (Exception)
+                catch (Exception еxception)
                 {
+                    view.Message(еxception.Message);
                     view.Message("В момента изпитваме технически затруднения. Възможно е вашите промени да не са запазени. Моля, опитайте отново по-късно. Съжаляваме за причененото неудобство.", "Грешка", Views.MessageIcon.Error);
                     return;
                 }

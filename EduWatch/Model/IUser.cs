@@ -33,6 +33,7 @@ namespace EduWatch.Model
         public UserType UserType { get; set; } = UserType.Parent;
         public string FirstName { get => parent_firstN; set => parent_firstN = value; }
         public string LastName { get => parent_lastN; set => parent_lastN = value; }
+        public string Email { get => email; set => email = value; }
     }
 
     partial class Admin : IUser

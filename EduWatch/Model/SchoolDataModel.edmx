@@ -47,6 +47,7 @@
           <Property Name="parent_lastN" Type="nvarchar" MaxLength="50" />
           <Property Name="username" Type="nvarchar" MaxLength="50" />
           <Property Name="password_hash" Type="ntext" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Students">
           <Key>
@@ -207,6 +208,7 @@
           <Property Name="username" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="password_hash" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="Students" Relationship="SchoolDBModel.FK_parents_id" FromRole="Parent" ToRole="Student" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -406,6 +408,7 @@
           <EntitySetMapping Name="Parents">
             <EntityTypeMapping TypeName="SchoolDBModel.Parent">
               <MappingFragment StoreEntitySet="Parents">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="parent_Id" ColumnName="parent_Id" />
                 <ScalarProperty Name="parent_firstN" ColumnName="parent_firstN" />
                 <ScalarProperty Name="parent_lastN" ColumnName="parent_lastN" />
